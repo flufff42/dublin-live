@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, height=device-height" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="dublinBusLive.css"/>
+<title>
+Dublin Bus Live Times
+</title>
+<script type="text/javascript" src="http://bit.ly/jqsource"></script>          
+ <script type="text/javascript" src="dublinBusLive.js"></script>                                         
+</head>
+<body>
+<div id="top">
+<h4>Dublin Live Times</h4>
+<h6 id="stopDirection"></h6>
+<form><input type="text" id="stopSearch" value="Search for a stop here"></input><p id="suggestionSpinner">&nbsp;</p></form>
+<div id="suggestions"><p id="fetchSpinner">&nbsp;</p></div>
+</div>
+<div width="100%" id="results-frame">
+<div id="time-line"></div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,241 @@
+/**
+ * AVL Live Times
+ */
+html:root {
+/*background: #eee;
+background: -webkit-linear-gradient(#fff, #eee);*/
+min-height:100%;
+max-width: 100%;
+/*min-width: 720px;*/
+font-family: "Futura", sans-serif;
+/*border-left: 10px solid #0af;*/
+border-top: 0;
+border-right: 0;
+border-bottom: 0;
+/*-webkit-border-image: 
+	-webkit-linear-gradient(90.1deg, rgb(255,130,40) 14%, rgb(0,170,220) 29%, rgb(190,220,210) 43%, 
+				 rgb(255,235,40) 57%, rgb(63,170,60) 71%, rgb(20,125,210) 85%, rgb(255,20,10) 100%);*/
+}
+#results-frame {
+	border: none;
+}
+
+/*#content-wrapper {
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 10px;
+	
+}*/
+.spinner {
+	overflow: hidden;
+	display: none;
+	margin: 0 auto;
+	-webkit-animation: expand 1.5s linear infinite;
+}
+
+@-webkit-keyframes expand {
+   0% {
+           width: 20px;
+   }
+   50% {
+           width: 40px;
+   }
+   100% {
+	   width: 20px;
+   }
+}
+
+#suggestions:before {
+	content: "Suggestions";
+}
+#suggestions {
+	display: none;
+	background-color: #aaa;
+	margin-top: 10px;
+	border-bottom: 1px solid #999;
+	box-shadow: 0 0 12px rgba(0,0,0,0.8);
+	border-radius: 3px;
+	padding: 5px;
+}
+#suggestions dl dt {
+	font-style: italic;
+	padding-bottom: 5px;
+}
+
+#suggestions dl dd a {
+	display: inline-block;
+	border: 1px solid transparent;
+	padding: 2px;
+	border-radius: 2px;
+	margin: 5px 2px;
+	text-decoration: none;
+}
+
+#suggestions dl dd a:hover {
+	border: 1px solid rgba(255,255,255,0.6);
+	cursor: pointer;
+	border-radius: 2px;
+}
+#results .service {
+	text-align: center;
+	color: #fff;
+}
+
+#results .service {
+	width: 20%;
+	
+	/*background-color: #088;*/
+	padding: 3px;
+	border-radius: 4px;
+}
+#results .service span {
+	padding: 0 5px;
+}
+#results .service .destination {
+	/*background-color: rgba(200,200,200,0.4);*/
+}
+#results .service .time {
+	display: inline-block;/*background-color: rgba(200,200,200,0.4);*/
+}
+
+.r1 {
+	color: white;
+	background-color: rgb(145,20,125);
+}
+.r2 {
+	color: white;
+	background-color: rgb(200,10,30);
+}
+
+.r3 {
+	color: white;
+	background-color: rgb(236,130,10);
+}
+
+.r4 {
+	color: white;
+	background-color: rgb(133,105,81);
+}
+
+.r5 {
+	color: white;
+	background-color: rgb(220,155,125);
+}
+.r6 {
+	color: white;
+	background-color: rgb(160,45,90);
+}
+.r7 {
+	color: white;
+	background-color: rgb(180,160,10);
+}
+.r8 {
+	color: white;
+	background-color: rgb(160,200,140);
+}
+.r9 {
+	color: white;
+	background-color: rgb(30,160,140);
+}
+.r10 {
+	color: white;
+	background-color: rgb(205,180,210);
+}
+.r11 {
+	color: white;
+	background-color: rgb(200,20,130);
+}
+.r12 {
+	color: white;
+	background-color: rgb(20,135,155);
+}
+.r13 {
+	color: white;
+	background-color: rgb(10,175,220);
+}
+.r14 {
+	color: white;
+	background-color: rgb(15,135,55);
+}
+.r15 {
+	color: white;
+	background-color: rgb(140,140,190);
+}
+.r16 {
+	color: white;
+	background-color: rgb(5,70,40);
+}
+.r17 {
+	color: white;
+	background-color: rgb(15,175,220);
+}
+.r18 {
+	color: white;
+	background-color: rgb(230,85,150);
+}
+.r19 {
+	color: white;
+	background-color: rgb(165,165,170);
+}
+.r20 {
+	color: white;
+	background-color: rgb(100,100,100);
+}
+.r21 {
+	color: white;
+	background-color: rgb(250,205,25);
+}
+.r22 {
+	color: white;
+	background-color: rgb(235,100,20);
+}
+.r23 {
+	color: white;
+	background-color: rgb(5,75,40);
+}
+.r24 {
+	color: white;
+	background-color: rgb(30,130,190);
+}
+.r25 {
+	color: white;
+	background-color: rgb(185,25,30);
+}
+.rJ1 {
+	color: rgb(110,150,150);
+	background-color: #000;
+}
+.rJ2 {
+	color: rgb(125,140,10);
+	background-color: #000;
+}
+.rCN1 {
+	color: rgb(255,255,255);
+	background-color: rgb(0,155,180);
+}
+.rCN2 {
+	color: rgb(255,255,255);
+	background-color: rgb(230,0,100);
+}
+.rCN3 {
+	color: rgb(255,255,255);
+	background-color: rgb(220,120,5);
+}
+.rCN4 {
+	color: rgb(255,255,255);
+	background-color: rgb(85,170,40);
+}
+.rCSB {
+	background-color: #000;
+	color: rgb(140,10,80);
+}
+
+#header-route:before {
+	content: "[";
+}
+#header-route:after {
+	content: "]";
+}
+
+
