@@ -4,21 +4,24 @@ var position;
 var suggestionsAllowed = 1;
 var suggestionIndex = -1;
 var currentRequest;
+var reloadTimeout;
+
 function initializeTimeline() {
 	var resultFrameWidth = $("#results-frame").css("width").substring(0,($("#results-frame").css("width").length-2));
-	console.log(resultFrameWidth);
-	console.log($("#time-line"));
+	//console.log(resultFrameWidth);
+	//console.log($("#time-line"));
 	$('#time-line').find('.timeline-time').detach();
-            var timeCount = 0;
-            while (timeCount * 50 < resultFrameWidth) {
-            console.log("Appending "+timeCount+"-th timeline element");
-            $('<span/>')
-            	.addClass('timeline-time')
-            	.css("margin-left",(50*timeCount+"px"))
-                .html("<span>"+(5*timeCount)+"</span>")
-            	.appendTo($('#time-line'));
-            timeCount++;
-            }
+    var timeCount = 0;
+    while (timeCount * 50 < resultFrameWidth) {
+    //console.log("Appending "+timeCount+"-th timeline element");
+    	var time = new Date(new Date().getTime()+5*timeCount*60000);
+    	$('<span/>')
+    		.addClass('timeline-time')
+    		.css("margin-left",(50*timeCount+"px"))
+    	    .html("<span>"+(time.getHours() < 10 ? "0"+time.getHours() : time.getHours() )+":"+(time.getMinutes() < 10 ? "0"+time.getMinutes() : time.getMinutes())+"</span>")
+    		.appendTo($('#time-line'));
+    	timeCount++;
+    }
 }
 function redirectLinksToPOST() {
     $("a:not(.mapLink):not(.locationAttach):not(.nearbyLink)").click(function(event) {
@@ -28,13 +31,16 @@ function redirectLinksToPOST() {
         console.log(linkComponents);
         if (linkComponents.length == 4) {
             linkComponents[3] = decodeURI(linkComponents[3]);
+            clearTimeout(reloadTimeout);
             fetchResultsForStop(linkComponents[3], "");
         } else if (linkComponents.length == 5) {
             linkComponents[3] = decodeURI(linkComponents[3]);
             linkComponents[4] = decodeURI(linkComponents[4]);
             if (linkComponents[4].match(/[CNJSB]?\d+/)) {
+            	clearTimeout(reloadTimeout);
                 fetchResultsForStop(linkComponents[3], linkComponents[4]);
             } else {
+            	clearTimeout(reloadTimeout);
                 fetchResultsForStop(linkComponents[3] + "/" + linkComponents[4], "");
             }
         }
@@ -60,9 +66,9 @@ function processServices(route, services) {
             var minutePattern = /min/;
             //console.log(time.match(minutePattern));
             var timeP;
-            if (time.match(minutePattern) != null) {
-                timeP = "<p class=\"service r" + route + "\" style=\"margin-left: " + time.match(/^\d+/)[0]*10 + "px\"><span class=\"route\">" + route + "</span>				   <span class=\"destination\">" + chompedD + "</span><span class=\"time\">" + time + "</span></p>";
-            } else {
+            //if (time.match(minutePattern) != null) {
+            //    timeP = "<p class=\"service r" + route + "\" style=\"margin-left: " + time.match(/^\d+/)[0]*10 + "px\"><span class=\"route\">" + route + "</span>				   <span class=\"destination\">" + chompedD + "</span><span class=\"time\">" + time + "</span></p>";
+            //} else {
                 var scheduled = new Date();
                 var now = new Date();
                 if (Date.parse(time)) {
@@ -80,8 +86,8 @@ function processServices(route, services) {
                 }
                 var diff = Math.floor((scheduled.getTime() - now.getTime()) / 60000);
                 //console.log(Math.floor(diff));
-                timeP = "<p class=\"service r" + route + "\" style=\"margin-left: " + diff*10 + "px\"><span class=\"route\">" + route + "</span>				   <span class=\"destination\">" + chompedD + "</span><span class=\"time\">" + time + "</span></p>";
-            }
+                timeP = "<p class=\"service r" + route + "\" style=\"margin-left: " + diff*10 + "px\"><span class=\"route\"> " + route + " </span>				   <span class=\"destination\"> " + chompedD + " </span><span class=\"time\"> " + diff + "min</span></p>";
+            //}
             //console.log(timeP);
             times.push(timeP);
         });
@@ -154,14 +160,21 @@ function fetchResultsForStop(stop, routeId) {
                 'id': 'results',
                 html: times.join('')
             }).appendTo($('#results-frame'));
+            $('#stopDirection a').detach();
+                $('<a/>', {
+                'href': 'http://maps.google.com/maps?q=' + stop + '%40' + JSON.parse(localStorage.getItem(stop))["lat"] + ',' + JSON.parse(localStorage.getItem(stop))["long"] + '&sll=' + JSON.parse(localStorage.getItem(stop))["lat"] + ',' + JSON.parse(localStorage.getItem(stop))["long"] + '&sspn=0.037249,0.10849&t=m&z=15">',
+                 class: 'mapLink button',
+                 html: !(position == undefined) ? "Show stop in Google Maps ("+ roundToNDecimals(haversineDistance(position.coords.latitude,position.coords.longitude,JSON.parse(localStorage.getItem(stop))["lat"],JSON.parse(localStorage.getItem(stop))["long"]),2)+" km away)" : "Show stop in Google Maps"
+             }).appendTo('#stopDirection');
             initializeTimeline();
             suggestionIndex = -1;
             suggestionsAllowed = 1;
             
-
         }
+        reloadTimeout = setTimeout(function() {fetchResultsForStop(stop,'')},10000);
     },
     "json");
+    
 }
 function roundToNDecimals(float, n) {
 	return (Math.round(float * Math.pow(10,n)) / Math.pow(10,n));
@@ -220,13 +233,7 @@ function getNearbyStops(lat,long) {
                 $('#suggestionSpinner').fadeOut();
                 redirectLinksToPOST();
                 $('#suggestions').fadeIn();
-                $('#stopDirection a').detach();
-                $('<a/>', {
-                            'href': 'http://maps.google.com/maps?q=' + stop + '%40' + location["lat"] + ',' + location["long"] + '&sll=' + location["lat"] + ',' + location["long"] + '&sspn=0.037249,0.10849&t=m&z=15">',
-                            class: 'mapLink button',
-                            html: "Show stop in Google Maps ("+ roundToNDecimals(haversineDistance(lat,long,location["lat"],location["long"]),2)+" km away)"
-                        }).appendTo('#stopDirection');
-
+                
 		});
 		
 		}
@@ -236,10 +243,13 @@ function getNearbyStops(lat,long) {
 function fetchSuggestion(event) {
     var ENTER = 13;
     var UP = 38;
+    var LEFT = 37;
+    var RIGHT = 39;
     var DOWN = 40;
     keyupCount++;
+    //if (event.keyCode == UP) event.preventDefault();
     console.log(event.keyCode);
-    if (event.keyCode == "38" || event.keyCode == "40" || (event.keyCode == "13" && suggestionIndex != -1)) {
+    if (event.keyCode == ENTER || event.keyCode == DOWN || (event.keyCode == UP && suggestionIndex != -1)) {
     	console.log("Up/Down Array pressed");
     	if (event.keyCode == UP && suggestionIndex > 0) {
     		$('#suggestion-list dt:nth-of-type('+[suggestionIndex+1]+')').toggleClass('selected');
@@ -256,7 +266,7 @@ function fetchSuggestion(event) {
     	if ($('#suggestion-list dt').length > 0) {
     		console.log($('#suggestion-list dt').length + " Suggestions showing");
     	}
-    } else if (keyupCount > 1 && ($('#stopSearch').attr("value").length > 0)) {
+    } else if (keyupCount > 0 && ($('#stopSearch').attr("value").length > 0) && !(event.keyCode == LEFT || event.keyCode == RIGHT)) {
         $('#suggestions').fadeOut();
         $('#suggestionSpinner').fadeIn();
         console.log("Request suggestions for: " + $('#stopSearch').attr("value"));
@@ -276,6 +286,7 @@ function fetchSuggestion(event) {
                 $.each(data,
                 function(stop, stopInformation) {
                     console.log("latitude:" + stopInformation["lat"] + "longitude:" + stopInformation["long"]);
+                    localStorage.setItem(stop,JSON.stringify(stopInformation));
                     if (position) {
                         var distance = haversineDistance(stopInformation["lat"],stopInformation["long"],position["coords"]["latitude"],position["coords"]["longitude"]);
                         console.log(haversineDistance(position["coords"]["latitude"]+0.001,position["coords"]["longitude"]-0.001,position["coords"]["latitude"]-0.001,position["coords"]["longitude"]+0.001))
@@ -287,11 +298,7 @@ function fetchSuggestion(event) {
                         $('#stopDirection a').detach();
                         $('#stopDirection span').detach();
                         $("#stopDirection").removeClass().addClass(directionClass);
-                        $('<a/>', {
-                            'href': 'http://maps.google.com/maps?q=' + stop + '%40' + stopInformation["lat"] + ',' + stopInformation["long"] + '&sll=' + stopInformation["lat"] + ',' + stopInformation["long"] + '&sspn=0.037249,0.10849&t=m&z=15">',
-                            class: 'mapLink button',
-                            html: "Show stop in Google Maps ("+ directionText+" km away)"
-                        }).appendTo('#stopDirection');
+                        
 
                     }
                     var routesArray = (stopInformation["routes"] != null) ? stopInformation["routes"].split(" ") : undefined;
@@ -316,11 +323,13 @@ function fetchSuggestion(event) {
                 $('#suggestionSpinner').fadeOut();
                 $('#time-line').find('.timeline-time').detach();
                 redirectLinksToPOST();
+                suggestionIndex = -1;
                 $('#suggestions').fadeIn();
                 //console.log(stops.length);
                 if (stops.length == 1) {
                     //console.log("Only one stop candidate left");
                     //console.log(stops[0]);
+                    clearTimeout(reloadTimeout);
                     fetchResultsForStop(lastStop);
                 }
             }
@@ -337,7 +346,7 @@ function setup() {
     if (navigator.geolocation) {
         $('<span/>', {
             class: 'locationAttach button',
-            html: "Show distance to stop"
+            html: "&#x27A4;"
         }).appendTo('#stopDirection');
     }
     redirectLinksToPOST();

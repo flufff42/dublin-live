@@ -41,6 +41,7 @@ post '/suggestion/' => sub {
         $prefix =~ s=\)=\(=;
         $prefix =~ s=\.==;
         say "Sanitized prefix: " . $prefix;
+    $prefix =~ s/([A-Z]{2})/(Stop $1)/ if ($prefix =~ /[A-Z]{2}/);
     for my $stopId ( sort ( keys %$stops ) ) {        
         my @stopIdComponents = split /\|/,$stopId;
         if ( $stopIdComponents[0] =~ /$prefix/i || $stopIdComponents[1] =~ /$prefix/i) {
