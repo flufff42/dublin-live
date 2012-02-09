@@ -113,7 +113,8 @@ function fetchResultsForStop(stop, routeId) {
             $('<div/>', {
                 'id': 'results',
                 'class': 'no-results',
-                html: "<span id='sign'>It seems there are no departures at this time.</span>"
+                
+                html: "<span id='sign' data-icon='!'>It seems there are no departures at this time.</span>"
             }).appendTo($('#results-frame'));
         } else {
             console.log(results);
@@ -215,7 +216,7 @@ function getNearbyStops(lat,long) {
             $('<div/>', {
                 'id': 'results',
                 'class': 'no-results',
-                html: "<span id='sign'>No nearby stops found.</span>"
+                html: "<span id='sign' data-icon='!'>No nearby stops found.</span>"
             }).appendTo($('#results-frame'));}
              else {
 		console.log(data);
@@ -267,7 +268,8 @@ function fetchSuggestion(event) {
     		console.log($('#suggestion-list dt').length + " Suggestions showing");
     	}
     } else if (keyupCount > 0 && ($('#stopSearch').attr("value").length > 0) && !(event.keyCode == LEFT || event.keyCode == RIGHT)) {
-        $('#suggestions').fadeOut();
+        clearTimeout(reloadTimeout);
+        //$('#suggestions').fadeOut();
         $('#suggestionSpinner').fadeIn();
         console.log("Request suggestions for: " + $('#stopSearch').attr("value"));
         if (currentRequest) currentRequest.abort();
@@ -346,7 +348,8 @@ function setup() {
     if (navigator.geolocation) {
         $('<span/>', {
             class: 'locationAttach button',
-            html: "&#x27A4;"
+            'data-icon': '⬇',
+            html: "Use Location"
         }).appendTo('#stopDirection');
     }
     redirectLinksToPOST();

@@ -1,8 +1,21 @@
 /**
  * Dublin Bus Live Times
  */
+ 
+@font-face {
+	font-family: icons;
+	src: url('fonts/fico.eot');
+	src: url('fonts/fico.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/fico.ttf') format('truetype'),
+		 url('fonts/fico.svg#Fico') format('svg');
+}
+ 
+* {
+	box-sizing: border-box;
+}
 html {
-background: -webkit-linear-gradient(#fff 70%, #aaa) #aaa;
+
+background: linear-gradient(#fff 70%, #aaa) #aaa;
 min-height:100%;
 font-family: "Gill Sans", sans-serif;
 border-top: 0;
@@ -18,8 +31,17 @@ background-repeat: no-repeat;
 	box-shadow: 1px 2px 7px #444;
 	color: rgba(235,25,25,0.7);
 }
+#sign::before {
+	font-family: icons;
+	content: attr(data-icon);
+	padding-right: 5px;
+}
 .locationAttach {
-	-webkit-transform: rotateZ(-45deg);
+	
+}
+.locationAttach::before {
+	font-family: icons;
+	content: attr(data-icon);
 }
 .button {
 	border-radius: 10px;
@@ -28,16 +50,16 @@ background-repeat: no-repeat;
 	margin: 0px;
 	display: inline-block;
 	outline: none;
-	background: -webkit-linear-gradient(white,#BBB);
+	background: linear-gradient(white,#BBB);
 	text-decoration: none;
 	color: black;
 }
 .button:hover {
-	background: -webkit-linear-gradient(white,#DDD);
+	background: linear-gradient(white,#DDD);
 	cursor: pointer;
 }
 .button:active {
-	background: -webkit-linear-gradient(#DDD,white);
+	background: linear-gradient(#DDD,white);
 }
 #time-line {
 	height: 100%;
@@ -60,7 +82,7 @@ background-repeat: no-repeat;
 .no-results {
 	text-align: center;
 	padding-top: 5em;
-	-webkit-animation: wobble 0.25s linear 2;
+	animation: wobble 0.25s linear 2;
 }
 @media screen and (max-width: 500px) {
 	h4 {
@@ -80,7 +102,7 @@ background-repeat: no-repeat;
 	}
 	#results-frame {
 		top: 100px;
-		 -webkit-overflow-scrolling: touch;
+		-webkit-overflow-scrolling: touch;
 	}
 	#suggestions {
 		width: 90%;
@@ -120,7 +142,7 @@ body {
 	background: transparent;
 	border-bottom: 1px solid #DDD;
 	box-shadow: 0px 0px 10px black;
-	background-image: -webkit-linear-gradient(white,#DDD);
+	background-image: linear-gradient(white,#DDD);
 }
 #stopSearch:focus {
 	text-shadow: 0px 0px 3px rgba(110, 180, 235, 0.9);
@@ -149,25 +171,25 @@ body {
 	overflow: hidden;
 	display: none;
 	margin: 0 auto;
-	-webkit-animation: expand 0.5s linear infinite alternate;
+	animation: expand 0.5s linear infinite alternate;
 	text-align: center;
 	border-radius: 5px;
 	border: 1px solid #ccc;
 	padding: 1px;
 	
 }
-@-webkit-keyframes wobble {
+@keyframes wobble {
    0% {
-           -webkit-transform: rotateZ(0deg);
+           transform: rotateZ(0deg);
    }
    25% {
-           -webkit-transform: rotateZ(3deg);
+           transform: rotateZ(3deg);
    }
    75% {
-           -webkit-transform: rotateZ(-3deg);
+           transform: rotateZ(-3deg);
    }
 }
-@-webkit-keyframes expand {
+@keyframes expand {
    0% {
            width: 40px;
    }
