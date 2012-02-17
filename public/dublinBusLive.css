@@ -15,7 +15,7 @@
 }
 html {
 
-background: linear-gradient(#fff 70%, #aaa) #aaa;
+background: linear-gradient(#fff, #aaa) #aaa;
 min-height:100%;
 font-family: "Gill Sans", sans-serif;
 border-top: 0;

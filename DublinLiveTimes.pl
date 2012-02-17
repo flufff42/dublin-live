@@ -10,6 +10,11 @@ use Time::Piece;
 use charnames ':full';
 use utf8;
 use threads;
+
+require "lib/suggestions.pl";
+require "lib/nearby.pl";
+require "lib/stopInformation.pl";
+
 app->secret("Dubh Linn");
 
 binmode STDOUT, ':utf8';
@@ -27,9 +32,6 @@ say $json->error if ($json->error);
 our $ua = Mojo::UserAgent->new;
 
 get '/'             => 'index';
-require "lib/suggestions.pl";
-require "lib/nearby.pl";
-require "lib/stopInformation.pl";
 
 post '/' => => sub {
     my $self = shift;
@@ -40,20 +42,14 @@ post '/' => => sub {
     say $stop;
     say $self->param('route');
     $self->res->headers->cache_control('max-age=0');
-    if ( $self->req->content->headers->accept =~ m|^application/json| ) {
-        my $results =
-          ( $self->param('route') eq "" )
-          ? queryStopForAllRoutes( $stop, 1 )
-          : queryStopForRoute( $self->param('route'), $stop, 1 );
-
+    
+        my $results = queryStopForAllRoutes( $stop, 1 );
         #say Dumper $results;
         if ( !$results ) {
             $self->render_json( { "Error:" => "No results found." },
                 status => 204 );
         }
         $self->render_json($results);
-
-    }
 };
 app->start;
 

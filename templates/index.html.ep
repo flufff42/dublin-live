@@ -9,6 +9,12 @@ Dublin Bus Live Times
 </title>
 <script type="text/javascript" src="http://bit.ly/jqsource"></script>          
 <script type="text/javascript" src="dublinBusLive.js"></script>
+<script type="text/javascript" src="util.js"></script>
+<script type="text/javascript" src="geo.js"></script>
+<script type="text/javascript" src="templates.js"></script>
+<script type="text/javascript" src="suggestions.js"></script>
+<script type="text/javascript" src="results.js"></script>
+<script type="text/javascript" src="https://raw.github.com/janl/mustache.js/master/mustache.js"></script>
 <script type="text/javascript" src="https://raw.github.com/LeaVerou/prefixfree/master/prefixfree.min.js"></script>
 <script type="text/javascript" src="https://raw.github.com/LeaVerou/prefixfree/master/plugins/prefixfree.jquery.js"></script>
 </head>
