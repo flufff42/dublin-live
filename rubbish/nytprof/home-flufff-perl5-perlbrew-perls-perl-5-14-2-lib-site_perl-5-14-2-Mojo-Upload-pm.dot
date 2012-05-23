@@ -1,0 +1,30 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojo_Upload {
+	label="Mojo::Upload";
+	"Mojo::Upload::BEGIN@5";
+	"Mojo::Upload::BEGIN@4";
+	"Mojo::Upload::BEGIN@2";
+	"Mojo::Upload::BEGIN@6";
+}
+subgraph cluster_Mojo_Message {
+	label="Mojo::Message";
+	"Mojo::Message::BEGIN@11";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+"Mojo::Message::BEGIN@11" -> "Mojo::Upload::BEGIN@4";
+"Mojo::Upload::BEGIN@4" -> "Exporter::import";
+"Mojo::Message::BEGIN@11" -> "Mojo::Upload::BEGIN@6";
+"Mojo::Message::BEGIN@11" -> "Mojo::Upload::BEGIN@2";
+"Mojo::Message::BEGIN@11" -> "Mojo::Upload::BEGIN@5";
+"Mojo::Upload::BEGIN@6" -> "Mojo::Base::import";
+"Mojo::Upload::BEGIN@2" -> "Mojo::Base::import";
+"Mojo::Upload::BEGIN@5" -> "Mojo::Base::import";
+}

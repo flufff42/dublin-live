@@ -1,0 +1,29 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_Mojo_Home {
+	label="Mojo::Home";
+	"Mojo::Home::CORE:match";
+	"Mojo::Home::BEGIN@10";
+	"Mojo::Home::__ANON__[Mojo/Home.pm:95]";
+}
+subgraph cluster_List_Util {
+	label="List::Util";
+	"List::Util::BEGIN@11";
+	"List::Util::first";
+	"List::Util::BEGIN@12";
+}
+"Mojo::Home::BEGIN@10" -> "List::Util::BEGIN@11";
+"Mojo::Home::BEGIN@10" -> "List::Util::BEGIN@12";
+"List::Util::first" -> "Mojo::Home::CORE:match";
+"List::Util::BEGIN@12" -> "vars::import";
+"Mojo::Home::__ANON__[Mojo/Home.pm:95]" -> "List::Util::first";
+"List::Util::BEGIN@11" -> "strict::import";
+}

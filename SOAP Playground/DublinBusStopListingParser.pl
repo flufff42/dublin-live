@@ -25,6 +25,8 @@ $dom->find('Destinations Destination')->each(
         
           my $routes =  getRoutesServicedByStopNumber(
             $stop->find('StopNumber')->[0]->text );
+            my $routeSequenceNumbers = getRouteSequenceNumbersForStopAndRoutes($stop->find('StopNumber')->[0]->text,$routes eq "null" ? "0" : $routes);
+            
         say $stop->find('StopNumber')->[0]->text . " "
           . $stop->find('Longitude')->[0]->text . " "
           . $stop->find('Latitude')->[0]->text . " "
@@ -35,7 +37,7 @@ $dom->find('Destinations Destination')->each(
             $stopsHash->{$stopId}->{lat} = $stop->find('Latitude')->[0]->text;
             $stopsHash->{$stopId}->{long} = $stop->find('Longitude')->[0]->text;
             $stopsHash->{$stopId}->{routes} = $routes;
-        
+            $stopsHash->{$stopId}->{sequenceNumbers} = $routeSequenceNumbers;
         say $stopCount++;
     }
 );
@@ -66,16 +68,60 @@ sub getRoutesServicedByStopNumber {
     my $routeNumbers = "";
     if ( ref $routes eq "ARRAY") {
       for my $route (@$routes) {
-          #say $route->{Number} . " to " . $route->{Towards};
-          $routeNumbers .= $route->{Number} . " ";
+          say $route->{Number} . " to " . $route->{Towards};
+          $routeNumbers .= $route->{Number} . "|";
       }
     }
     else {
-        return $routes->{Number};
+        return $routes->{Number} . "|";
     }
     return $routeNumbers;
 
 }
+
+sub getRouteSequenceNumbersForStopAndRoutes {
+	my ($stop,$routes) = @_;
+	my @routes = split /\|/, $routes;
+	my $routeSequenceNumbers = ();
+	foreach my $route (@routes) {
+		my $soap = SOAP::Lite->new( proxy =>
+          'http://rtpi.dublinbus.biznetservers.com/DublinBusRTPIService.asmx' );
+
+    $soap->on_action(
+        sub { "http://dublinbus.ie/GetStopDataByRoute" } );
+    $soap->autotype(0);
+    $soap->default_ns('http://dublinbus.ie/');
+
+    my $som = $soap->call(
+        "GetStopDataByRoute",
+        SOAP::Data->name('route')->value($route),
+    );
+
+    if ( $som->fault ) {
+    	say $som->fault->{faultstring};
+    }
+    my $inboundStops = $som->result->{diffgram}->{StopDataByRoute}->{InboundStop} unless ($som->result eq "");
+	my $outboundStops = $som->result->{diffgram}->{StopDataByRoute}->{OutboundStop} unless ($som->result eq "");
+	#die Dumper $inboundStops;
+	foreach my $iStop (@$inboundStops) {
+		#die Dumper $iStop->{"StopNumber"};
+		#say $stop;
+		if ($iStop->{"StopNumber"} =~ /^$stop$/) {
+			say Dumper $iStop->{"SeqNumber"};
+			$routeSequenceNumbers->{$route}->{"Inbound"} = $iStop->{"SeqNumber"};
+		}
+	}
+	foreach my $oStop (@$outboundStops) {
+		#say Dumper $oStop;
+		if ($oStop->{"StopNumber"} =~ /^$stop$/) {
+			say Dumper $oStop->{"SeqNumber"};
+			$routeSequenceNumbers->{$route}->{"Outbound"} = $oStop->{"SeqNumber"};
+		}
+	}
+	}
+	return $routeSequenceNumbers;
+}
+
 sub getRealTimeInformationForStop {
     my $soap = SOAP::Lite->new( proxy =>
           'http://rtpi.dublinbus.biznetservers.com/DublinBusRTPIService.asmx' );

@@ -1,0 +1,46 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::unimport";
+	"warnings::__chk";
+	"warnings::import";
+}
+subgraph cluster_IO_File {
+	label="IO::File";
+	"IO::File::BEGIN@130";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::unimport";
+}
+subgraph cluster_Carp {
+	label="Carp";
+	"Carp::BEGIN@46";
+	"Carp::BEGIN@4";
+	"Carp::get_status";
+	"Carp::short_error_loc";
+	"Carp::BEGIN@342";
+	"Carp::BEGIN@341";
+	"Carp::trusts";
+	"Carp::trusts_directly";
+	"Carp::_cgc";
+	"Carp::BEGIN@3";
+}
+"Carp::BEGIN@342" -> "warnings::unimport";
+"IO::File::BEGIN@130" -> "Carp::BEGIN@342";
+"IO::File::BEGIN@130" -> "Carp::BEGIN@46";
+"IO::File::BEGIN@130" -> "Carp::BEGIN@4";
+"Carp::BEGIN@46" -> "strict::unimport";
+"Carp::BEGIN@341" -> "strict::unimport";
+"IO::File::BEGIN@130" -> "Carp::BEGIN@341";
+"Carp::get_status" -> "Carp::trusts_directly";
+"Carp::BEGIN@4" -> "warnings::import";
+"Carp::short_error_loc" -> "Carp::_cgc";
+"IO::File::BEGIN@130" -> "Carp::BEGIN@3";
+"warnings::__chk" -> "Carp::short_error_loc";
+"Carp::short_error_loc" -> "Carp::trusts";
+"Carp::trusts" -> "Carp::get_status";
+"Carp::BEGIN@3" -> "strict::import";
+}

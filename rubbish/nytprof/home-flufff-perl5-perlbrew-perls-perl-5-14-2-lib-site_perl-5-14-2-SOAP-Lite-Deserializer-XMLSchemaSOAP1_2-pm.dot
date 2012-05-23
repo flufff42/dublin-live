@@ -1,0 +1,30 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_strict {
+	label="strict";
+	"strict::unimport";
+}
+subgraph cluster_SOAP_Lite_Deserializer_XMLSchemaSOAP1_1 {
+	label="SOAP::Lite::Deserializer::XMLSchemaSOAP1_1";
+	"SOAP::Lite::Deserializer::XMLSchemaSOAP1_1::BEGIN@23";
+	"SOAP::Lite::Deserializer::XMLSchemaSOAP1_1::BEGIN@22";
+	"SOAP::Lite::Deserializer::XMLSchemaSOAP1_1::BEGIN@2";
+}
+subgraph cluster_SOAP_Lite_Deserializer_XMLSchemaSOAP1_2 {
+	label="SOAP::Lite::Deserializer::XMLSchemaSOAP1_2";
+	"SOAP::Lite::Deserializer::XMLSchemaSOAP1_2::BEGIN@10";
+	"SOAP::Lite::Deserializer::XMLSchemaSOAP1_2::BEGIN@9";
+	"SOAP::Lite::Deserializer::XMLSchemaSOAP1_2::BEGIN@2";
+}
+subgraph cluster_SOAP_Data {
+	label="SOAP::Data";
+	"SOAP::Data::BEGIN@550";
+}
+"SOAP::Lite::Deserializer::XMLSchemaSOAP1_2::BEGIN@2" -> "SOAP::Lite::Deserializer::XMLSchemaSOAP1_1::BEGIN@22";
+"SOAP::Data::BEGIN@550" -> "SOAP::Lite::Deserializer::XMLSchemaSOAP1_2::BEGIN@9";
+"SOAP::Data::BEGIN@550" -> "SOAP::Lite::Deserializer::XMLSchemaSOAP1_2::BEGIN@2";
+"SOAP::Lite::Deserializer::XMLSchemaSOAP1_2::BEGIN@10" -> "strict::unimport";
+"SOAP::Lite::Deserializer::XMLSchemaSOAP1_2::BEGIN@2" -> "SOAP::Lite::Deserializer::XMLSchemaSOAP1_1::BEGIN@2";
+"SOAP::Data::BEGIN@550" -> "SOAP::Lite::Deserializer::XMLSchemaSOAP1_2::BEGIN@10";
+"SOAP::Lite::Deserializer::XMLSchemaSOAP1_2::BEGIN@2" -> "SOAP::Lite::Deserializer::XMLSchemaSOAP1_1::BEGIN@23";
+}

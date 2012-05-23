@@ -1,0 +1,87 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojo_IOLoop_Stream {
+	label="Mojo::IOLoop::Stream";
+	"Mojo::IOLoop::Stream::BEGIN@6";
+}
+subgraph cluster_DynaLoader {
+	label="DynaLoader";
+	"DynaLoader::bootstrap";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::unimport";
+}
+subgraph cluster_Test_Harness {
+	label="Test::Harness";
+	"Test::Harness::BEGIN@1";
+}
+subgraph cluster_Exporter_Heavy {
+	label="Exporter::Heavy";
+	"Exporter::Heavy::heavy_export_to_level";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::export_to_level";
+}
+subgraph cluster_Mojolicious_Plugin_RequestTimer {
+	label="Mojolicious::Plugin::RequestTimer";
+	"Mojolicious::Plugin::RequestTimer::BEGIN@4";
+}
+subgraph cluster_TAP_Base {
+	label="TAP::Base";
+	"TAP::Base::BEGIN@1";
+	"TAP::Base::get_time";
+}
+subgraph cluster_Benchmark {
+	label="Benchmark";
+	"Benchmark::BEGIN@453";
+}
+subgraph cluster_Time_HiRes {
+	label="Time::HiRes";
+	"Time::HiRes::constant";
+	"Time::HiRes::time";
+	"Time::HiRes::__ANON__[Time/HiRes.pm:43]";
+	"Time::HiRes::CORE:subst";
+	"Time::HiRes::BEGIN@4";
+	"Time::HiRes::BEGIN@42";
+	"Time::HiRes::AUTOLOAD";
+	"Time::HiRes::BEGIN@3";
+	"Time::HiRes::import";
+	"Time::HiRes::bootstrap";
+}
+subgraph cluster_Mojo_IOWatcher {
+	label="Mojo::IOWatcher";
+	"Mojo::IOWatcher::BEGIN@7";
+}
+subgraph cluster_Mojo_IOLoop {
+	label="Mojo::IOLoop";
+	"Mojo::IOLoop::BEGIN@12";
+}
+"Time::HiRes::AUTOLOAD" -> "Time::HiRes::CORE:subst";
+"Mojolicious::Plugin::RequestTimer::BEGIN@4" -> "Time::HiRes::BEGIN@4";
+"DynaLoader::bootstrap" -> "Time::HiRes::bootstrap";
+"Time::HiRes::import" -> "Exporter::Heavy::heavy_export_to_level";
+"Mojolicious::Plugin::RequestTimer::BEGIN@4" -> "Time::HiRes::BEGIN@42";
+"Time::HiRes::AUTOLOAD" -> "Time::HiRes::constant";
+"Time::HiRes::import" -> "Exporter::export_to_level";
+"Time::HiRes::import" -> "Time::HiRes::__ANON__[Time/HiRes.pm:43]";
+"Time::HiRes::BEGIN@42" -> "strict::unimport";
+"Mojo::IOLoop::BEGIN@12" -> "Time::HiRes::import";
+"Mojo::IOLoop::Stream::BEGIN@6" -> "Time::HiRes::import";
+"Test::Harness::BEGIN@1" -> "Time::HiRes::import";
+"TAP::Base::BEGIN@1" -> "Time::HiRes::import";
+"Benchmark::BEGIN@453" -> "Time::HiRes::import";
+"Mojolicious::Plugin::RequestTimer::BEGIN@4" -> "Time::HiRes::import";
+"Mojo::IOWatcher::BEGIN@7" -> "Time::HiRes::import";
+"Time::HiRes::BEGIN@4" -> "vars::import";
+"TAP::Base::get_time" -> "Time::HiRes::time";
+"Mojolicious::Plugin::RequestTimer::BEGIN@4" -> "Time::HiRes::BEGIN@3";
+"Time::HiRes::import" -> "Time::HiRes::AUTOLOAD";
+"Time::HiRes::BEGIN@3" -> "strict::import";
+}

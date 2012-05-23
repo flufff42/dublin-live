@@ -1,0 +1,185 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_TAP_Parser_Scheduler {
+	label="TAP::Parser::Scheduler";
+	"TAP::Parser::Scheduler::get_job";
+	"TAP::Parser::Scheduler::get_all";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::unimport";
+}
+subgraph cluster_TAP_Formatter_Console {
+	label="TAP::Formatter::Console";
+	"TAP::Formatter::Console::open_test";
+}
+subgraph cluster_TAP_Object {
+	label="TAP::Object";
+	"TAP::Object::_construct";
+	"TAP::Object::new";
+	"TAP::Object::__ANON__[TAP/Object.pm:153]";
+}
+subgraph cluster_TAP_Formatter_Console_Session {
+	label="TAP::Formatter::Console::Session";
+	"TAP::Formatter::Console::Session::__ANON__[TAP/Formatter/Console/Session.pm:21]";
+}
+subgraph cluster_Test_Harness {
+	label="Test::Harness";
+	"Test::Harness::BEGIN@10";
+	"Test::Harness::runtests";
+	"Test::Harness::_aggregate_tests";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_TAP_Parser_Aggregator {
+	label="TAP::Parser::Aggregator";
+	"TAP::Parser::Aggregator::add";
+}
+subgraph cluster_TAP_Formatter_Base {
+	label="TAP::Formatter::Base";
+	"TAP::Formatter::Base::prepare";
+}
+subgraph cluster_main {
+	label="main";
+	"main::RUNTIME";
+}
+subgraph cluster_TAP_Base {
+	label="TAP::Base";
+	"TAP::Base::BEGIN@3";
+	"TAP::Base::_make_callback";
+	"TAP::Base::BEGIN@4";
+	"TAP::Base::BEGIN@23";
+	"TAP::Base::BEGIN@6";
+	"TAP::Base::_initialize";
+}
+subgraph cluster_TAP_Parser_Result {
+	label="TAP::Parser::Result";
+	"TAP::Parser::Result::__ANON__[TAP/Parser/Result.pm:17]";
+}
+subgraph cluster_TAP_Parser_Scheduler_Job {
+	label="TAP::Parser::Scheduler::Job";
+	"TAP::Parser::Scheduler::Job::finish";
+	"TAP::Parser::Scheduler::Job::filename";
+	"TAP::Parser::Scheduler::Job::description";
+	"TAP::Parser::Scheduler::Job::is_spinner";
+	"TAP::Parser::Scheduler::Job::as_array_ref";
+}
+subgraph cluster_TAP_Parser {
+	label="TAP::Parser";
+	"TAP::Parser::delete_spool";
+	"TAP::Parser::next";
+}
+subgraph cluster_TAP_Harness {
+	label="TAP::Harness";
+	"TAP::Harness::BEGIN@12";
+	"TAP::Harness::END";
+	"TAP::Harness::BEGIN@4";
+	"TAP::Harness::BEGIN@60";
+	"TAP::Harness::BEGIN@3";
+	"TAP::Harness::make_parser";
+	"TAP::Harness::BEGIN@7";
+	"TAP::Harness::CORE:sort";
+	"TAP::Harness::_error";
+	"TAP::Harness::BEGIN@8";
+	"TAP::Harness::BEGIN@6";
+	"TAP::Harness::_initialize";
+	"TAP::Harness::__ANON__[TAP/Harness.pm:74]";
+	"TAP::Harness::_add_descriptions";
+	"TAP::Harness::__ANON__[TAP/Harness.pm:85]";
+	"TAP::Harness::_close_spool";
+	"TAP::Harness::BEGIN@93";
+	"TAP::Harness::__ANON__[TAP/Harness.pm:116]";
+	"TAP::Harness::aggregate_tests";
+	"TAP::Harness::__ANON__[TAP/Harness.pm:109]";
+	"TAP::Harness::BEGIN@10";
+	"TAP::Harness::CORE:fttty";
+	"TAP::Harness::finish_parser";
+	"TAP::Harness::__ANON__[TAP/Harness.pm:73]";
+	"TAP::Harness::make_scheduler";
+	"TAP::Harness::_after_test";
+	"TAP::Harness::_aggregate_single";
+	"TAP::Harness::_open_spool";
+	"TAP::Harness::BEGIN@121";
+	"TAP::Harness::_get_parser_args";
+}
+"TAP::Harness::BEGIN@10" -> "TAP::Base::BEGIN@6";
+"Test::Harness::BEGIN@10" -> "TAP::Harness::BEGIN@7";
+"TAP::Harness::aggregate_tests" -> "TAP::Formatter::Base::prepare";
+"TAP::Harness::_initialize" -> "TAP::Harness::__ANON__[TAP/Harness.pm:109]";
+"TAP::Harness::_get_parser_args" -> "TAP::Harness::__ANON__[TAP/Harness.pm:109]";
+"TAP::Harness::BEGIN@7" -> "Exporter::import";
+"TAP::Harness::BEGIN@8" -> "Exporter::import";
+"TAP::Harness::BEGIN@4" -> "Exporter::import";
+"TAP::Harness::aggregate_tests" -> "TAP::Parser::Scheduler::get_all";
+"TAP::Harness::make_parser" -> "TAP::Harness::_get_parser_args";
+"TAP::Harness::_aggregate_single" -> "TAP::Parser::Scheduler::Job::finish";
+"TAP::Harness::aggregate_tests" -> "TAP::Object::__ANON__[TAP/Object.pm:153]";
+"Test::Harness::BEGIN@10" -> "TAP::Harness::BEGIN@8";
+"TAP::Harness::make_scheduler" -> "TAP::Harness::_add_descriptions";
+"TAP::Harness::_initialize" -> "TAP::Harness::__ANON__[TAP/Harness.pm:85]";
+"Test::Harness::_aggregate_tests" -> "TAP::Harness::aggregate_tests";
+"TAP::Harness::_aggregate_single" -> "TAP::Harness::finish_parser";
+"TAP::Harness::_aggregate_single" -> "TAP::Formatter::Console::Session::__ANON__[TAP/Formatter/Console/Session.pm:21]";
+"TAP::Harness::finish_parser" -> "TAP::Formatter::Console::Session::__ANON__[TAP/Formatter/Console/Session.pm:21]";
+"TAP::Harness::_aggregate_single" -> "TAP::Parser::Scheduler::get_job";
+"Test::Harness::BEGIN@10" -> "TAP::Harness::BEGIN@3";
+"TAP::Harness::_aggregate_single" -> "TAP::Harness::make_parser";
+"TAP::Harness::make_parser" -> "TAP::Parser::Scheduler::Job::as_array_ref";
+"TAP::Harness::_after_test" -> "TAP::Parser::Scheduler::Job::as_array_ref";
+"TAP::Harness::finish_parser" -> "TAP::Harness::_close_spool";
+"TAP::Harness::BEGIN@10" -> "TAP::Base::BEGIN@3";
+"Test::Harness::BEGIN@10" -> "TAP::Harness::BEGIN@10";
+"TAP::Harness::_initialize" -> "TAP::Harness::__ANON__[TAP/Harness.pm:73]";
+"TAP::Harness::_close_spool" -> "TAP::Parser::delete_spool";
+"TAP::Harness::_aggregate_single" -> "TAP::Parser::Scheduler::Job::is_spinner";
+"TAP::Harness::_initialize" -> "TAP::Harness::_error";
+"TAP::Harness::_aggregate_single" -> "TAP::Parser::next";
+"TAP::Harness::aggregate_tests" -> "TAP::Parser::Scheduler::Job::description";
+"TAP::Harness::make_parser" -> "TAP::Parser::Scheduler::Job::description";
+"TAP::Harness::_after_test" -> "TAP::Parser::Scheduler::Job::description";
+"TAP::Harness::_initialize" -> "TAP::Harness::__ANON__[TAP/Harness.pm:74]";
+"TAP::Harness::aggregate_tests" -> "TAP::Harness::_aggregate_single";
+"main::RUNTIME" -> "TAP::Harness::END";
+"TAP::Harness::BEGIN@121" -> "strict::unimport";
+"TAP::Harness::BEGIN@93" -> "strict::unimport";
+"Test::Harness::BEGIN@10" -> "TAP::Harness::BEGIN@6";
+"TAP::Harness::aggregate_tests" -> "TAP::Harness::__ANON__[TAP/Harness.pm:116]";
+"Test::Harness::runtests" -> "TAP::Harness::__ANON__[TAP/Harness.pm:116]";
+"TAP::Harness::make_parser" -> "TAP::Harness::__ANON__[TAP/Harness.pm:116]";
+"TAP::Harness::make_scheduler" -> "TAP::Harness::__ANON__[TAP/Harness.pm:116]";
+"TAP::Harness::_get_parser_args" -> "TAP::Harness::__ANON__[TAP/Harness.pm:116]";
+"TAP::Harness::_initialize" -> "TAP::Harness::__ANON__[TAP/Harness.pm:116]";
+"TAP::Harness::make_parser" -> "TAP::Formatter::Console::open_test";
+"TAP::Harness::_get_parser_args" -> "TAP::Harness::_open_spool";
+"Test::Harness::BEGIN@10" -> "TAP::Harness::BEGIN@4";
+"TAP::Harness::BEGIN@10" -> "TAP::Base::BEGIN@23";
+"TAP::Harness::_after_test" -> "TAP::Parser::Aggregator::add";
+"TAP::Harness::_initialize" -> "TAP::Base::_initialize";
+"TAP::Harness::BEGIN@12" -> "vars::import";
+"TAP::Harness::make_parser" -> "TAP::Base::_make_callback";
+"TAP::Harness::_after_test" -> "TAP::Base::_make_callback";
+"Test::Harness::BEGIN@10" -> "TAP::Harness::BEGIN@121";
+"Test::Harness::BEGIN@10" -> "TAP::Harness::BEGIN@12";
+"Test::Harness::BEGIN@10" -> "TAP::Harness::BEGIN@60";
+"TAP::Harness::BEGIN@60" -> "TAP::Harness::CORE:sort";
+"TAP::Harness::_initialize" -> "TAP::Harness::CORE:sort";
+"TAP::Object::new" -> "TAP::Harness::_initialize";
+"TAP::Harness::make_parser" -> "TAP::Object::_construct";
+"TAP::Harness::make_scheduler" -> "TAP::Object::_construct";
+"TAP::Harness::_initialize" -> "TAP::Object::_construct";
+"Test::Harness::BEGIN@10" -> "TAP::Harness::BEGIN@93";
+"TAP::Harness::_get_parser_args" -> "TAP::Parser::Scheduler::Job::filename";
+"TAP::Harness::_initialize" -> "TAP::Harness::CORE:fttty";
+"TAP::Harness::aggregate_tests" -> "TAP::Harness::make_scheduler";
+"TAP::Harness::_aggregate_single" -> "TAP::Harness::_after_test";
+"TAP::Harness::_aggregate_single" -> "TAP::Parser::Result::__ANON__[TAP/Parser/Result.pm:17]";
+"TAP::Harness::BEGIN@10" -> "TAP::Base::BEGIN@4";
+"TAP::Harness::BEGIN@3" -> "strict::import";
+}

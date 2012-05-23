@@ -8,16 +8,19 @@ DBL.suggestionIndex = -1;
 DBL.currentRequest;
 DBL.reloadTimeout;
 DBL.currentStop;
+DBL.stopInfoFetched;
+DBL.stops;
 
 function setup() {
+	fetchStopInfo();
     $("form").submit(function(event) {
         event.preventDefault()
     });
     if (navigator.geolocation) {
         $('<span/>', {
-            class: 'locationAttach button',
+            'class': 'locationAttach button',
             'data-icon': '⬇',
-            html: "Use Location"
+            'html': "Use Location"
         }).appendTo('#stopDirection');
     }
     changeLinkAction();
@@ -40,21 +43,53 @@ function setup() {
         }
     });
     $('#stopSearch').keyup(DBL.Suggestions.fetchSuggestion);
-    if(window.location.hash) {
-    	console.log("Hash: "+ window.location.hash);
-    	var stop = window.location.hash.substr(2);
-    	DBL.Results.fetchResultsForStop(stop,"");
-    }
+    DBL.Router = new (Backbone.Router.extend({
+    	routes:{
+    		":stopID": "stop"
+    	},
+    	stop: function(stopID) {
+    		console.log("URL contains stop ID: " + stopID);
+    		DBL.Results.fetchResultsForStop(stopID,"");
+    	}
+    }))();
+    
+    Backbone.history.start({pushState: true});
+}
+
+function fetchStopInfo() {
+	if(JSON.parse(localStorage.getItem("stopInfoFetched"))) {
+		DBL.stops = new Array(localStorage.length);
+		for (var i = 0; i < localStorage.length; i++) {
+			DBL.stops[i] = localStorage.key(i);
+		}
+		DBL.stopInfoFetched = true;
+	} else {
+	DBL.currentRequest = $.post("/suggestion/", {"prefix": ' '}, 
+		function(data, textStatus, xhr) {
+			
+			$.each(data, function(stop, stopInformation) {
+				localStorage.setItem(stop, JSON.stringify(stopInformation));
+				
+			});
+			DBL.stops = new Array(localStorage.length);
+			for (var i = 0; i < localStorage.length; i++) {
+				DBL.stops[i] = localStorage.key(i);
+			}
+			localStorage.setItem("stopInfoFetched","true");
+			DBL.stopInfoFetched = true;
+		}
+	);
+	}
 }
 
 
 function changeLinkAction() {
     $("a:not(.mapLink):not(.locationAttach):not(.nearbyLink)").click(function(event) {
         event.preventDefault();
-        console.log(event.target);
+        //console.log(event.target);
         
         var linkComponents = event.target.href.split("/");
-        console.log(linkComponents);
+        //console.log(linkComponents);
         if (linkComponents.length == 4) {
             linkComponents[3] = decodeURI(linkComponents[3]);
             clearTimeout(DBL.reloadTimeout);

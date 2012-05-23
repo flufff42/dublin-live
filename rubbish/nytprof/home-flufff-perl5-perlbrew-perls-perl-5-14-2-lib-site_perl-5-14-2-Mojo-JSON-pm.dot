@@ -1,0 +1,95 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojo_JSON {
+	label="Mojo::JSON";
+	"Mojo::JSON::CORE:subst";
+	"Mojo::JSON::CORE:regcomp";
+	"Mojo::JSON::_decode_object";
+	"Mojo::JSON::_decode_string";
+	"Mojo::JSON::CORE:pack";
+	"Mojo::JSON::BEGIN@5";
+	"Mojo::JSON::BEGIN@4";
+	"Mojo::JSON::CORE:qr";
+	"Mojo::JSON::_decode_value";
+	"Mojo::JSON::decode";
+	"Mojo::JSON::CORE:match";
+	"Mojo::JSON::BEGIN@2";
+}
+subgraph cluster_Mojo_Message {
+	label="Mojo::Message";
+	"Mojo::Message::BEGIN@8";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_utf8 {
+	label="utf8";
+	"utf8::downgrade";
+}
+subgraph cluster_Mojo_JSON__Bool {
+	label="Mojo::JSON::_Bool";
+	"Mojo::JSON::_Bool::new";
+	"Mojo::JSON::_Bool::BEGIN@360";
+	"Mojo::JSON::_Bool::BEGIN@358";
+}
+subgraph cluster_overload {
+	label="overload";
+	"overload::import";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::__ANON__[(eval 74)[Mojo/Base.pm:98]:7]";
+	"Mojo::Base::new";
+	"Mojo::Base::import";
+}
+subgraph cluster_B {
+	label="B";
+	"B::BEGIN@9";
+	"B::BEGIN@17";
+	"B::BEGIN@254";
+}
+subgraph cluster_main {
+	label="main";
+	"main::RUNTIME";
+}
+subgraph cluster_Mojo_Util {
+	label="Mojo::Util";
+	"Mojo::Util::decode";
+}
+"Mojo::JSON::BEGIN@4" -> "B::BEGIN@17";
+"Mojo::JSON::decode" -> "utf8::downgrade";
+"Mojo::Message::BEGIN@8" -> "Mojo::JSON::CORE:pack";
+"Mojo::JSON::BEGIN@5" -> "Exporter::import";
+"Mojo::JSON::BEGIN@4" -> "Exporter::import";
+"Mojo::Message::BEGIN@8" -> "Mojo::JSON::_Bool::BEGIN@358";
+"Mojo::JSON::BEGIN@4" -> "B::BEGIN@254";
+"Mojo::Message::BEGIN@8" -> "Mojo::JSON::_Bool::new";
+"Mojo::Message::BEGIN@8" -> "Mojo::JSON::BEGIN@5";
+"Mojo::JSON::decode" -> "Mojo::Util::decode";
+"Mojo::JSON::decode" -> "Mojo::JSON::CORE:subst";
+"Mojo::JSON::_decode_string" -> "Mojo::JSON::CORE:subst";
+"Mojo::Message::BEGIN@8" -> "Mojo::JSON::CORE:qr";
+"Mojo::Message::BEGIN@8" -> "Mojo::JSON::BEGIN@4";
+"Mojo::JSON::_Bool::BEGIN@358" -> "Mojo::Base::import";
+"Mojo::JSON::BEGIN@2" -> "Mojo::Base::import";
+"Mojo::JSON::_decode_value" -> "Mojo::JSON::_decode_string";
+"Mojo::JSON::_decode_object" -> "Mojo::JSON::_decode_string";
+"main::RUNTIME" -> "Mojo::JSON::decode";
+"Mojo::JSON::_Bool::BEGIN@360" -> "overload::import";
+"Mojo::JSON::_decode_object" -> "Mojo::JSON::_decode_value";
+"Mojo::JSON::_decode_value" -> "Mojo::JSON::CORE:match";
+"Mojo::JSON::decode" -> "Mojo::JSON::CORE:match";
+"Mojo::JSON::_decode_string" -> "Mojo::JSON::CORE:match";
+"Mojo::JSON::_decode_object" -> "Mojo::JSON::CORE:match";
+"Mojo::Message::BEGIN@8" -> "Mojo::JSON::_Bool::BEGIN@360";
+"Mojo::JSON::_Bool::new" -> "Mojo::Base::new";
+"Mojo::JSON::decode" -> "Mojo::Base::__ANON__[(eval 74)[Mojo/Base.pm:98]:7]";
+"Mojo::Message::BEGIN@8" -> "Mojo::JSON::BEGIN@2";
+"Mojo::JSON::_decode_value" -> "Mojo::JSON::CORE:regcomp";
+"Mojo::JSON::decode" -> "Mojo::JSON::CORE:regcomp";
+"Mojo::JSON::_decode_object" -> "Mojo::JSON::CORE:regcomp";
+"Mojo::JSON::BEGIN@4" -> "B::BEGIN@9";
+"Mojo::JSON::_decode_value" -> "Mojo::JSON::_decode_object";
+"Mojo::JSON::decode" -> "Mojo::JSON::_decode_object";
+}

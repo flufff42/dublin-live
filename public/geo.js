@@ -9,10 +9,10 @@
     	        $('#stopDirection span').detach();
     	        $('#stopDirection a').detach();
     	        $('<span/>', {
-    	        class: 'nearbyLink button',
-    	        html: "Find nearby stops"
+    	        'class': 'nearbyLink button',
+    	        'html': "Find nearby stops"
     	    }).appendTo('#stopDirection');
-    	    redirectLinksToPOST();
+    	    changeLinkAction();
     	    });
     	}
 	}
@@ -43,7 +43,7 @@
     	                html: stops.join('')
     	            }).appendTo('#suggestions');
     	            $('#suggestionSpinner').fadeOut();
-    	            redirectLinksToPOST();
+    	            changeLinkAction();
     	            $('#suggestions').fadeIn();
     	            
 			});

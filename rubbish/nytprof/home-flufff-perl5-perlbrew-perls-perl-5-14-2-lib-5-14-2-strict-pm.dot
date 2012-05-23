@@ -1,0 +1,750 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_TAP_Parser_ResultFactory {
+	label="TAP::Parser::ResultFactory";
+	"TAP::Parser::ResultFactory::BEGIN@3";
+}
+subgraph cluster_SOAP_Packager {
+	label="SOAP::Packager";
+	"SOAP::Packager::BEGIN@13";
+	"SOAP::Packager::BEGIN@20";
+}
+subgraph cluster_TAP_Parser_Result_Version {
+	label="TAP::Parser::Result::Version";
+	"TAP::Parser::Result::Version::BEGIN@3";
+}
+subgraph cluster_SOAP_SOM {
+	label="SOAP::SOM";
+	"SOAP::SOM::BEGIN@1775";
+}
+subgraph cluster_IO_Socket_INET {
+	label="IO::Socket::INET";
+	"IO::Socket::INET::BEGIN@9";
+}
+subgraph cluster_SOAP_Transport {
+	label="SOAP::Transport";
+	"SOAP::Transport::BEGIN@483";
+	"SOAP::Transport::BEGIN@465";
+}
+subgraph cluster_TAP_Parser_Scheduler {
+	label="TAP::Parser::Scheduler";
+	"TAP::Parser::Scheduler::BEGIN@3";
+}
+subgraph cluster_Config {
+	label="Config";
+	"Config::BEGIN@45";
+	"Config::BEGIN@5";
+	"Config::BEGIN@9";
+}
+subgraph cluster_Encode {
+	label="Encode";
+	"Encode::BEGIN@5";
+}
+subgraph cluster_IPC_Open3 {
+	label="IPC::Open3";
+	"IPC::Open3::BEGIN@4";
+	"IPC::Open3::BEGIN@3";
+}
+subgraph cluster_File_Path {
+	label="File::Path";
+	"File::Path::BEGIN@4";
+	"File::Path::BEGIN@329";
+}
+subgraph cluster_TAP_Parser_Result_Bailout {
+	label="TAP::Parser::Result::Bailout";
+	"TAP::Parser::Result::Bailout::BEGIN@3";
+}
+subgraph cluster_TAP_Parser_SourceHandler_Perl {
+	label="TAP::Parser::SourceHandler::Perl";
+	"TAP::Parser::SourceHandler::Perl::BEGIN@3";
+}
+subgraph cluster_SOAP_XMLSchema1999_Serializer {
+	label="SOAP::XMLSchema1999::Serializer";
+	"SOAP::XMLSchema1999::Serializer::BEGIN@67";
+}
+subgraph cluster_SOAP_Server {
+	label="SOAP::Server";
+	"SOAP::Server::BEGIN@2811";
+	"SOAP::Server::BEGIN@2558";
+	"SOAP::Server::BEGIN@2592";
+	"SOAP::Server::BEGIN@2569";
+	"SOAP::Server::BEGIN@2720";
+}
+subgraph cluster_Errno {
+	label="Errno";
+	"Errno::BEGIN@9";
+}
+subgraph cluster_base {
+	label="base";
+	"base::BEGIN@3";
+}
+subgraph cluster_Mojo_UserAgent {
+	label="Mojo::UserAgent";
+	"Mojo::UserAgent::BEGIN@33";
+}
+subgraph cluster_Mojo_ByteStream {
+	label="Mojo::ByteStream";
+	"Mojo::ByteStream::BEGIN@16";
+	"Mojo::ByteStream::BEGIN@30";
+}
+subgraph cluster_IO_File {
+	label="IO::File";
+	"IO::File::BEGIN@128";
+}
+subgraph cluster_charnames {
+	label="charnames";
+	"charnames::BEGIN@2";
+}
+subgraph cluster_Mojo_Command {
+	label="Mojo::Command";
+	"Mojo::Command::BEGIN@103";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::BEGIN@8";
+}
+subgraph cluster_SOAP_Lite_Deserializer_XMLSchemaSOAP1_1 {
+	label="SOAP::Lite::Deserializer::XMLSchemaSOAP1_1";
+	"SOAP::Lite::Deserializer::XMLSchemaSOAP1_1::BEGIN@23";
+	"SOAP::Lite::Deserializer::XMLSchemaSOAP1_1::BEGIN@2";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::CORE:regcomp";
+	"strict::unimport";
+	"strict::bits";
+	"strict::CORE:match";
+}
+subgraph cluster_TAP_Parser_Result_Unknown {
+	label="TAP::Parser::Result::Unknown";
+	"TAP::Parser::Result::Unknown::BEGIN@3";
+}
+subgraph cluster_TAP_Parser_Result_YAML {
+	label="TAP::Parser::Result::YAML";
+	"TAP::Parser::Result::YAML::BEGIN@3";
+}
+subgraph cluster_SOAP_Lite_Utils {
+	label="SOAP::Lite::Utils";
+	"SOAP::Lite::Utils::BEGIN@2";
+	"SOAP::Lite::Utils::BEGIN@12";
+	"SOAP::Lite::Utils::BEGIN@6";
+}
+subgraph cluster_Encode_Encoding {
+	label="Encode::Encoding";
+	"Encode::Encoding::BEGIN@4";
+}
+subgraph cluster_TAP_Parser_Grammar {
+	label="TAP::Parser::Grammar";
+	"TAP::Parser::Grammar::BEGIN@3";
+}
+subgraph cluster_TAP_Formatter_Console {
+	label="TAP::Formatter::Console";
+	"TAP::Formatter::Console::BEGIN@3";
+}
+subgraph cluster_URI_Escape {
+	label="URI::Escape";
+	"URI::Escape::BEGIN@2";
+}
+subgraph cluster_TAP_Parser_SourceHandler {
+	label="TAP::Parser::SourceHandler";
+	"TAP::Parser::SourceHandler::BEGIN@3";
+}
+subgraph cluster_IO_Handle {
+	label="IO::Handle";
+	"IO::Handle::BEGIN@261";
+	"IO::Handle::BEGIN@624";
+}
+subgraph cluster_TAP_Object {
+	label="TAP::Object";
+	"TAP::Object::BEGIN@3";
+	"TAP::Object::BEGIN@148";
+}
+subgraph cluster_SOAP_Lite_Deserializer_XMLSchemaSOAP1_2 {
+	label="SOAP::Lite::Deserializer::XMLSchemaSOAP1_2";
+	"SOAP::Lite::Deserializer::XMLSchemaSOAP1_2::BEGIN@10";
+}
+subgraph cluster_TAP_Parser_Utils {
+	label="TAP::Parser::Utils";
+	"TAP::Parser::Utils::BEGIN@3";
+}
+subgraph cluster_File_Find {
+	label="File::Find";
+	"File::Find::BEGIN@3";
+	"File::Find::BEGIN@349";
+}
+subgraph cluster_TAP_Parser_SourceHandler_Executable {
+	label="TAP::Parser::SourceHandler::Executable";
+	"TAP::Parser::SourceHandler::Executable::BEGIN@3";
+}
+subgraph cluster_IO_Poll {
+	label="IO::Poll";
+	"IO::Poll::BEGIN@10";
+}
+subgraph cluster_File_Spec_Functions {
+	label="File::Spec::Functions";
+	"File::Spec::Functions::BEGIN@42";
+	"File::Spec::Functions::BEGIN@4";
+}
+subgraph cluster_Socket {
+	label="Socket";
+	"Socket::BEGIN@3";
+	"Socket::BEGIN@628";
+}
+subgraph cluster_TAP_Formatter_Console_Session {
+	label="TAP::Formatter::Console::Session";
+	"TAP::Formatter::Console::Session::BEGIN@3";
+	"TAP::Formatter::Console::Session::BEGIN@16";
+}
+subgraph cluster_SOAP_Constants {
+	label="SOAP::Constants";
+	"SOAP::Constants::BEGIN@12";
+}
+subgraph cluster_Test_Harness {
+	label="Test::Harness";
+	"Test::Harness::BEGIN@5";
+}
+subgraph cluster_Exporter_Heavy {
+	label="Exporter::Heavy";
+	"Exporter::Heavy::BEGIN@4";
+	"Exporter::Heavy::BEGIN@3";
+}
+subgraph cluster_URI {
+	label="URI";
+	"URI::BEGIN@128";
+	"URI::BEGIN@3";
+}
+subgraph cluster_Mojo_Collection {
+	label="Mojo::Collection";
+	"Mojo::Collection::BEGIN@14";
+}
+subgraph cluster_constant {
+	label="constant";
+	"constant::BEGIN@3";
+	"constant::BEGIN@114";
+	"constant::BEGIN@29";
+	"constant::BEGIN@52";
+}
+subgraph cluster_TAP_Parser_Aggregator {
+	label="TAP::Parser::Aggregator";
+	"TAP::Parser::Aggregator::BEGIN@79";
+	"TAP::Parser::Aggregator::BEGIN@3";
+}
+subgraph cluster_Carp {
+	label="Carp";
+	"Carp::BEGIN@46";
+	"Carp::BEGIN@341";
+	"Carp::BEGIN@3";
+}
+subgraph cluster_MIME_Base64 {
+	label="MIME::Base64";
+	"MIME::Base64::BEGIN@3";
+}
+subgraph cluster_TAP_Parser_SourceHandler_RawTAP {
+	label="TAP::Parser::SourceHandler::RawTAP";
+	"TAP::Parser::SourceHandler::RawTAP::BEGIN@3";
+}
+subgraph cluster_File_Basename {
+	label="File::Basename";
+	"File::Basename::BEGIN@50";
+}
+subgraph cluster_mro {
+	label="mro";
+	"mro::BEGIN@10";
+}
+subgraph cluster_AutoLoader {
+	label="AutoLoader";
+	"AutoLoader::BEGIN@138";
+	"AutoLoader::BEGIN@30";
+	"AutoLoader::BEGIN@3";
+	"AutoLoader::BEGIN@186";
+}
+subgraph cluster_SOAP_Trace {
+	label="SOAP::Trace";
+	"SOAP::Trace::BEGIN@2889";
+	"SOAP::Trace::BEGIN@2903";
+}
+subgraph cluster_IO_Seekable {
+	label="IO::Seekable";
+	"IO::Seekable::BEGIN@99";
+}
+subgraph cluster_SOAP_Packager_MIME {
+	label="SOAP::Packager::MIME";
+	"SOAP::Packager::MIME::BEGIN@83";
+	"SOAP::Packager::MIME::BEGIN@88";
+	"SOAP::Packager::MIME::BEGIN@150";
+}
+subgraph cluster_IO_Socket_UNIX {
+	label="IO::Socket::UNIX";
+	"IO::Socket::UNIX::BEGIN@9";
+}
+subgraph cluster_TAP_Parser_SourceHandler_Handle {
+	label="TAP::Parser::SourceHandler::Handle";
+	"TAP::Parser::SourceHandler::Handle::BEGIN@3";
+}
+subgraph cluster_Time_Piece {
+	label="Time::Piece";
+	"Time::Piece::BEGIN@3";
+	"Time::Piece::BEGIN@121";
+}
+subgraph cluster_SOAP_Deserializer {
+	label="SOAP::Deserializer";
+	"SOAP::Deserializer::BEGIN@2222";
+}
+subgraph cluster_File_Spec_Unix {
+	label="File::Spec::Unix";
+	"File::Spec::Unix::BEGIN@3";
+	"File::Spec::Unix::BEGIN@149";
+}
+subgraph cluster_List_Util {
+	label="List::Util";
+	"List::Util::BEGIN@11";
+}
+subgraph cluster_TAP_Parser_Source {
+	label="TAP::Parser::Source";
+	"TAP::Parser::Source::BEGIN@3";
+}
+subgraph cluster_TAP_Parser_YAMLish_Reader {
+	label="TAP::Parser::YAMLish::Reader";
+	"TAP::Parser::YAMLish::Reader::BEGIN@3";
+}
+subgraph cluster_TAP_Formatter_Base {
+	label="TAP::Formatter::Base";
+	"TAP::Formatter::Base::BEGIN@3";
+}
+subgraph cluster_IO {
+	label="IO";
+	"IO::BEGIN@7";
+}
+subgraph cluster_Digest_SHA {
+	label="Digest::SHA";
+	"Digest::SHA::BEGIN@5";
+}
+subgraph cluster_Time_Local {
+	label="Time::Local";
+	"Time::Local::BEGIN@6";
+}
+subgraph cluster_TAP_Parser_Result_Pragma {
+	label="TAP::Parser::Result::Pragma";
+	"TAP::Parser::Result::Pragma::BEGIN@3";
+}
+subgraph cluster_TAP_Parser_Scheduler_Spinner {
+	label="TAP::Parser::Scheduler::Spinner";
+	"TAP::Parser::Scheduler::Spinner::BEGIN@3";
+}
+subgraph cluster_File_Copy {
+	label="File::Copy";
+	"File::Copy::BEGIN@11";
+}
+subgraph cluster_Getopt_Long {
+	label="Getopt::Long";
+	"Getopt::Long::BEGIN@17";
+}
+subgraph cluster_SOAP_Schema {
+	label="SOAP::Schema";
+	"SOAP::Schema::BEGIN@3175";
+	"SOAP::Schema::BEGIN@3191";
+}
+subgraph cluster_Digest_base {
+	label="Digest::base";
+	"Digest::base::BEGIN@3";
+}
+subgraph cluster_MIME_QuotedPrint {
+	label="MIME::QuotedPrint";
+	"MIME::QuotedPrint::BEGIN@3";
+}
+subgraph cluster_SOAP_Packager_DIME {
+	label="SOAP::Packager::DIME";
+	"SOAP::Packager::DIME::BEGIN@263";
+	"SOAP::Packager::DIME::BEGIN@268";
+	"SOAP::Packager::DIME::BEGIN@310";
+}
+subgraph cluster_Time_Seconds {
+	label="Time::Seconds";
+	"Time::Seconds::BEGIN@2";
+}
+subgraph cluster_SOAP {
+	label="SOAP";
+	"SOAP::BEGIN@3393";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::BEGIN@19";
+	"Mojo::Base::import";
+	"Mojo::Base::BEGIN@3";
+	"Mojo::Base::BEGIN@96";
+}
+subgraph cluster_B {
+	label="B";
+	"B::BEGIN@9";
+	"B::BEGIN@254";
+}
+subgraph cluster_TAP_Base {
+	label="TAP::Base";
+	"TAP::Base::BEGIN@3";
+}
+subgraph cluster_Mojolicious_Lite {
+	label="Mojolicious::Lite";
+	"Mojolicious::Lite::BEGIN@22";
+}
+subgraph cluster_IO_Select {
+	label="IO::Select";
+	"IO::Select::BEGIN@9";
+}
+subgraph cluster_IO_Socket {
+	label="IO::Socket";
+	"IO::Socket::BEGIN@14";
+}
+subgraph cluster_TAP_Parser_Iterator {
+	label="TAP::Parser::Iterator";
+	"TAP::Parser::Iterator::BEGIN@3";
+}
+subgraph cluster_TAP_Parser_Result {
+	label="TAP::Parser::Result";
+	"TAP::Parser::Result::BEGIN@14";
+	"TAP::Parser::Result::BEGIN@3";
+}
+subgraph cluster_TAP_Parser_Iterator_Process {
+	label="TAP::Parser::Iterator::Process";
+	"TAP::Parser::Iterator::Process::BEGIN@3";
+	"TAP::Parser::Iterator::Process::BEGIN@144";
+}
+subgraph cluster_Class_Inspector {
+	label="Class::Inspector";
+	"Class::Inspector::BEGIN@45";
+	"Class::Inspector::BEGIN@540";
+	"Class::Inspector::BEGIN@553";
+}
+subgraph cluster_Scalar_Util {
+	label="Scalar::Util";
+	"Scalar::Util::BEGIN@9";
+}
+subgraph cluster_Benchmark {
+	label="Benchmark";
+	"Benchmark::BEGIN@426";
+	"Benchmark::BEGIN@3";
+}
+subgraph cluster_SOAP_Fault {
+	label="SOAP::Fault";
+	"SOAP::Fault::BEGIN@510";
+	"SOAP::Fault::BEGIN@526";
+}
+subgraph cluster_File_Spec {
+	label="File::Spec";
+	"File::Spec::BEGIN@3";
+}
+subgraph cluster_TAP_Parser_Scheduler_Job {
+	label="TAP::Parser::Scheduler::Job";
+	"TAP::Parser::Scheduler::Job::BEGIN@3";
+}
+subgraph cluster_Fcntl {
+	label="Fcntl";
+	"Fcntl::BEGIN@58";
+}
+subgraph cluster_Mojo_Headers {
+	label="Mojo::Headers";
+	"Mojo::Headers::BEGIN@20";
+}
+subgraph cluster_TAP_Formatter_Session {
+	label="TAP::Formatter::Session";
+	"TAP::Formatter::Session::BEGIN@17";
+	"TAP::Formatter::Session::BEGIN@3";
+}
+subgraph cluster_TAP_Parser_Result_Test {
+	label="TAP::Parser::Result::Test";
+	"TAP::Parser::Result::Test::BEGIN@3";
+}
+subgraph cluster_Encode_Config {
+	label="Encode::Config";
+	"Encode::Config::BEGIN@7";
+}
+subgraph cluster_SOAP_Lite {
+	label="SOAP::Lite";
+	"SOAP::Lite::BEGIN@20";
+	"SOAP::Lite::BEGIN@3505";
+	"SOAP::Lite::BEGIN@3562";
+	"SOAP::Lite::BEGIN@3491";
+	"SOAP::Lite::BEGIN@3699";
+	"SOAP::Lite::BEGIN@3645";
+	"SOAP::Lite::BEGIN@3600";
+}
+subgraph cluster_Modern_Perl {
+	label="Modern::Perl";
+	"Modern::Perl::import";
+	"Modern::Perl::BEGIN@9";
+}
+subgraph cluster_POSIX {
+	label="POSIX";
+	"POSIX::BEGIN@2";
+}
+subgraph cluster_Digest_MD5 {
+	label="Digest::MD5";
+	"Digest::MD5::BEGIN@3";
+}
+subgraph cluster_TAP_Parser_Result_Comment {
+	label="TAP::Parser::Result::Comment";
+	"TAP::Parser::Result::Comment::BEGIN@3";
+}
+subgraph cluster_SOAP_Serializer {
+	label="SOAP::Serializer";
+	"SOAP::Serializer::BEGIN@842";
+	"SOAP::Serializer::BEGIN@1172";
+	"SOAP::Serializer::BEGIN@742";
+	"SOAP::Serializer::BEGIN@1107";
+	"SOAP::Serializer::BEGIN@1132";
+}
+subgraph cluster_TAP_Parser_Result_Plan {
+	label="TAP::Parser::Result::Plan";
+	"TAP::Parser::Result::Plan::BEGIN@3";
+}
+subgraph cluster_SOAP_Data {
+	label="SOAP::Data";
+	"SOAP::Data::BEGIN@625";
+	"SOAP::Data::BEGIN@565";
+}
+subgraph cluster_SOAP_Custom_XML_Data {
+	label="SOAP::Custom::XML::Data";
+	"SOAP::Custom::XML::Data::BEGIN@2936";
+}
+subgraph cluster_TAP_Parser {
+	label="TAP::Parser";
+	"TAP::Parser::BEGIN@3";
+}
+subgraph cluster_Time_HiRes {
+	label="Time::HiRes";
+	"Time::HiRes::BEGIN@42";
+	"Time::HiRes::BEGIN@3";
+}
+subgraph cluster_TAP_Parser_IteratorFactory {
+	label="TAP::Parser::IteratorFactory";
+	"TAP::Parser::IteratorFactory::BEGIN@3";
+}
+subgraph cluster_TAP_Harness {
+	label="TAP::Harness";
+	"TAP::Harness::BEGIN@93";
+	"TAP::Harness::BEGIN@3";
+	"TAP::Harness::BEGIN@121";
+}
+subgraph cluster_threads {
+	label="threads";
+	"threads::BEGIN@73";
+	"threads::BEGIN@5";
+}
+subgraph cluster_TAP_Parser_Iterator_Stream {
+	label="TAP::Parser::Iterator::Stream";
+	"TAP::Parser::Iterator::Stream::BEGIN@3";
+}
+subgraph cluster_TAP_Parser_SourceHandler_File {
+	label="TAP::Parser::SourceHandler::File";
+	"TAP::Parser::SourceHandler::File::BEGIN@3";
+}
+subgraph cluster_Encode_Alias {
+	label="Encode::Alias";
+	"Encode::Alias::BEGIN@2";
+}
+subgraph cluster_Sys_Hostname {
+	label="Sys::Hostname";
+	"Sys::Hostname::BEGIN@3";
+}
+subgraph cluster_TAP_Parser_Iterator_Array {
+	label="TAP::Parser::Iterator::Array";
+	"TAP::Parser::Iterator::Array::BEGIN@3";
+}
+subgraph cluster_Cwd {
+	label="Cwd";
+	"Cwd::BEGIN@818";
+	"Cwd::BEGIN@170";
+}
+"Modern::Perl::BEGIN@9" -> "strict::CORE:match";
+"strict::unimport" -> "strict::bits";
+"strict::import" -> "strict::bits";
+"Modern::Perl::BEGIN@9" -> "strict::bits";
+"IPC::Open3::BEGIN@4" -> "strict::unimport";
+"AutoLoader::BEGIN@138" -> "strict::unimport";
+"SOAP::Lite::BEGIN@3600" -> "strict::unimport";
+"constant::BEGIN@29" -> "strict::unimport";
+"SOAP::BEGIN@3393" -> "strict::unimport";
+"File::Spec::Unix::BEGIN@149" -> "strict::unimport";
+"SOAP::Fault::BEGIN@510" -> "strict::unimport";
+"Mojo::Command::BEGIN@103" -> "strict::unimport";
+"SOAP::Packager::DIME::BEGIN@310" -> "strict::unimport";
+"Cwd::BEGIN@818" -> "strict::unimport";
+"threads::BEGIN@73" -> "strict::unimport";
+"Carp::BEGIN@46" -> "strict::unimport";
+"SOAP::Packager::DIME::BEGIN@268" -> "strict::unimport";
+"Socket::BEGIN@628" -> "strict::unimport";
+"File::Spec::Functions::BEGIN@42" -> "strict::unimport";
+"SOAP::Server::BEGIN@2558" -> "strict::unimport";
+"Mojo::ByteStream::BEGIN@16" -> "strict::unimport";
+"SOAP::Lite::BEGIN@3562" -> "strict::unimport";
+"SOAP::Lite::BEGIN@3699" -> "strict::unimport";
+"TAP::Parser::Aggregator::BEGIN@79" -> "strict::unimport";
+"Mojo::Headers::BEGIN@20" -> "strict::unimport";
+"Class::Inspector::BEGIN@553" -> "strict::unimport";
+"SOAP::Transport::BEGIN@483" -> "strict::unimport";
+"SOAP::Serializer::BEGIN@842" -> "strict::unimport";
+"Carp::BEGIN@341" -> "strict::unimport";
+"SOAP::Server::BEGIN@2592" -> "strict::unimport";
+"SOAP::SOM::BEGIN@1775" -> "strict::unimport";
+"B::BEGIN@254" -> "strict::unimport";
+"SOAP::Transport::BEGIN@465" -> "strict::unimport";
+"Mojo::Collection::BEGIN@14" -> "strict::unimport";
+"SOAP::Serializer::BEGIN@1172" -> "strict::unimport";
+"IO::Handle::BEGIN@624" -> "strict::unimport";
+"SOAP::Server::BEGIN@2569" -> "strict::unimport";
+"Mojo::Base::BEGIN@96" -> "strict::unimport";
+"SOAP::Fault::BEGIN@526" -> "strict::unimport";
+"SOAP::Packager::BEGIN@20" -> "strict::unimport";
+"TAP::Object::BEGIN@148" -> "strict::unimport";
+"SOAP::Lite::BEGIN@3505" -> "strict::unimport";
+"SOAP::Lite::BEGIN@3491" -> "strict::unimport";
+"Exporter::Heavy::BEGIN@4" -> "strict::unimport";
+"Mojo::ByteStream::BEGIN@30" -> "strict::unimport";
+"Mojo::Base::BEGIN@19" -> "strict::unimport";
+"File::Path::BEGIN@329" -> "strict::unimport";
+"SOAP::Serializer::BEGIN@1107" -> "strict::unimport";
+"TAP::Parser::Result::BEGIN@14" -> "strict::unimport";
+"Config::BEGIN@45" -> "strict::unimport";
+"AutoLoader::BEGIN@186" -> "strict::unimport";
+"URI::BEGIN@128" -> "strict::unimport";
+"SOAP::Schema::BEGIN@3175" -> "strict::unimport";
+"SOAP::Server::BEGIN@2811" -> "strict::unimport";
+"SOAP::Trace::BEGIN@2889" -> "strict::unimport";
+"SOAP::Deserializer::BEGIN@2222" -> "strict::unimport";
+"Benchmark::BEGIN@426" -> "strict::unimport";
+"Mojolicious::Lite::BEGIN@22" -> "strict::unimport";
+"SOAP::Lite::Deserializer::XMLSchemaSOAP1_2::BEGIN@10" -> "strict::unimport";
+"SOAP::Lite::Utils::BEGIN@6" -> "strict::unimport";
+"SOAP::Data::BEGIN@565" -> "strict::unimport";
+"constant::BEGIN@52" -> "strict::unimport";
+"SOAP::Lite::Deserializer::XMLSchemaSOAP1_1::BEGIN@23" -> "strict::unimport";
+"TAP::Formatter::Session::BEGIN@17" -> "strict::unimport";
+"SOAP::Lite::BEGIN@3645" -> "strict::unimport";
+"SOAP::Data::BEGIN@625" -> "strict::unimport";
+"TAP::Harness::BEGIN@121" -> "strict::unimport";
+"SOAP::Serializer::BEGIN@1132" -> "strict::unimport";
+"SOAP::Packager::MIME::BEGIN@88" -> "strict::unimport";
+"Mojo::UserAgent::BEGIN@33" -> "strict::unimport";
+"SOAP::Lite::Utils::BEGIN@12" -> "strict::unimport";
+"SOAP::Server::BEGIN@2720" -> "strict::unimport";
+"Time::HiRes::BEGIN@42" -> "strict::unimport";
+"TAP::Formatter::Console::Session::BEGIN@16" -> "strict::unimport";
+"SOAP::Schema::BEGIN@3191" -> "strict::unimport";
+"Class::Inspector::BEGIN@540" -> "strict::unimport";
+"Time::Piece::BEGIN@121" -> "strict::unimport";
+"TAP::Harness::BEGIN@93" -> "strict::unimport";
+"SOAP::XMLSchema1999::Serializer::BEGIN@67" -> "strict::unimport";
+"constant::BEGIN@114" -> "strict::unimport";
+"SOAP::Trace::BEGIN@2903" -> "strict::unimport";
+"SOAP::Packager::MIME::BEGIN@150" -> "strict::unimport";
+"SOAP::Custom::XML::Data::BEGIN@2936" -> "strict::unimport";
+"AutoLoader::BEGIN@30" -> "strict::unimport";
+"SOAP::Serializer::BEGIN@742" -> "strict::unimport";
+"TAP::Parser::Iterator::Process::BEGIN@144" -> "strict::unimport";
+"Modern::Perl::BEGIN@9" -> "strict::CORE:regcomp";
+"base::BEGIN@3" -> "strict::import";
+"TAP::Parser::Iterator::Array::BEGIN@3" -> "strict::import";
+"TAP::Parser::BEGIN@3" -> "strict::import";
+"IO::Poll::BEGIN@10" -> "strict::import";
+"MIME::Base64::BEGIN@3" -> "strict::import";
+"IO::BEGIN@7" -> "strict::import";
+"Socket::BEGIN@3" -> "strict::import";
+"File::Path::BEGIN@4" -> "strict::import";
+"Encode::BEGIN@5" -> "strict::import";
+"TAP::Object::BEGIN@3" -> "strict::import";
+"AutoLoader::BEGIN@3" -> "strict::import";
+"TAP::Parser::Iterator::Process::BEGIN@3" -> "strict::import";
+"Encode::Alias::BEGIN@2" -> "strict::import";
+"IO::Socket::BEGIN@14" -> "strict::import";
+"IO::Select::BEGIN@9" -> "strict::import";
+"Mojo::Base::import" -> "strict::import";
+"File::Basename::BEGIN@50" -> "strict::import";
+"Modern::Perl::BEGIN@9" -> "strict::import";
+"mro::BEGIN@10" -> "strict::import";
+"Errno::BEGIN@9" -> "strict::import";
+"Time::Local::BEGIN@6" -> "strict::import";
+"URI::BEGIN@3" -> "strict::import";
+"File::Spec::Functions::BEGIN@4" -> "strict::import";
+"SOAP::Lite::BEGIN@20" -> "strict::import";
+"TAP::Parser::IteratorFactory::BEGIN@3" -> "strict::import";
+"IO::Socket::UNIX::BEGIN@9" -> "strict::import";
+"SOAP::Packager::DIME::BEGIN@263" -> "strict::import";
+"TAP::Parser::Result::YAML::BEGIN@3" -> "strict::import";
+"TAP::Formatter::Base::BEGIN@3" -> "strict::import";
+"TAP::Parser::Result::Unknown::BEGIN@3" -> "strict::import";
+"SOAP::Packager::MIME::BEGIN@83" -> "strict::import";
+"TAP::Parser::Result::Plan::BEGIN@3" -> "strict::import";
+"TAP::Parser::SourceHandler::BEGIN@3" -> "strict::import";
+"TAP::Parser::Result::Pragma::BEGIN@3" -> "strict::import";
+"Encode::Config::BEGIN@7" -> "strict::import";
+"TAP::Parser::SourceHandler::RawTAP::BEGIN@3" -> "strict::import";
+"List::Util::BEGIN@11" -> "strict::import";
+"TAP::Parser::SourceHandler::Perl::BEGIN@3" -> "strict::import";
+"IO::File::BEGIN@128" -> "strict::import";
+"TAP::Parser::Iterator::Stream::BEGIN@3" -> "strict::import";
+"MIME::QuotedPrint::BEGIN@3" -> "strict::import";
+"TAP::Parser::Utils::BEGIN@3" -> "strict::import";
+"Time::Piece::BEGIN@3" -> "strict::import";
+"TAP::Formatter::Console::BEGIN@3" -> "strict::import";
+"Benchmark::BEGIN@3" -> "strict::import";
+"Digest::base::BEGIN@3" -> "strict::import";
+"Time::Seconds::BEGIN@2" -> "strict::import";
+"TAP::Parser::Aggregator::BEGIN@3" -> "strict::import";
+"TAP::Parser::SourceHandler::Executable::BEGIN@3" -> "strict::import";
+"TAP::Parser::Source::BEGIN@3" -> "strict::import";
+"Getopt::Long::BEGIN@17" -> "strict::import";
+"TAP::Parser::Result::Version::BEGIN@3" -> "strict::import";
+"Config::BEGIN@5" -> "strict::import";
+"Test::Harness::BEGIN@5" -> "strict::import";
+"SOAP::Lite::Utils::BEGIN@2" -> "strict::import";
+"TAP::Parser::Grammar::BEGIN@3" -> "strict::import";
+"TAP::Formatter::Session::BEGIN@3" -> "strict::import";
+"TAP::Parser::YAMLish::Reader::BEGIN@3" -> "strict::import";
+"vars::BEGIN@8" -> "strict::import";
+"File::Copy::BEGIN@11" -> "strict::import";
+"SOAP::Packager::BEGIN@13" -> "strict::import";
+"Class::Inspector::BEGIN@45" -> "strict::import";
+"POSIX::BEGIN@2" -> "strict::import";
+"IO::Handle::BEGIN@261" -> "strict::import";
+"Fcntl::BEGIN@58" -> "strict::import";
+"Config::BEGIN@9" -> "strict::import";
+"TAP::Parser::Result::Test::BEGIN@3" -> "strict::import";
+"TAP::Parser::Result::Comment::BEGIN@3" -> "strict::import";
+"File::Spec::Unix::BEGIN@3" -> "strict::import";
+"Carp::BEGIN@3" -> "strict::import";
+"SOAP::Lite::Deserializer::XMLSchemaSOAP1_1::BEGIN@2" -> "strict::import";
+"SOAP::Constants::BEGIN@12" -> "strict::import";
+"TAP::Parser::Scheduler::BEGIN@3" -> "strict::import";
+"Encode::Encoding::BEGIN@4" -> "strict::import";
+"Cwd::BEGIN@170" -> "strict::import";
+"Sys::Hostname::BEGIN@3" -> "strict::import";
+"TAP::Parser::Scheduler::Job::BEGIN@3" -> "strict::import";
+"Modern::Perl::import" -> "strict::import";
+"B::BEGIN@9" -> "strict::import";
+"URI::Escape::BEGIN@2" -> "strict::import";
+"charnames::BEGIN@2" -> "strict::import";
+"File::Find::BEGIN@3" -> "strict::import";
+"Scalar::Util::BEGIN@9" -> "strict::import";
+"constant::BEGIN@3" -> "strict::import";
+"TAP::Harness::BEGIN@3" -> "strict::import";
+"IO::Socket::INET::BEGIN@9" -> "strict::import";
+"File::Find::BEGIN@349" -> "strict::import";
+"File::Spec::BEGIN@3" -> "strict::import";
+"Digest::SHA::BEGIN@5" -> "strict::import";
+"Time::HiRes::BEGIN@3" -> "strict::import";
+"IO::Seekable::BEGIN@99" -> "strict::import";
+"IPC::Open3::BEGIN@3" -> "strict::import";
+"TAP::Parser::SourceHandler::Handle::BEGIN@3" -> "strict::import";
+"TAP::Formatter::Console::Session::BEGIN@3" -> "strict::import";
+"TAP::Base::BEGIN@3" -> "strict::import";
+"Digest::MD5::BEGIN@3" -> "strict::import";
+"TAP::Parser::ResultFactory::BEGIN@3" -> "strict::import";
+"Mojo::Base::BEGIN@3" -> "strict::import";
+"TAP::Parser::Scheduler::Spinner::BEGIN@3" -> "strict::import";
+"TAP::Parser::SourceHandler::File::BEGIN@3" -> "strict::import";
+"Exporter::Heavy::BEGIN@3" -> "strict::import";
+"TAP::Parser::Iterator::BEGIN@3" -> "strict::import";
+"TAP::Parser::Result::Bailout::BEGIN@3" -> "strict::import";
+"threads::BEGIN@5" -> "strict::import";
+"TAP::Parser::Result::BEGIN@3" -> "strict::import";
+}

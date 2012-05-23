@@ -1,0 +1,35 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojo_JSON {
+	label="Mojo::JSON";
+	"Mojo::JSON::decode";
+}
+subgraph cluster_constant {
+	label="constant";
+	"constant::import";
+}
+subgraph cluster_utf8 {
+	label="utf8";
+	"utf8::is_utf8";
+	"utf8::decode";
+	"utf8::import";
+	"utf8::downgrade";
+}
+subgraph cluster_main {
+	label="main";
+	"main::BEGIN@11";
+}
+subgraph cluster_Class_Inspector {
+	label="Class::Inspector";
+	"Class::Inspector::BEGIN@51";
+}
+subgraph cluster_Mojo_Util {
+	label="Mojo::Util";
+	"Mojo::Util::decode";
+}
+"Mojo::JSON::decode" -> "utf8::downgrade";
+"Mojo::Util::decode" -> "utf8::decode";
+"constant::import" -> "utf8::is_utf8";
+"Class::Inspector::BEGIN@51" -> "utf8::import";
+"main::BEGIN@11" -> "utf8::import";
+}

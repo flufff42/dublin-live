@@ -1,0 +1,48 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojo_UserAgent {
+	label="Mojo::UserAgent";
+	"Mojo::UserAgent::BEGIN@10";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+subgraph cluster_Mojo_UserAgent_Transactor {
+	label="Mojo::UserAgent::Transactor";
+	"Mojo::UserAgent::Transactor::BEGIN@9";
+	"Mojo::UserAgent::Transactor::BEGIN@5";
+	"Mojo::UserAgent::Transactor::BEGIN@6";
+	"Mojo::UserAgent::Transactor::BEGIN@11";
+	"Mojo::UserAgent::Transactor::BEGIN@12";
+	"Mojo::UserAgent::Transactor::BEGIN@2";
+	"Mojo::UserAgent::Transactor::BEGIN@7";
+	"Mojo::UserAgent::Transactor::BEGIN@10";
+	"Mojo::UserAgent::Transactor::BEGIN@4";
+	"Mojo::UserAgent::Transactor::BEGIN@8";
+}
+"Mojo::UserAgent::Transactor::BEGIN@12" -> "Exporter::import";
+"Mojo::UserAgent::BEGIN@10" -> "Mojo::UserAgent::Transactor::BEGIN@12";
+"Mojo::UserAgent::BEGIN@10" -> "Mojo::UserAgent::Transactor::BEGIN@9";
+"Mojo::UserAgent::BEGIN@10" -> "Mojo::UserAgent::Transactor::BEGIN@2";
+"Mojo::UserAgent::BEGIN@10" -> "Mojo::UserAgent::Transactor::BEGIN@7";
+"Mojo::UserAgent::BEGIN@10" -> "Mojo::UserAgent::Transactor::BEGIN@4";
+"Mojo::UserAgent::Transactor::BEGIN@9" -> "Mojo::Base::import";
+"Mojo::UserAgent::Transactor::BEGIN@2" -> "Mojo::Base::import";
+"Mojo::UserAgent::Transactor::BEGIN@7" -> "Mojo::Base::import";
+"Mojo::UserAgent::Transactor::BEGIN@4" -> "Mojo::Base::import";
+"Mojo::UserAgent::Transactor::BEGIN@11" -> "Mojo::Base::import";
+"Mojo::UserAgent::Transactor::BEGIN@8" -> "Mojo::Base::import";
+"Mojo::UserAgent::Transactor::BEGIN@5" -> "Mojo::Base::import";
+"Mojo::UserAgent::Transactor::BEGIN@10" -> "Mojo::Base::import";
+"Mojo::UserAgent::Transactor::BEGIN@6" -> "Mojo::Base::import";
+"Mojo::UserAgent::BEGIN@10" -> "Mojo::UserAgent::Transactor::BEGIN@11";
+"Mojo::UserAgent::BEGIN@10" -> "Mojo::UserAgent::Transactor::BEGIN@8";
+"Mojo::UserAgent::BEGIN@10" -> "Mojo::UserAgent::Transactor::BEGIN@5";
+"Mojo::UserAgent::BEGIN@10" -> "Mojo::UserAgent::Transactor::BEGIN@10";
+"Mojo::UserAgent::BEGIN@10" -> "Mojo::UserAgent::Transactor::BEGIN@6";
+}

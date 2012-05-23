@@ -1,0 +1,28 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojolicious_Plugin_DefaultHelpers {
+	label="Mojolicious::Plugin::DefaultHelpers";
+	"Mojolicious::Plugin::DefaultHelpers::register";
+	"Mojolicious::Plugin::DefaultHelpers::BEGIN@2";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+subgraph cluster_Mojo_Loader {
+	label="Mojo::Loader";
+	"Mojo::Loader::load";
+}
+subgraph cluster_Mojolicious_Plugins {
+	label="Mojolicious::Plugins";
+	"Mojolicious::Plugins::register_plugin";
+}
+subgraph cluster_Mojolicious {
+	label="Mojolicious";
+	"Mojolicious::helper";
+}
+"Mojo::Loader::load" -> "Mojolicious::Plugin::DefaultHelpers::BEGIN@2";
+"Mojolicious::Plugins::register_plugin" -> "Mojolicious::Plugin::DefaultHelpers::register";
+"Mojolicious::Plugin::DefaultHelpers::BEGIN@2" -> "Mojo::Base::import";
+"Mojolicious::Plugin::DefaultHelpers::register" -> "Mojolicious::helper";
+}

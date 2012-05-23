@@ -1,0 +1,68 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojo_ByteStream {
+	label="Mojo::ByteStream";
+	"Mojo::ByteStream::BEGIN@3";
+	"Mojo::ByteStream::BEGIN@16";
+	"Mojo::ByteStream::BEGIN@6";
+	"Mojo::ByteStream::BEGIN@30";
+	"Mojo::ByteStream::BEGIN@31";
+	"Mojo::ByteStream::import";
+	"Mojo::ByteStream::BEGIN@2";
+	"Mojo::ByteStream::BEGIN@5";
+}
+subgraph cluster_Mojo_Command {
+	label="Mojo::Command";
+	"Mojo::Command::BEGIN@10";
+}
+subgraph cluster_Mojo_Template {
+	label="Mojo::Template";
+	"Mojo::Template::BEGIN@10";
+	"Mojo::Template::BEGIN@2";
+	"Mojo::Template::BEGIN@5";
+	"Mojo::Template::BEGIN@7";
+	"Mojo::Template::BEGIN@6";
+	"Mojo::Template::CORE:subst";
+	"Mojo::Template::BEGIN@8";
+	"Mojo::Template::BEGIN@4";
+}
+subgraph cluster_constant {
+	label="constant";
+	"constant::import";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+subgraph cluster_UNIVERSAL {
+	label="UNIVERSAL";
+	"UNIVERSAL::can";
+}
+"Mojo::Command::BEGIN@10" -> "Mojo::Template::CORE:subst";
+"Mojo::Template::BEGIN@4" -> "Exporter::import";
+"Mojo::Template::BEGIN@5" -> "Exporter::import";
+"Mojo::Template::BEGIN@8" -> "Exporter::import";
+"Mojo::Template::BEGIN@6" -> "Mojo::ByteStream::BEGIN@16";
+"Mojo::Command::BEGIN@10" -> "Mojo::Template::BEGIN@7";
+"Mojo::Template::BEGIN@6" -> "Mojo::ByteStream::import";
+"Mojo::Template::BEGIN@6" -> "Mojo::ByteStream::BEGIN@5";
+"Mojo::Template::BEGIN@6" -> "Mojo::ByteStream::BEGIN@31";
+"Mojo::Command::BEGIN@10" -> "Mojo::Template::BEGIN@4";
+"Mojo::Template::BEGIN@6" -> "Mojo::ByteStream::BEGIN@3";
+"Mojo::Command::BEGIN@10" -> "Mojo::Template::BEGIN@2";
+"Mojo::Template::BEGIN@7" -> "Mojo::Base::import";
+"Mojo::Template::BEGIN@2" -> "Mojo::Base::import";
+"Mojo::Template::BEGIN@6" -> "UNIVERSAL::can";
+"Mojo::Template::BEGIN@10" -> "constant::import";
+"Mojo::Template::BEGIN@6" -> "Mojo::ByteStream::BEGIN@6";
+"Mojo::Template::BEGIN@6" -> "Mojo::ByteStream::BEGIN@30";
+"Mojo::Command::BEGIN@10" -> "Mojo::Template::BEGIN@6";
+"Mojo::Template::BEGIN@6" -> "Mojo::ByteStream::BEGIN@2";
+"Mojo::Command::BEGIN@10" -> "Mojo::Template::BEGIN@5";
+"Mojo::Command::BEGIN@10" -> "Mojo::Template::BEGIN@10";
+"Mojo::Command::BEGIN@10" -> "Mojo::Template::BEGIN@8";
+}

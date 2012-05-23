@@ -36,7 +36,7 @@ sub getRealTimeInformationForStop {
         say "Line " . $service->{MonitoredVehicleJourney_PublishedLineName} .
             " to " . $service->{MonitoredVehicleJourney_DestinationName} . 
             " leaving at ". $service->{MonitoredCall_ExpectedDepartureTime} . 
-            "(at stop: " . $service->{MonitoredCall_VehicleAtStop} . ")";
+            "(at stop: " . $service->{MonitoredCall_VehicleAtStop} . ")" . "(in congestion: " . $service->{MonitoredVehicleJourney_InCongestion} . ")";
             $results->{$service->{MonitoredVehicleJourney_PublishedLineName}}->{$service->{MonitoredVehicleJourney_DestinationName} . " ". $serviceCount++} =
                   $service->{MonitoredCall_ExpectedDepartureTime};
       }

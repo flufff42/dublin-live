@@ -1,0 +1,39 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_TAP_Parser_ResultFactory {
+	label="TAP::Parser::ResultFactory";
+	"TAP::Parser::ResultFactory::BEGIN@7";
+}
+subgraph cluster_TAP_Parser_Result_Bailout {
+	label="TAP::Parser::Result::Bailout";
+	"TAP::Parser::Result::Bailout::BEGIN@5";
+	"TAP::Parser::Result::Bailout::BEGIN@6";
+	"TAP::Parser::Result::Bailout::BEGIN@3";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_TAP_Parser_Result {
+	label="TAP::Parser::Result";
+	"TAP::Parser::Result::BEGIN@14";
+	"TAP::Parser::Result::BEGIN@4";
+	"TAP::Parser::Result::BEGIN@10";
+	"TAP::Parser::Result::BEGIN@6";
+	"TAP::Parser::Result::BEGIN@3";
+}
+"TAP::Parser::ResultFactory::BEGIN@7" -> "TAP::Parser::Result::Bailout::BEGIN@5";
+"TAP::Parser::Result::Bailout::BEGIN@6" -> "TAP::Parser::Result::BEGIN@10";
+"TAP::Parser::Result::Bailout::BEGIN@6" -> "TAP::Parser::Result::BEGIN@6";
+"TAP::Parser::ResultFactory::BEGIN@7" -> "TAP::Parser::Result::Bailout::BEGIN@6";
+"TAP::Parser::Result::Bailout::BEGIN@6" -> "TAP::Parser::Result::BEGIN@14";
+"TAP::Parser::Result::Bailout::BEGIN@6" -> "TAP::Parser::Result::BEGIN@4";
+"TAP::Parser::Result::Bailout::BEGIN@5" -> "vars::import";
+"TAP::Parser::Result::Bailout::BEGIN@3" -> "strict::import";
+"TAP::Parser::ResultFactory::BEGIN@7" -> "TAP::Parser::Result::Bailout::BEGIN@3";
+"TAP::Parser::Result::Bailout::BEGIN@6" -> "TAP::Parser::Result::BEGIN@3";
+}

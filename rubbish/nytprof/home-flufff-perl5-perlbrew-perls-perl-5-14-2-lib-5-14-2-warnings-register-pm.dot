@@ -1,0 +1,47 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::register_categories";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::BEGIN@7";
+}
+subgraph cluster_Tie_Hash {
+	label="Tie::Hash";
+	"Tie::Hash::BEGIN@189";
+}
+subgraph cluster_File_Find {
+	label="File::Find";
+	"File::Find::BEGIN@5";
+}
+subgraph cluster_Socket {
+	label="Socket";
+	"Socket::BEGIN@311";
+}
+subgraph cluster_constant {
+	label="constant";
+	"constant::BEGIN@4";
+}
+subgraph cluster_overload {
+	label="overload";
+	"overload::BEGIN@147";
+}
+subgraph cluster_IO_Select {
+	label="IO::Select";
+	"IO::Select::BEGIN@10";
+}
+subgraph cluster_warnings_register {
+	label="warnings::register";
+	"warnings::register::import";
+}
+"warnings::register::import" -> "warnings::register_categories";
+"overload::BEGIN@147" -> "warnings::register::import";
+"constant::BEGIN@4" -> "warnings::register::import";
+"IO::Select::BEGIN@10" -> "warnings::register::import";
+"Tie::Hash::BEGIN@189" -> "warnings::register::import";
+"vars::BEGIN@7" -> "warnings::register::import";
+"Socket::BEGIN@311" -> "warnings::register::import";
+"File::Find::BEGIN@5" -> "warnings::register::import";
+}

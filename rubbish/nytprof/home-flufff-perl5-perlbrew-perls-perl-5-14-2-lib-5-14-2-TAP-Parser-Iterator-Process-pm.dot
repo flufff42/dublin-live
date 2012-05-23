@@ -1,0 +1,128 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Config {
+	label="Config";
+	"Config::import";
+	"Config::FETCH";
+}
+subgraph cluster_IPC_Open3 {
+	label="IPC::Open3";
+	"IPC::Open3::_open3";
+	"IPC::Open3::open3";
+	"IPC::Open3::xclose";
+}
+subgraph cluster_TAP_Parser_SourceHandler_Perl {
+	label="TAP::Parser::SourceHandler::Perl";
+	"TAP::Parser::SourceHandler::Perl::__ANON__[TAP/Parser/SourceHandler/Perl.pm:223]";
+	"TAP::Parser::SourceHandler::Perl::__ANON__[TAP/Parser/SourceHandler/Perl.pm:211]";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::unimport";
+}
+subgraph cluster_IO_Handle {
+	label="IO::Handle";
+	"IO::Handle::close";
+	"IO::Handle::new";
+}
+subgraph cluster_TAP_Object {
+	label="TAP::Object";
+	"TAP::Object::new";
+}
+subgraph cluster_TAP_Parser_SourceHandler_Executable {
+	label="TAP::Parser::SourceHandler::Executable";
+	"TAP::Parser::SourceHandler::Executable::BEGIN@8";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_IO_Select {
+	label="IO::Select";
+	"IO::Select::remove";
+	"IO::Select::new";
+	"IO::Select::can_read";
+}
+subgraph cluster_TAP_Parser_Iterator {
+	label="TAP::Parser::Iterator";
+	"TAP::Parser::Iterator::next";
+}
+subgraph cluster_TAP_Parser_Iterator_Process {
+	label="TAP::Parser::Iterator::Process";
+	"TAP::Parser::Iterator::Process::next_raw";
+	"TAP::Parser::Iterator::Process::BEGIN@4";
+	"TAP::Parser::Iterator::Process::BEGIN@7";
+	"TAP::Parser::Iterator::Process::_initialize";
+	"TAP::Parser::Iterator::Process::CORE:match";
+	"TAP::Parser::Iterator::Process::CORE:print";
+	"TAP::Parser::Iterator::Process::_next";
+	"TAP::Parser::Iterator::Process::BEGIN@8";
+	"TAP::Parser::Iterator::Process::CORE:waitpid";
+	"TAP::Parser::Iterator::Process::_use_open3";
+	"TAP::Parser::Iterator::Process::CORE:sysread";
+	"TAP::Parser::Iterator::Process::wait";
+	"TAP::Parser::Iterator::Process::BEGIN@3";
+	"TAP::Parser::Iterator::Process::_finish";
+	"TAP::Parser::Iterator::Process::__ANON__[TAP/Parser/Iterator/Process.pm:90]";
+	"TAP::Parser::Iterator::Process::__ANON__[TAP/Parser/Iterator/Process.pm:147]";
+	"TAP::Parser::Iterator::Process::exit";
+	"TAP::Parser::Iterator::Process::BEGIN@2.11";
+	"TAP::Parser::Iterator::Process::__ANON__[TAP/Parser/Iterator/Process.pm:191]";
+	"TAP::Parser::Iterator::Process::__ANON__[TAP/Parser/Iterator/Process.pm:288]";
+	"TAP::Parser::Iterator::Process::BEGIN@2";
+	"TAP::Parser::Iterator::Process::BEGIN@6";
+	"TAP::Parser::Iterator::Process::BEGIN@144";
+}
+subgraph cluster_POSIX {
+	label="POSIX";
+	"POSIX::WEXITSTATUS";
+}
+subgraph cluster_TAP_Parser {
+	label="TAP::Parser";
+	"TAP::Parser::__ANON__[TAP/Parser.pm:1402]";
+}
+"TAP::Parser::Iterator::next" -> "TAP::Parser::Iterator::Process::next_raw";
+"TAP::Parser::SourceHandler::Executable::BEGIN@8" -> "TAP::Parser::Iterator::Process::BEGIN@3";
+"TAP::Parser::Iterator::Process::__ANON__[TAP/Parser/Iterator/Process.pm:288]" -> "TAP::Parser::Iterator::Process::_finish";
+"TAP::Parser::Iterator::Process::__ANON__[TAP/Parser/Iterator/Process.pm:147]" -> "IPC::Open3::xclose";
+"TAP::Parser::Iterator::Process::_finish" -> "TAP::Parser::Iterator::Process::__ANON__[TAP/Parser/Iterator/Process.pm:191]";
+"TAP::Parser::Iterator::Process::BEGIN@8" -> "Exporter::import";
+"TAP::Parser::SourceHandler::Executable::BEGIN@8" -> "TAP::Parser::Iterator::Process::BEGIN@6";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1402]" -> "TAP::Parser::Iterator::Process::wait";
+"TAP::Parser::Iterator::Process::_initialize" -> "IO::Select::new";
+"TAP::Parser::Iterator::Process::_use_open3" -> "TAP::Parser::Iterator::Process::BEGIN@2.11";
+"TAP::Parser::Iterator::Process::__ANON__[TAP/Parser/Iterator/Process.pm:90]" -> "POSIX::WEXITSTATUS";
+"TAP::Parser::Iterator::Process::_initialize" -> "IPC::Open3::open3";
+"TAP::Parser::Iterator::Process::next_raw" -> "TAP::Parser::Iterator::Process::_next";
+"TAP::Parser::Iterator::Process::BEGIN@7" -> "Config::import";
+"TAP::Parser::Iterator::Process::_initialize" -> "TAP::Parser::Iterator::Process::_use_open3";
+"TAP::Parser::SourceHandler::Executable::BEGIN@8" -> "TAP::Parser::Iterator::Process::BEGIN@7";
+"TAP::Parser::Iterator::Process::_initialize" -> "TAP::Parser::SourceHandler::Perl::__ANON__[TAP/Parser/SourceHandler/Perl.pm:211]";
+"TAP::Parser::Iterator::Process::next_raw" -> "TAP::Parser::Iterator::Process::__ANON__[TAP/Parser/Iterator/Process.pm:288]";
+"TAP::Parser::SourceHandler::Executable::BEGIN@8" -> "TAP::Parser::Iterator::Process::BEGIN@144";
+"TAP::Parser::SourceHandler::Executable::BEGIN@8" -> "TAP::Parser::Iterator::Process::CORE:match";
+"TAP::Parser::Iterator::Process::__ANON__[TAP/Parser/Iterator/Process.pm:288]" -> "TAP::Parser::Iterator::Process::CORE:print";
+"TAP::Parser::Iterator::Process::__ANON__[TAP/Parser/Iterator/Process.pm:288]" -> "IO::Select::can_read";
+"TAP::Parser::Iterator::Process::BEGIN@144" -> "strict::unimport";
+"TAP::Parser::SourceHandler::Executable::BEGIN@8" -> "TAP::Parser::Iterator::Process::BEGIN@8";
+"TAP::Parser::Iterator::Process::_initialize" -> "IO::Handle::new";
+"TAP::Parser::Iterator::Process::_use_open3" -> "TAP::Parser::Iterator::Process::BEGIN@2";
+"TAP::Parser::Iterator::Process::_finish" -> "TAP::Parser::Iterator::Process::__ANON__[TAP/Parser/Iterator/Process.pm:90]";
+"IPC::Open3::_open3" -> "TAP::Parser::Iterator::Process::__ANON__[TAP/Parser/Iterator/Process.pm:147]";
+"TAP::Parser::Iterator::Process::BEGIN@4" -> "vars::import";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1402]" -> "TAP::Parser::Iterator::Process::exit";
+"TAP::Parser::Iterator::Process::__ANON__[TAP/Parser/Iterator/Process.pm:288]" -> "IO::Select::remove";
+"TAP::Parser::Iterator::Process::__ANON__[TAP/Parser/Iterator/Process.pm:191]" -> "TAP::Parser::SourceHandler::Perl::__ANON__[TAP/Parser/SourceHandler/Perl.pm:223]";
+"TAP::Parser::SourceHandler::Executable::BEGIN@8" -> "TAP::Parser::Iterator::Process::BEGIN@4";
+"TAP::Object::new" -> "TAP::Parser::Iterator::Process::_initialize";
+"TAP::Parser::Iterator::Process::_finish" -> "TAP::Parser::Iterator::Process::CORE:waitpid";
+"TAP::Parser::Iterator::Process::__ANON__[TAP/Parser/Iterator/Process.pm:288]" -> "TAP::Parser::Iterator::Process::CORE:sysread";
+"TAP::Parser::Iterator::Process::_use_open3" -> "Config::FETCH";
+"TAP::Parser::Iterator::Process::_finish" -> "IO::Handle::close";
+"TAP::Parser::Iterator::Process::BEGIN@3" -> "strict::import";
+}

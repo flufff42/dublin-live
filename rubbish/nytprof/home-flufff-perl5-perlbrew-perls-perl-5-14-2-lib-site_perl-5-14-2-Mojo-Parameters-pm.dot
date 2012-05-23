@@ -1,0 +1,49 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojo_URL {
+	label="Mojo::URL";
+	"Mojo::URL::BEGIN@8";
+	"Mojo::URL::BEGIN@4";
+	"Mojo::URL::BEGIN@10";
+	"Mojo::URL::BEGIN@2";
+	"Mojo::URL::BEGIN@9";
+}
+subgraph cluster_Mojo_Message {
+	label="Mojo::Message";
+	"Mojo::Message::BEGIN@10";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_overload {
+	label="overload";
+	"overload::import";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::__ANON__[Mojo/Base.pm:41]";
+	"Mojo::Base::import";
+}
+subgraph cluster_Mojo_Parameters {
+	label="Mojo::Parameters";
+	"Mojo::Parameters::BEGIN@4";
+	"Mojo::Parameters::BEGIN@8";
+	"Mojo::Parameters::BEGIN@2";
+	"Mojo::Parameters::BEGIN@9";
+}
+"Mojo::Parameters::BEGIN@9" -> "Mojo::URL::BEGIN@2";
+"Mojo::Parameters::BEGIN@8" -> "Exporter::import";
+"Mojo::Message::BEGIN@10" -> "Mojo::Parameters::BEGIN@9";
+"Mojo::Parameters::BEGIN@9" -> "Mojo::Base::__ANON__[Mojo/Base.pm:41]";
+"Mojo::Message::BEGIN@10" -> "Mojo::Parameters::BEGIN@2";
+"Mojo::Parameters::BEGIN@9" -> "Mojo::Base::import";
+"Mojo::Parameters::BEGIN@2" -> "Mojo::Base::import";
+"Mojo::Parameters::BEGIN@9" -> "Mojo::URL::BEGIN@9";
+"Mojo::Parameters::BEGIN@4" -> "overload::import";
+"Mojo::Message::BEGIN@10" -> "Mojo::Parameters::BEGIN@8";
+"Mojo::Parameters::BEGIN@9" -> "Mojo::URL::BEGIN@10";
+"Mojo::Parameters::BEGIN@9" -> "Mojo::URL::BEGIN@4";
+"Mojo::Parameters::BEGIN@9" -> "Mojo::URL::BEGIN@8";
+"Mojo::Message::BEGIN@10" -> "Mojo::Parameters::BEGIN@4";
+}

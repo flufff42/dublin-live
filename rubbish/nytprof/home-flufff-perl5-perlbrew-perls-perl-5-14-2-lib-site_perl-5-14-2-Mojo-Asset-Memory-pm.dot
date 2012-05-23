@@ -1,0 +1,30 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojo_Message {
+	label="Mojo::Message";
+	"Mojo::Message::BEGIN@5";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Mojo_Asset_Memory {
+	label="Mojo::Asset::Memory";
+	"Mojo::Asset::Memory::BEGIN@2";
+	"Mojo::Asset::Memory::BEGIN@6";
+	"Mojo::Asset::Memory::BEGIN@5";
+	"Mojo::Asset::Memory::BEGIN@4";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+"Mojo::Message::BEGIN@5" -> "Mojo::Asset::Memory::BEGIN@5";
+"Mojo::Asset::Memory::BEGIN@5" -> "Exporter::import";
+"Mojo::Asset::Memory::BEGIN@4" -> "Exporter::import";
+"Mojo::Message::BEGIN@5" -> "Mojo::Asset::Memory::BEGIN@2";
+"Mojo::Message::BEGIN@5" -> "Mojo::Asset::Memory::BEGIN@4";
+"Mojo::Asset::Memory::BEGIN@2" -> "Mojo::Base::import";
+"Mojo::Asset::Memory::BEGIN@6" -> "Mojo::Base::import";
+"Mojo::Message::BEGIN@5" -> "Mojo::Asset::Memory::BEGIN@6";
+}

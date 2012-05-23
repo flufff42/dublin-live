@@ -1,0 +1,45 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_File_Path {
+	label="File::Path";
+	"File::Path::BEGIN@7";
+	"File::Path::BEGIN@6";
+	"File::Path::BEGIN@8";
+	"File::Path::BEGIN@19";
+	"File::Path::BEGIN@10";
+	"File::Path::BEGIN@4";
+	"File::Path::BEGIN@3";
+	"File::Path::BEGIN@18";
+	"File::Path::BEGIN@329";
+}
+subgraph cluster_Mojo_Command {
+	label="Mojo::Command";
+	"Mojo::Command::BEGIN@6";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::unimport";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+"Mojo::Command::BEGIN@6" -> "File::Path::BEGIN@6";
+"Mojo::Command::BEGIN@6" -> "File::Path::BEGIN@4";
+"File::Path::BEGIN@6" -> "Exporter::import";
+"Mojo::Command::BEGIN@6" -> "File::Path::BEGIN@7";
+"Mojo::Command::BEGIN@6" -> "File::Path::BEGIN@329";
+"Mojo::Command::BEGIN@6" -> "File::Path::BEGIN@3";
+"Mojo::Command::BEGIN@6" -> "File::Path::BEGIN@18";
+"Mojo::Command::BEGIN@6" -> "File::Path::BEGIN@19";
+"File::Path::BEGIN@329" -> "strict::unimport";
+"Mojo::Command::BEGIN@6" -> "File::Path::BEGIN@10";
+"Mojo::Command::BEGIN@6" -> "File::Path::BEGIN@8";
+"File::Path::BEGIN@19" -> "vars::import";
+"File::Path::BEGIN@4" -> "strict::import";
+}

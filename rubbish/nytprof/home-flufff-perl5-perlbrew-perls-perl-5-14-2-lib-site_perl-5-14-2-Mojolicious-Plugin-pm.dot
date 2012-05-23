@@ -1,0 +1,13 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojolicious_Plugin {
+	label="Mojolicious::Plugin";
+	"Mojolicious::Plugin::BEGIN@2";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+"Mojo::Base::import" -> "Mojolicious::Plugin::BEGIN@2";
+"Mojolicious::Plugin::BEGIN@2" -> "Mojo::Base::import";
+}

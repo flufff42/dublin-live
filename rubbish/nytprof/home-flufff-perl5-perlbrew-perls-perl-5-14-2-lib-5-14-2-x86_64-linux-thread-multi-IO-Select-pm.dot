@@ -1,0 +1,52 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_IO_Select {
+	label="IO::Select";
+	"IO::Select::BEGIN@9";
+	"IO::Select::BEGIN@10";
+	"IO::Select::_update";
+	"IO::Select::add";
+	"IO::Select::_fileno";
+	"IO::Select::can_read";
+	"IO::Select::CORE:sselect";
+	"IO::Select::remove";
+	"IO::Select::new";
+	"IO::Select::CORE:match";
+	"IO::Select::BEGIN@11";
+	"IO::Select::handles";
+}
+subgraph cluster_TAP_Parser_Iterator_Process {
+	label="TAP::Parser::Iterator::Process";
+	"TAP::Parser::Iterator::Process::BEGIN@2.11";
+	"TAP::Parser::Iterator::Process::__ANON__[TAP/Parser/Iterator/Process.pm:288]";
+	"TAP::Parser::Iterator::Process::_initialize";
+}
+subgraph cluster_warnings_register {
+	label="warnings::register";
+	"warnings::register::import";
+}
+"TAP::Parser::Iterator::Process::BEGIN@2.11" -> "IO::Select::BEGIN@9";
+"IO::Select::can_read" -> "IO::Select::CORE:sselect";
+"TAP::Parser::Iterator::Process::BEGIN@2.11" -> "IO::Select::BEGIN@11";
+"TAP::Parser::Iterator::Process::_initialize" -> "IO::Select::new";
+"IO::Select::_update" -> "IO::Select::_fileno";
+"IO::Select::BEGIN@10" -> "warnings::register::import";
+"IO::Select::can_read" -> "IO::Select::handles";
+"TAP::Parser::Iterator::Process::BEGIN@2.11" -> "IO::Select::BEGIN@10";
+"TAP::Parser::Iterator::Process::__ANON__[TAP/Parser/Iterator/Process.pm:288]" -> "IO::Select::can_read";
+"IO::Select::new" -> "IO::Select::add";
+"IO::Select::_fileno" -> "IO::Select::CORE:match";
+"IO::Select::remove" -> "IO::Select::_update";
+"IO::Select::add" -> "IO::Select::_update";
+"IO::Select::BEGIN@11" -> "vars::import";
+"TAP::Parser::Iterator::Process::__ANON__[TAP/Parser/Iterator/Process.pm:288]" -> "IO::Select::remove";
+"IO::Select::BEGIN@9" -> "strict::import";
+}

@@ -1,0 +1,121 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Config {
+	label="Config";
+	"Config::TIEHASH";
+	"Config::BEGIN@45";
+	"Config::CORE:match";
+	"Config::BEGIN@5";
+	"Config::AUTOLOAD";
+	"Config::import";
+	"Config::CORE:regcomp";
+	"Config::BEGIN@10";
+	"Config::BEGIN@9";
+	"Config::CORE:substcont";
+	"Config::BEGIN@6";
+	"Config::FETCH";
+	"Config::CORE:subst";
+	"Config::fetch_string";
+	"Config::BEGIN@7";
+	"Config::BEGIN@11";
+	"Config::CORE:pack";
+	"Config::launcher";
+	"Config::CORE:unpack";
+}
+subgraph cluster_TAP_Parser_SourceHandler_Perl {
+	label="TAP::Parser::SourceHandler::Perl";
+	"TAP::Parser::SourceHandler::Perl::BEGIN@4";
+	"TAP::Parser::SourceHandler::Perl::_filter_libs";
+}
+subgraph cluster_DynaLoader {
+	label="DynaLoader";
+	"DynaLoader::BEGIN@22";
+}
+subgraph cluster_Errno {
+	label="Errno";
+	"Errno::BEGIN@8";
+}
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::import";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::unimport";
+}
+subgraph cluster_Test_Harness {
+	label="Test::Harness";
+	"Test::Harness::BEGIN@17";
+}
+subgraph cluster_Mojo_Transaction_WebSocket {
+	label="Mojo::Transaction::WebSocket";
+	"Mojo::Transaction::WebSocket::BEGIN@6";
+}
+subgraph cluster_Mojo_Home {
+	label="Mojo::Home";
+	"Mojo::Home::BEGIN@10";
+}
+subgraph cluster_Time_Local {
+	label="Time::Local";
+	"Time::Local::BEGIN@5";
+}
+subgraph cluster_File_Copy {
+	label="File::Copy";
+	"File::Copy::BEGIN@14";
+}
+subgraph cluster_main {
+	label="main";
+	"main::BEGIN@12";
+}
+subgraph cluster_TAP_Parser_Iterator_Process {
+	label="TAP::Parser::Iterator::Process";
+	"TAP::Parser::Iterator::Process::BEGIN@7";
+	"TAP::Parser::Iterator::Process::_use_open3";
+}
+subgraph cluster_Mojo_Asset_File {
+	label="Mojo::Asset::File";
+	"Mojo::Asset::File::BEGIN@5";
+	"Mojo::Asset::File::BEGIN@10";
+}
+"Config::fetch_string" -> "Config::CORE:match";
+"Config::AUTOLOAD" -> "Config::CORE:match";
+"Mojo::Home::BEGIN@10" -> "Config::BEGIN@10";
+"Config::AUTOLOAD" -> "Config::CORE:pack";
+"Config::AUTOLOAD" -> "Config::CORE:substcont";
+"Config::FETCH" -> "Config::fetch_string";
+"Mojo::Home::BEGIN@10" -> "Config::BEGIN@45";
+"Mojo::Home::BEGIN@10" -> "Config::TIEHASH";
+"Mojo::Transaction::WebSocket::BEGIN@6" -> "Config::import";
+"TAP::Parser::Iterator::Process::BEGIN@7" -> "Config::import";
+"DynaLoader::BEGIN@22" -> "Config::import";
+"Time::Local::BEGIN@5" -> "Config::import";
+"TAP::Parser::SourceHandler::Perl::BEGIN@4" -> "Config::import";
+"Errno::BEGIN@8" -> "Config::import";
+"Test::Harness::BEGIN@17" -> "Config::import";
+"File::Copy::BEGIN@14" -> "Config::import";
+"Mojo::Home::BEGIN@10" -> "Config::BEGIN@9";
+"Config::AUTOLOAD" -> "Config::BEGIN@6";
+"Config::BEGIN@45" -> "strict::unimport";
+"Config::FETCH" -> "Config::AUTOLOAD";
+"Config::AUTOLOAD" -> "Config::BEGIN@7";
+"Config::BEGIN@10" -> "warnings::import";
+"Mojo::Home::BEGIN@10" -> "Config::BEGIN@11";
+"Config::FETCH" -> "Config::launcher";
+"Config::AUTOLOAD" -> "Config::CORE:unpack";
+"Config::AUTOLOAD" -> "Config::BEGIN@5";
+"Config::fetch_string" -> "Config::CORE:regcomp";
+"Config::BEGIN@11" -> "vars::import";
+"Mojo::Asset::File::BEGIN@10" -> "Config::FETCH";
+"Mojo::Asset::File::BEGIN@5" -> "Config::FETCH";
+"Mojo::Home::BEGIN@10" -> "Config::FETCH";
+"main::BEGIN@12" -> "Config::FETCH";
+"TAP::Parser::SourceHandler::Perl::_filter_libs" -> "Config::FETCH";
+"TAP::Parser::Iterator::Process::_use_open3" -> "Config::FETCH";
+"Config::AUTOLOAD" -> "Config::CORE:subst";
+"Config::BEGIN@9" -> "strict::import";
+}

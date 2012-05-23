@@ -1,0 +1,48 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_constant {
+	label="constant";
+	"constant::import";
+}
+subgraph cluster_TAP_Parser_SourceHandler_Handle {
+	label="TAP::Parser::SourceHandler::Handle";
+	"TAP::Parser::SourceHandler::Handle::BEGIN@7";
+	"TAP::Parser::SourceHandler::Handle::BEGIN@6";
+	"TAP::Parser::SourceHandler::Handle::BEGIN@3";
+	"TAP::Parser::SourceHandler::Handle::can_handle";
+	"TAP::Parser::SourceHandler::Handle::BEGIN@8";
+	"TAP::Parser::SourceHandler::Handle::BEGIN@104";
+	"TAP::Parser::SourceHandler::Handle::BEGIN@4";
+}
+subgraph cluster_TAP_Parser_Source {
+	label="TAP::Parser::Source";
+	"TAP::Parser::Source::meta";
+}
+subgraph cluster_TAP_Parser {
+	label="TAP::Parser";
+	"TAP::Parser::BEGIN@17";
+}
+subgraph cluster_TAP_Parser_IteratorFactory {
+	label="TAP::Parser::IteratorFactory";
+	"TAP::Parser::IteratorFactory::detect_source";
+}
+"TAP::Parser::SourceHandler::Handle::can_handle" -> "TAP::Parser::Source::meta";
+"TAP::Parser::IteratorFactory::detect_source" -> "TAP::Parser::SourceHandler::Handle::can_handle";
+"TAP::Parser::BEGIN@17" -> "TAP::Parser::SourceHandler::Handle::BEGIN@7";
+"TAP::Parser::BEGIN@17" -> "TAP::Parser::SourceHandler::Handle::BEGIN@3";
+"TAP::Parser::BEGIN@17" -> "TAP::Parser::SourceHandler::Handle::BEGIN@104";
+"TAP::Parser::SourceHandler::Handle::BEGIN@104" -> "constant::import";
+"TAP::Parser::BEGIN@17" -> "TAP::Parser::SourceHandler::Handle::BEGIN@8";
+"TAP::Parser::BEGIN@17" -> "TAP::Parser::SourceHandler::Handle::BEGIN@6";
+"TAP::Parser::SourceHandler::Handle::BEGIN@4" -> "vars::import";
+"TAP::Parser::BEGIN@17" -> "TAP::Parser::SourceHandler::Handle::BEGIN@4";
+"TAP::Parser::SourceHandler::Handle::BEGIN@3" -> "strict::import";
+}

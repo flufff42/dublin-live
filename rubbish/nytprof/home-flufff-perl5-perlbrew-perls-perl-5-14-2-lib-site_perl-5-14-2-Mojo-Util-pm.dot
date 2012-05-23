@@ -1,0 +1,59 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojo_JSON {
+	label="Mojo::JSON";
+	"Mojo::JSON::decode";
+}
+subgraph cluster_constant {
+	label="constant";
+	"constant::import";
+}
+subgraph cluster_utf8 {
+	label="utf8";
+	"utf8::decode";
+}
+subgraph cluster_integer {
+	label="integer";
+	"integer::import";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+subgraph cluster_Digest_MD5 {
+	label="Digest::MD5";
+	"Digest::MD5::md5_hex";
+}
+subgraph cluster_Mojo_Util {
+	label="Mojo::Util";
+	"Mojo::Util::md5_sum";
+	"Mojo::Util::BEGIN@475";
+	"Mojo::Util::decode";
+	"Mojo::Util::BEGIN@625";
+	"Mojo::Util::BEGIN@2";
+	"Mojo::Util::BEGIN@11";
+	"Mojo::Util::BEGIN@431";
+}
+subgraph cluster_Mojo_Asset_File {
+	label="Mojo::Asset::File";
+	"Mojo::Asset::File::BEGIN@10";
+}
+subgraph cluster_Mojolicious_Plugin_EPRenderer {
+	label="Mojolicious::Plugin::EPRenderer";
+	"Mojolicious::Plugin::EPRenderer::register";
+}
+"Mojo::Util::decode" -> "utf8::decode";
+"Mojo::Asset::File::BEGIN@10" -> "Mojo::Util::BEGIN@431";
+"Mojo::JSON::decode" -> "Mojo::Util::decode";
+"Mojo::Asset::File::BEGIN@10" -> "Mojo::Util::BEGIN@11";
+"Mojo::Asset::File::BEGIN@10" -> "Mojo::Util::BEGIN@475";
+"Mojo::Util::BEGIN@2" -> "Mojo::Base::import";
+"Mojo::Util::BEGIN@11" -> "constant::import";
+"Mojolicious::Plugin::EPRenderer::register" -> "Mojo::Util::md5_sum";
+"Mojo::Util::md5_sum" -> "Digest::MD5::md5_hex";
+"Mojo::Asset::File::BEGIN@10" -> "Mojo::Util::BEGIN@2";
+"Mojo::Asset::File::BEGIN@10" -> "Mojo::Util::BEGIN@625";
+"Mojo::Util::BEGIN@475" -> "integer::import";
+"Mojo::Util::BEGIN@625" -> "integer::import";
+"Mojo::Util::BEGIN@431" -> "integer::import";
+}

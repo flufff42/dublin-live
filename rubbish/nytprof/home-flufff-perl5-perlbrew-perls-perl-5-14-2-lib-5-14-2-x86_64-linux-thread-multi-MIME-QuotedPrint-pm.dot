@@ -1,0 +1,31 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_MIME_QuotedPrint {
+	label="MIME::QuotedPrint";
+	"MIME::QuotedPrint::BEGIN@4";
+	"MIME::QuotedPrint::BEGIN@12";
+	"MIME::QuotedPrint::BEGIN@3";
+}
+subgraph cluster_Mojo_Asset_File {
+	label="Mojo::Asset::File";
+	"Mojo::Asset::File::BEGIN@10";
+}
+"MIME::QuotedPrint::BEGIN@12" -> "Exporter::import";
+"Mojo::Asset::File::BEGIN@10" -> "MIME::QuotedPrint::BEGIN@12";
+"Mojo::Asset::File::BEGIN@10" -> "MIME::QuotedPrint::BEGIN@3";
+"Mojo::Asset::File::BEGIN@10" -> "MIME::QuotedPrint::BEGIN@4";
+"MIME::QuotedPrint::BEGIN@4" -> "vars::import";
+"MIME::QuotedPrint::BEGIN@3" -> "strict::import";
+}

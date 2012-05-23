@@ -1,0 +1,74 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_IO_Socket_INET {
+	label="IO::Socket::INET";
+	"IO::Socket::INET::BEGIN@11";
+	"IO::Socket::INET::BEGIN@14";
+	"IO::Socket::INET::BEGIN@13";
+	"IO::Socket::INET::BEGIN@9";
+	"IO::Socket::INET::BEGIN@15";
+	"IO::Socket::INET::BEGIN@12";
+}
+subgraph cluster_constant {
+	label="constant";
+	"constant::import";
+	"constant::__ANON__[constant.pm:142]";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Mojo_IOLoop_Client {
+	label="Mojo::IOLoop::Client";
+	"Mojo::IOLoop::Client::BEGIN@4";
+	"Mojo::IOLoop::Client::BEGIN@2";
+	"Mojo::IOLoop::Client::BEGIN@6";
+	"Mojo::IOLoop::Client::BEGIN@1";
+	"Mojo::IOLoop::Client::BEGIN@5";
+	"Mojo::IOLoop::Client::BEGIN@17";
+	"Mojo::IOLoop::Client::BEGIN@9";
+	"Mojo::IOLoop::Client::BEGIN@18";
+	"Mojo::IOLoop::Client::BEGIN@14";
+	"Mojo::IOLoop::Client::BEGIN@1.2";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+subgraph cluster_IO_Socket {
+	label="IO::Socket";
+	"IO::Socket::register_domain";
+	"IO::Socket::import";
+}
+subgraph cluster_Mojo_IOLoop {
+	label="Mojo::IOLoop";
+	"Mojo::IOLoop::BEGIN@5";
+}
+"Mojo::IOLoop::Client::BEGIN@4" -> "IO::Socket::INET::BEGIN@14";
+"Mojo::IOLoop::Client::BEGIN@4" -> "IO::Socket::INET::BEGIN@12";
+"Mojo::IOLoop::Client::BEGIN@17" -> "constant::__ANON__[constant.pm:142]";
+"Mojo::IOLoop::Client::BEGIN@18" -> "constant::__ANON__[constant.pm:142]";
+"Mojo::IOLoop::Client::BEGIN@5" -> "Exporter::import";
+"Mojo::IOLoop::Client::BEGIN@6" -> "Exporter::import";
+"Mojo::IOLoop::BEGIN@5" -> "Mojo::IOLoop::Client::BEGIN@9";
+"Mojo::IOLoop::BEGIN@5" -> "Mojo::IOLoop::Client::BEGIN@5";
+"Mojo::IOLoop::BEGIN@5" -> "Mojo::IOLoop::Client::BEGIN@14";
+"Mojo::IOLoop::Client::BEGIN@4" -> "IO::Socket::INET::BEGIN@11";
+"Mojo::IOLoop::BEGIN@5" -> "Mojo::IOLoop::Client::BEGIN@17";
+"Mojo::IOLoop::BEGIN@5" -> "Mojo::IOLoop::Client::BEGIN@2";
+"Mojo::IOLoop::Client::BEGIN@9" -> "Mojo::IOLoop::Client::BEGIN@1";
+"Mojo::IOLoop::Client::BEGIN@14" -> "Mojo::IOLoop::Client::BEGIN@1.2";
+"Mojo::IOLoop::Client::BEGIN@4" -> "IO::Socket::INET::BEGIN@9";
+"Mojo::IOLoop::Client::BEGIN@4" -> "IO::Socket::import";
+"Mojo::IOLoop::BEGIN@5" -> "Mojo::IOLoop::Client::BEGIN@4";
+"Mojo::IOLoop::Client::BEGIN@4" -> "IO::Socket::INET::BEGIN@15";
+"Mojo::IOLoop::Client::BEGIN@4" -> "IO::Socket::register_domain";
+"Mojo::IOLoop::Client::BEGIN@2" -> "Mojo::Base::import";
+"Mojo::IOLoop::Client::BEGIN@9" -> "constant::import";
+"Mojo::IOLoop::Client::BEGIN@14" -> "constant::import";
+"Mojo::IOLoop::Client::BEGIN@17" -> "constant::import";
+"Mojo::IOLoop::Client::BEGIN@18" -> "constant::import";
+"Mojo::IOLoop::Client::BEGIN@4" -> "IO::Socket::INET::BEGIN@13";
+"Mojo::IOLoop::BEGIN@5" -> "Mojo::IOLoop::Client::BEGIN@18";
+"Mojo::IOLoop::BEGIN@5" -> "Mojo::IOLoop::Client::BEGIN@6";
+}

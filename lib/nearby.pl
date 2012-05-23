@@ -1,7 +1,7 @@
 use Modern::Perl;
 use Data::Dumper;
 our $ua;
-post '/near/' => sub {
+sub findNearbyStops {
 	my $self = shift;
 	say $self->param('lat');
 	say $self->param('long');
@@ -30,4 +30,6 @@ post '/near/' => sub {
 			undef $points;
 		}
 	}
-};
+}
+
+1

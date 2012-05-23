@@ -1,0 +1,309 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_TAP_Parser_ResultFactory {
+	label="TAP::Parser::ResultFactory";
+	"TAP::Parser::ResultFactory::make_result";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_TAP_Parser_Grammar {
+	label="TAP::Parser::Grammar";
+	"TAP::Parser::Grammar::BEGIN@8";
+	"TAP::Parser::Grammar::BEGIN@6";
+	"TAP::Parser::Grammar::BEGIN@7";
+	"TAP::Parser::Grammar::BEGIN@4";
+	"TAP::Parser::Grammar::CORE:qr";
+	"TAP::Parser::Grammar::BEGIN@3";
+	"TAP::Parser::Grammar::tokenize";
+	"TAP::Parser::Grammar::CORE:regcomp";
+}
+subgraph cluster_TAP_Object {
+	label="TAP::Object";
+	"TAP::Object::_construct";
+	"TAP::Object::new";
+	"TAP::Object::__ANON__[TAP/Object.pm:153]";
+	"TAP::Object::mk_methods";
+}
+subgraph cluster_TAP_Formatter_Console_Session {
+	label="TAP::Formatter::Console::Session";
+	"TAP::Formatter::Console::Session::__ANON__[TAP/Formatter/Console/Session.pm:205]";
+}
+subgraph cluster_Test_Harness {
+	label="Test::Harness";
+	"Test::Harness::runtests";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_TAP_Parser_Aggregator {
+	label="TAP::Parser::Aggregator";
+	"TAP::Parser::Aggregator::add";
+}
+subgraph cluster_TAP_Parser_SourceHandler_RawTAP {
+	label="TAP::Parser::SourceHandler::RawTAP";
+	"TAP::Parser::SourceHandler::RawTAP::BEGIN@3";
+	"TAP::Parser::SourceHandler::RawTAP::BEGIN@7";
+	"TAP::Parser::SourceHandler::RawTAP::BEGIN@6";
+	"TAP::Parser::SourceHandler::RawTAP::BEGIN@8";
+	"TAP::Parser::SourceHandler::RawTAP::BEGIN@4";
+}
+subgraph cluster_TAP_Parser_SourceHandler_Handle {
+	label="TAP::Parser::SourceHandler::Handle";
+	"TAP::Parser::SourceHandler::Handle::BEGIN@7";
+	"TAP::Parser::SourceHandler::Handle::BEGIN@6";
+	"TAP::Parser::SourceHandler::Handle::BEGIN@3";
+	"TAP::Parser::SourceHandler::Handle::BEGIN@8";
+	"TAP::Parser::SourceHandler::Handle::BEGIN@104";
+	"TAP::Parser::SourceHandler::Handle::BEGIN@4";
+}
+subgraph cluster_TAP_Parser_Source {
+	label="TAP::Parser::Source";
+	"TAP::Parser::Source::raw";
+	"TAP::Parser::Source::switches";
+	"TAP::Parser::Source::test_args";
+	"TAP::Parser::Source::merge";
+}
+subgraph cluster_TAP_Formatter_Base {
+	label="TAP::Formatter::Base";
+	"TAP::Formatter::Base::_get_output_method";
+}
+subgraph cluster_main {
+	label="main";
+	"main::RUNTIME";
+}
+subgraph cluster_TAP_Base {
+	label="TAP::Base";
+	"TAP::Base::_has_callbacks";
+	"TAP::Base::get_time";
+	"TAP::Base::_initialize";
+}
+subgraph cluster_TAP_Parser_Result {
+	label="TAP::Parser::Result";
+	"TAP::Parser::Result::has_todo";
+	"TAP::Parser::Result::has_skip";
+	"TAP::Parser::Result::type";
+}
+subgraph cluster_TAP_Parser_Iterator_Process {
+	label="TAP::Parser::Iterator::Process";
+	"TAP::Parser::Iterator::Process::exit";
+	"TAP::Parser::Iterator::Process::wait";
+}
+subgraph cluster_TAP_Parser_Result_Test {
+	label="TAP::Parser::Result::Test";
+	"TAP::Parser::Result::Test::is_actual_ok";
+	"TAP::Parser::Result::Test::todo_passed";
+	"TAP::Parser::Result::Test::number";
+	"TAP::Parser::Result::Test::is_ok";
+}
+subgraph cluster_TAP_Parser_Result_Plan {
+	label="TAP::Parser::Result::Plan";
+	"TAP::Parser::Result::Plan::todo_list";
+	"TAP::Parser::Result::Plan::tests_planned";
+	"TAP::Parser::Result::Plan::plan";
+}
+subgraph cluster_TAP_Parser {
+	label="TAP::Parser";
+	"TAP::Parser::END";
+	"TAP::Parser::BEGIN@3";
+	"TAP::Parser::BEGIN@7";
+	"TAP::Parser::__ANON__[TAP/Parser.pm:1155]";
+	"TAP::Parser::ignore_exit";
+	"TAP::Parser::_default_result_factory_class";
+	"TAP::Parser::BEGIN@44";
+	"TAP::Parser::BEGIN@19";
+	"TAP::Parser::BEGIN@14";
+	"TAP::Parser::next";
+	"TAP::Parser::BEGIN@4";
+	"TAP::Parser::__ANON__[TAP/Parser.pm:1182]";
+	"TAP::Parser::__ANON__[TAP/Parser.pm:1394]";
+	"TAP::Parser::skipped";
+	"TAP::Parser::BEGIN@11";
+	"TAP::Parser::_initialize";
+	"TAP::Parser::BEGIN@10";
+	"TAP::Parser::BEGIN@9";
+	"TAP::Parser::parse_errors";
+	"TAP::Parser::make_iterator_factory";
+	"TAP::Parser::todo_passed";
+	"TAP::Parser::_default_iterator_factory_class";
+	"TAP::Parser::BEGIN@6";
+	"TAP::Parser::BEGIN@17";
+	"TAP::Parser::BEGIN@12";
+	"TAP::Parser::__ANON__[TAP/Parser.pm:1310]";
+	"TAP::Parser::pragma";
+	"TAP::Parser::BEGIN@8";
+	"TAP::Parser::passed";
+	"TAP::Parser::_grammar";
+	"TAP::Parser::_iter";
+	"TAP::Parser::make_grammar";
+	"TAP::Parser::CORE:sort";
+	"TAP::Parser::_make_state_table";
+	"TAP::Parser::_default_grammar_class";
+	"TAP::Parser::failed";
+	"TAP::Parser::__ANON__[TAP/Parser.pm:1231]";
+	"TAP::Parser::BEGIN@13";
+	"TAP::Parser::__ANON__[TAP/Parser.pm:1452]";
+	"TAP::Parser::__ANON__[TAP/Parser.pm:1311]";
+	"TAP::Parser::make_result";
+	"TAP::Parser::has_problems";
+	"TAP::Parser::_finish";
+	"TAP::Parser::delete_spool";
+	"TAP::Parser::__ANON__[TAP/Parser.pm:1402]";
+	"TAP::Parser::BEGIN@15";
+	"TAP::Parser::todo";
+	"TAP::Parser::BEGIN@16";
+}
+subgraph cluster_TAP_Harness {
+	label="TAP::Harness";
+	"TAP::Harness::_aggregate_single";
+	"TAP::Harness::_close_spool";
+}
+subgraph cluster_TAP_Parser_IteratorFactory {
+	label="TAP::Parser::IteratorFactory";
+	"TAP::Parser::IteratorFactory::register_handler";
+	"TAP::Parser::IteratorFactory::make_iterator";
+}
+subgraph cluster_TAP_Parser_SourceHandler_File {
+	label="TAP::Parser::SourceHandler::File";
+	"TAP::Parser::SourceHandler::File::BEGIN@4";
+	"TAP::Parser::SourceHandler::File::BEGIN@6";
+	"TAP::Parser::SourceHandler::File::BEGIN@110";
+	"TAP::Parser::SourceHandler::File::BEGIN@3";
+	"TAP::Parser::SourceHandler::File::BEGIN@8";
+	"TAP::Parser::SourceHandler::File::BEGIN@7";
+}
+"TAP::Parser::__ANON__[TAP/Parser.pm:1394]" -> "TAP::Parser::__ANON__[TAP/Parser.pm:1155]";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1231]" -> "TAP::Parser::Result::Test::is_ok";
+"TAP::Object::_construct" -> "TAP::Parser::BEGIN@19";
+"TAP::Parser::_initialize" -> "TAP::Parser::IteratorFactory::make_iterator";
+"TAP::Parser::Aggregator::add" -> "TAP::Parser::skipped";
+"TAP::Parser::_initialize" -> "TAP::Parser::Source::test_args";
+"TAP::Object::_construct" -> "TAP::Parser::BEGIN@10";
+"TAP::Parser::BEGIN@19" -> "Exporter::import";
+"TAP::Parser::BEGIN@16" -> "TAP::Parser::SourceHandler::RawTAP::BEGIN@8";
+"TAP::Parser::_initialize" -> "TAP::Parser::_default_iterator_factory_class";
+"TAP::Parser::BEGIN@16" -> "TAP::Parser::SourceHandler::RawTAP::BEGIN@6";
+"TAP::Object::_construct" -> "TAP::Parser::BEGIN@8";
+"TAP::Parser::BEGIN@7" -> "TAP::Parser::Grammar::BEGIN@4";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1402]" -> "TAP::Parser::Iterator::Process::wait";
+"TAP::Object::_construct" -> "TAP::Parser::BEGIN@13";
+"TAP::Parser::BEGIN@16" -> "TAP::Parser::SourceHandler::RawTAP::BEGIN@3";
+"TAP::Parser::BEGIN@17" -> "TAP::Parser::SourceHandler::Handle::BEGIN@7";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1182]" -> "TAP::Parser::Result::Plan::todo_list";
+"TAP::Parser::BEGIN@16" -> "TAP::Parser::SourceHandler::RawTAP::BEGIN@4";
+"TAP::Parser::_initialize" -> "TAP::Parser::Source::merge";
+"TAP::Object::_construct" -> "TAP::Parser::BEGIN@16";
+"TAP::Parser::_initialize" -> "TAP::Parser::Source::raw";
+"TAP::Parser::_grammar" -> "TAP::Object::__ANON__[TAP/Object.pm:153]";
+"TAP::Parser::_iter" -> "TAP::Object::__ANON__[TAP/Object.pm:153]";
+"TAP::Parser::make_grammar" -> "TAP::Object::__ANON__[TAP/Object.pm:153]";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1231]" -> "TAP::Object::__ANON__[TAP/Object.pm:153]";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1182]" -> "TAP::Object::__ANON__[TAP/Object.pm:153]";
+"TAP::Parser::_initialize" -> "TAP::Object::__ANON__[TAP/Object.pm:153]";
+"TAP::Parser::make_result" -> "TAP::Object::__ANON__[TAP/Object.pm:153]";
+"TAP::Parser::has_problems" -> "TAP::Object::__ANON__[TAP/Object.pm:153]";
+"TAP::Parser::_finish" -> "TAP::Object::__ANON__[TAP/Object.pm:153]";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1402]" -> "TAP::Object::__ANON__[TAP/Object.pm:153]";
+"TAP::Parser::make_iterator_factory" -> "TAP::Object::__ANON__[TAP/Object.pm:153]";
+"TAP::Object::_construct" -> "TAP::Parser::BEGIN@7";
+"TAP::Parser::BEGIN@7" -> "TAP::Parser::Grammar::BEGIN@3";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1452]" -> "TAP::Parser::Grammar::tokenize";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1231]" -> "TAP::Parser::Result::Test::todo_passed";
+"TAP::Object::_construct" -> "TAP::Parser::BEGIN@44";
+"TAP::Parser::_initialize" -> "TAP::Parser::_default_result_factory_class";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1182]" -> "TAP::Parser::Result::has_skip";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1231]" -> "TAP::Parser::Result::has_skip";
+"TAP::Object::_construct" -> "TAP::Parser::BEGIN@4";
+"TAP::Parser::BEGIN@7" -> "TAP::Parser::Grammar::BEGIN@7";
+"TAP::Parser::BEGIN@7" -> "TAP::Parser::Grammar::CORE:qr";
+"TAP::Object::_construct" -> "TAP::Parser::BEGIN@9";
+"TAP::Object::_construct" -> "TAP::Parser::BEGIN@17";
+"TAP::Object::_construct" -> "TAP::Parser::BEGIN@12";
+"TAP::Parser::_iter" -> "TAP::Base::_has_callbacks";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1155]" -> "TAP::Parser::pragma";
+"TAP::Parser::ignore_exit" -> "TAP::Parser::pragma";
+"TAP::Parser::_iter" -> "TAP::Parser::_make_state_table";
+"TAP::Parser::make_result" -> "TAP::Parser::ResultFactory::make_result";
+"TAP::Parser::BEGIN@17" -> "TAP::Parser::SourceHandler::Handle::BEGIN@3";
+"TAP::Parser::_finish" -> "TAP::Parser::failed";
+"TAP::Parser::Aggregator::add" -> "TAP::Parser::failed";
+"TAP::Parser::has_problems" -> "TAP::Parser::failed";
+"TAP::Parser::BEGIN@15" -> "TAP::Parser::SourceHandler::File::BEGIN@8";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1231]" -> "TAP::Parser::Result::Test::number";
+"TAP::Formatter::Base::_get_output_method" -> "TAP::Parser::has_problems";
+"Test::Harness::runtests" -> "TAP::Parser::has_problems";
+"TAP::Formatter::Console::Session::__ANON__[TAP/Formatter/Console/Session.pm:205]" -> "TAP::Parser::has_problems";
+"TAP::Harness::_close_spool" -> "TAP::Parser::delete_spool";
+"TAP::Parser::_finish" -> "TAP::Base::get_time";
+"TAP::Parser::_iter" -> "TAP::Base::get_time";
+"main::RUNTIME" -> "TAP::Parser::END";
+"TAP::Object::_construct" -> "TAP::Parser::BEGIN@3";
+"TAP::Parser::BEGIN@44" -> "TAP::Object::mk_methods";
+"TAP::Harness::_aggregate_single" -> "TAP::Parser::next";
+"TAP::Parser::_initialize" -> "TAP::Parser::Source::switches";
+"TAP::Object::new" -> "TAP::Parser::_initialize";
+"TAP::Parser::BEGIN@17" -> "TAP::Parser::SourceHandler::Handle::BEGIN@104";
+"TAP::Parser::Aggregator::add" -> "TAP::Parser::parse_errors";
+"TAP::Parser::has_problems" -> "TAP::Parser::parse_errors";
+"TAP::Parser::BEGIN@17" -> "TAP::Parser::IteratorFactory::register_handler";
+"TAP::Parser::BEGIN@15" -> "TAP::Parser::IteratorFactory::register_handler";
+"TAP::Parser::BEGIN@16" -> "TAP::Parser::IteratorFactory::register_handler";
+"TAP::Parser::_initialize" -> "TAP::Parser::make_iterator_factory";
+"TAP::Object::_construct" -> "TAP::Parser::BEGIN@6";
+"TAP::Parser::BEGIN@16" -> "TAP::Parser::SourceHandler::RawTAP::BEGIN@7";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1231]" -> "TAP::Parser::Result::Test::is_actual_ok";
+"TAP::Parser::BEGIN@15" -> "TAP::Parser::SourceHandler::File::BEGIN@110";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1394]" -> "TAP::Parser::__ANON__[TAP/Parser.pm:1310]";
+"TAP::Parser::_finish" -> "TAP::Parser::passed";
+"TAP::Parser::Aggregator::add" -> "TAP::Parser::passed";
+"TAP::Parser::_finish" -> "TAP::Parser::_grammar";
+"TAP::Parser::_iter" -> "TAP::Parser::_grammar";
+"TAP::Parser::_grammar" -> "TAP::Parser::make_grammar";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1182]" -> "TAP::Parser::Result::Plan::tests_planned";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1182]" -> "TAP::Parser::Result::Plan::plan";
+"TAP::Parser::_initialize" -> "TAP::Object::new";
+"TAP::Parser::make_grammar" -> "TAP::Object::new";
+"TAP::Parser::make_iterator_factory" -> "TAP::Object::new";
+"TAP::Parser::Grammar::tokenize" -> "TAP::Parser::make_result";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1402]" -> "TAP::Parser::_finish";
+"TAP::Object::_construct" -> "TAP::Parser::BEGIN@15";
+"TAP::Parser::BEGIN@7" -> "TAP::Parser::Grammar::CORE:regcomp";
+"TAP::Parser::_initialize" -> "TAP::Parser::ignore_exit";
+"TAP::Parser::Aggregator::add" -> "TAP::Parser::ignore_exit";
+"TAP::Parser::has_problems" -> "TAP::Parser::ignore_exit";
+"TAP::Parser::BEGIN@17" -> "TAP::Parser::SourceHandler::Handle::BEGIN@8";
+"TAP::Object::_construct" -> "TAP::Parser::BEGIN@14";
+"TAP::Parser::BEGIN@17" -> "TAP::Parser::SourceHandler::Handle::BEGIN@6";
+"TAP::Parser::_initialize" -> "TAP::Base::_initialize";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1452]" -> "TAP::Parser::__ANON__[TAP/Parser.pm:1394]";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1394]" -> "TAP::Parser::__ANON__[TAP/Parser.pm:1182]";
+"TAP::Parser::BEGIN@4" -> "vars::import";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1402]" -> "TAP::Parser::Iterator::Process::exit";
+"TAP::Object::_construct" -> "TAP::Parser::BEGIN@11";
+"TAP::Parser::BEGIN@15" -> "TAP::Parser::SourceHandler::File::BEGIN@6";
+"TAP::Parser::Aggregator::add" -> "TAP::Parser::todo_passed";
+"TAP::Parser::BEGIN@15" -> "TAP::Parser::SourceHandler::File::BEGIN@4";
+"TAP::Parser::BEGIN@15" -> "TAP::Parser::SourceHandler::File::BEGIN@7";
+"TAP::Parser::next" -> "TAP::Parser::_iter";
+"TAP::Parser::_make_state_table" -> "TAP::Parser::CORE:sort";
+"TAP::Parser::_initialize" -> "TAP::Parser::CORE:sort";
+"TAP::Parser::_initialize" -> "TAP::Parser::_default_grammar_class";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1394]" -> "TAP::Parser::__ANON__[TAP/Parser.pm:1231]";
+"TAP::Parser::next" -> "TAP::Parser::__ANON__[TAP/Parser.pm:1452]";
+"TAP::Parser::BEGIN@7" -> "TAP::Parser::Grammar::BEGIN@8";
+"TAP::Parser::BEGIN@7" -> "TAP::Parser::Grammar::BEGIN@6";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1231]" -> "TAP::Parser::Result::has_todo";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1394]" -> "TAP::Parser::Result::type";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1394]" -> "TAP::Parser::__ANON__[TAP/Parser.pm:1311]";
+"TAP::Parser::BEGIN@17" -> "TAP::Parser::SourceHandler::Handle::BEGIN@4";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1452]" -> "TAP::Parser::__ANON__[TAP/Parser.pm:1402]";
+"TAP::Parser::BEGIN@15" -> "TAP::Parser::SourceHandler::File::BEGIN@3";
+"TAP::Parser::Aggregator::add" -> "TAP::Parser::todo";
+"TAP::Parser::BEGIN@3" -> "strict::import";
+}

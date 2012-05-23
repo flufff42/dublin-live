@@ -1,0 +1,34 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojo_Path {
+	label="Mojo::Path";
+	"Mojo::Path::BEGIN@2";
+	"Mojo::Path::BEGIN@9";
+	"Mojo::Path::BEGIN@4";
+	"Mojo::Path::BEGIN@8";
+}
+subgraph cluster_Mojo_URL {
+	label="Mojo::URL";
+	"Mojo::URL::BEGIN@9";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_overload {
+	label="overload";
+	"overload::import";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+"Mojo::Path::BEGIN@8" -> "Exporter::import";
+"Mojo::URL::BEGIN@9" -> "Mojo::Path::BEGIN@9";
+"Mojo::Path::BEGIN@9" -> "Mojo::Base::import";
+"Mojo::Path::BEGIN@2" -> "Mojo::Base::import";
+"Mojo::Path::BEGIN@4" -> "overload::import";
+"Mojo::URL::BEGIN@9" -> "Mojo::Path::BEGIN@2";
+"Mojo::URL::BEGIN@9" -> "Mojo::Path::BEGIN@4";
+"Mojo::URL::BEGIN@9" -> "Mojo::Path::BEGIN@8";
+}

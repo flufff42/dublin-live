@@ -1,0 +1,26 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_IO_Poll {
+	label="IO::Poll";
+	"IO::Poll::BEGIN@12";
+	"IO::Poll::BEGIN@11";
+	"IO::Poll::BEGIN@10";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Mojo_IOWatcher {
+	label="Mojo::IOWatcher";
+	"Mojo::IOWatcher::BEGIN@4";
+}
+"IO::Poll::BEGIN@11" -> "Exporter::import";
+"Mojo::IOWatcher::BEGIN@4" -> "IO::Poll::BEGIN@11";
+"Mojo::IOWatcher::BEGIN@4" -> "IO::Poll::BEGIN@10";
+"Mojo::IOWatcher::BEGIN@4" -> "IO::Poll::BEGIN@12";
+"IO::Poll::BEGIN@10" -> "strict::import";
+}

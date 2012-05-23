@@ -14,7 +14,6 @@
 	box-sizing: border-box;
 }
 html {
-
 background: linear-gradient(#fff, #aaa) #aaa;
 min-height:100%;
 font-family: "Gill Sans", sans-serif;
@@ -22,27 +21,25 @@ border-top: 0;
 border-right: 0;
 border-bottom: 0;
 margin: 0;
-overflow-x: hidden;
+/*overflow-x: hidden;*/
 background-repeat: no-repeat;
 }
+.line {
+	background: none;
+}
+
 #sign {
 	border: 1px solid #ccc;
 	padding: 4px;
 	box-shadow: 1px 2px 7px #444;
 	color: rgba(235,25,25,0.7);
 }
-#sign::before {
+#sign::before, .stopPermaLink::before, .locationAttach::before, .mapLink::before {
 	font-family: icons;
 	content: attr(data-icon);
 	padding-right: 5px;
 }
-.locationAttach {
-	
-}
-.locationAttach::before {
-	font-family: icons;
-	content: attr(data-icon);
-}
+
 .button {
 	border-radius: 10px;
 	border: 1px solid #DDD;
@@ -64,14 +61,17 @@ background-repeat: no-repeat;
 #time-line {
 	height: 100%;
 	position: absolute;
-	z-index: 2;
+	z-index: -22;
 	font-weight: 200;
+	user-select: none;
+	cursor: default;
 }
 .timeline-time {
 	border-left: 1px dotted rgba(110,180,235,0.3);
 	display: inline-block;
 	height: 100%;
-	
+	user-select: none;
+	cursor: default;
 	position: absolute;
 }
 
@@ -211,7 +211,7 @@ body {
 	border-radius: 3px;
 	padding: 5px;
 	position: relative;
-	z-index: 10;
+	
 }
 #suggestions dl dt {
 	font-weight: 300;
@@ -239,6 +239,7 @@ body {
 }
 #results .service {
 	text-align: center;
+	z-index: 100 !important;
 }
 
 #results .service {
@@ -251,8 +252,9 @@ body {
 #stopDirection {
 	margin: 0;
 }
-#results .service .destination {
-	/*background-color: rgba(200,200,200,0.4);*/
+#results {
+	user-select: none;
+	cursor: default;
 }
 #results .service .time {
 	display: inline-block;/*background-color: rgba(200,200,200,0.4);*/
@@ -262,129 +264,302 @@ body {
 .r2,.r3,.r7,.r8,.r7B,.r7D,.r11,.r15,.r15A,.r15B,.r16,.r16C,.r25X,.r27B,.r27X,.r29A,.r31,.r31B,.r32,.r32B,.r32A,.r32X,.r33,.r33A,.r33B,.r33D,.r33X,.r38B,.r40B,.r41,.r41A,.r41B,.r41C,.r41X,.r42,.r44,.r44B,.r45,.r45A,.r49,.r51D,.r51X,.r53,.r53A,.r54A,.r56A,.r59,.r61,.r65,.r65B,.r66,.r66A,.r66B,.r66X,.r67X,.r68,.r68A,.r69,.r69X,.r70N,.r77A,.r77X,.r79A,.r84X,.r90,.r102,.r111,.r116,.r118,.r123,.r130,.r142,.r150,.r161,.r210,.r221	
  {
 	background-color: yellow;
+	background-top-color: yellow;
 	color: black;
 }
 .r747 {
 	color: white;
 	background-color: rgb(0,160,150);
+ border-top-color: rgb(0,160,150);
+	
 }
 .r7N, .r25N,.r15N,.r29N,.r31N,.r33N,.r39N,.r42N,.r41N,.r46N,.r49N,.r66N,.r67N,.r69N,.r77N,.r84N,.r88N{
 	background-color: navy;
+	background-top-color: navy;
 	color: yellow;
 }
 .r40 {
 	color: rgb(255,255,255);
 background-color: rgb(240,55,65);
+ border-top-color: rgb(240,55,65);
+
 
 }
 .r40D {
 	color: rgb(255,255,255);
 background-color: rgb(130,190,55);
+ border-top-color: rgb(130,190,55);
+
 }
 .r104,.r18,.r17A,.r16A {
 	color: rgb(255,255,255);
 background-color: rgb(150,150,150);
+ border-top-color: rgb(150,150,150);
 }
 .r66,.r66B,.r66A {
 color: rgb(255,255,255);
 background-color: rgb(135,80,150);
+ border-top-color: rgb(135,80,150);
 }
 .r25A,.r25B,.r25{
 color: rgb(255,255,255);
 background-color: rgb(235,0,130);
+ border-top-color: rgb(235,0,130);
 
 }
 .r4 {
 color: rgb(255,255,255);
 background-color: rgb(160,120,110);
+ border-top-color: rgb(160,120,110);
 }
 .r1 {
 color: rgb(255,255,255);
 background-color: rgb(110,180,170);
+ border-top-color: rgb(110,180,170);
 
 }
 .r17, .r13, .r27A {
 color: rgb(255,255,255);
 background-color: rgb(0,110,160);
+ border-top-color: rgb(0,110,160);
 
 }
 .r83, .r38, .r38A, .r120 {
 color: rgb(255,255,255);
 background-color: rgb(233,0,129);
+ border-top-color: rgb(233,0,129);
 }
 .r140, .r37,.r26 {
 color: rgb(255,255,255);
 background-color: rgb(5,130,60);
+ border-top-color: rgb(5,130,60);
 }
 .r239 {
 color: rgb(255,255,255);
 background-color: rgb(120,170,220);
+ border-top-color: rgb(120,170,220);
 }
 .r39, .r39A, .r122,.r27,.r9 {
 color: rgb(255,255,255);
 background-color: rgb(240,120,90);
+ border-top-color: rgb(240,120,90);
 }
 .r270 {
 color: rgb(255,255,255);
 background-color: rgb(150,200,50);
+ border-top-color: rgb(150,200,50);
 }
 .r70,.r128 {
 color: rgb(255,255,255);
 background-color: rgb(125,70,135);
+ border-top-color: rgb(125,70,135);
 }
 .r220, .r151 {
 color: rgb(255,255,255);
 background-color: rgb(0,120,180);
+ border-top-color: rgb(0,120,180);
 }
 .r238 {
 color: rgb(255,255,255);
 background-color: rgb(75,150,160);
+ border-top-color: rgb(75,150,160);
 }
 .r236 {
 color: rgb(255,255,255);
 background-color: rgb(240,80,40);
+ border-top-color: rgb(240,80,40);
 }
 .r76, .r76A, .r76B {
 color: rgb(255,255,255);
 background-color: rgb(85,50,20);
+ border-top-color: rgb(85,50,20);
 }
 .r184,.r43 {
 color: rgb(255,255,255);
 background-color: rgb(105,180,170);
+ border-top-color: rgb(105,180,170);
 }
 .r84 {
 color: rgb(255,255,255);
 background-color: rgb(70,45,30);
+ border-top-color: rgb(70,45,30);
 }
 .r185 {
 color: rgb(255,255,255);
 background-color: rgb(40,55,60);
+ border-top-color: rgb(40,55,60);
 }
 .r145,.r67 {
 color: rgb(255,255,255);
 background-color: rgb(225,115,85);
+ border-top-color: rgb(225,115,85);
 }
 .r63 {
 color: rgb(255,255,255);
 background-color: rgb(35,155,130);
+ border-top-color: rgb(35,155,130);
 }
 .r75 {
 color: rgb(255,255,255);
 background-color: rgb(120,165,200);
+ border-top-color: rgb(120,165,200);
 }
 .r46A,.r46E,.r79 {
 color: rgb(255,255,255);
 background-color: rgb(210,20,115);
+ border-top-color: rgb(210,20,115);
 }
 .r63 {
 color: rgb(255,255,255);
 background-color: rgb(35,155,130);
+ border-top-color: rgb(35,155,130);
 }
 .r114 {
 color: rgb(255,255,255);
 background-color: rgb(140,190,55);
+ border-top-color: rgb(140,190,55);
 }
 .r47,.r14 {
 color: rgb(255,255,255);
 background-color: rgb(0,120,60);
+ border-top-color: rgb(0,120,60);
+}
+/*
+#linediagInbound, #linediagOutbound {
+	overflow-x: scroll;
+	height: 350px;
+}
+#linediagInbound div, #linediagOutbound div {
+	display: inline-block;
+	width: 40px;
+}
+
+#linediagInbound div:nth-child(2n):not(:last-child) span.stopName, #linediagOutbound div:nth-child(2n):not(:last-child) span.stopName {
+	margin-bottom: -120px;
+}
+
+.stopName {
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin: 5px 0;
+	line-height: 12px;
+	font-size: 10px;
+}
+
+.stopRoutes {
+	
+	padding: 10px;
+	width: 100%;
+	display: block;
+	text-align: center;
+	margin-top: 5px;
+}
+.line {
+border-top: 5px solid navy;
+	padding: 10px;
+	width: 100%;
+	display: block;
+	text-align: center;
+	margin-top: 5px;
+}
+.stopRoutes span {
+	display: block;
+}
+.line body div div:last-child .stopRoutes {
+	border-top: 5px solid red;
+}
+.line body div div:last-child {
+	border-right: 5px solid red;
+}
+.line body div div:first-child .stopRoutes {
+	border-top: 5px solid green;
+}
+.line body div div:first-child {
+	border-left: 5px solid green;
+}
+
+.normalStop {
+	width: 100%;
+	display: block;
+	text-align: center;
+	margin-bottom: -11px;
+	font-weight: bold;
+	font-size: 36pt;
+	color: navy;
+	z-index: 100;
+}
+
+.interchangeStop {
+	width: 100%;
+	display: block;
+	text-align: center;
+	
+	font-weight: bold;
+	
+	color: navy;
+	z-index: 100;
+	font-size: 24pt;
+	margin-bottom: -15px;
+}
+
+.vehiclePosition {
+	text-shadow: 0px 0px 20px navy;
+}
+*/
+#linediagInbound, #linediagOutbound {
+	/*overflow: scroll;*/
+}
+#linevisual {
+	width: 100%;
+	border-top-width: 5px;
+	border-top-style: solid;
+}
+
+#outboundTop, #inboundTop {
+margin-bottom: -4px;
+}
+
+#outboundTop div, #inboundTop div {
+margin-bottom: -10px;
+text-align: center;
+}
+
+#outboundTop div, #outboundBottom div, #inboundTop div, #inboundBottom div {
+width: 80px;
+display: inline-block;
+}
+
+.normalStop {
+width: 100%;
+text-align: center;
+display: block;
+color: 
+navy;
+font-size: 24pt;
+}
+
+.interchangeStop {
+width: 100%;
+text-align: center;
+display: block;
+color: 
+navy;
+font-size: 20pt;
+margin-bottom: -3px;
+}
+
+#outboundBottom, #inboundBottom {
+margin-top: 10px;
+}
+
+#outboundBottom div, #inboundBottom div {
+vertical-align: top;
+text-align: center;
+}
+.stopRoutes span {
+display: inline-block;
+padding: 3px;
+margin: 3px;
+border-radius: 3px;
 }

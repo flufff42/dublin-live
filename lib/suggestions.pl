@@ -2,7 +2,7 @@ use Modern::Perl;
 use Data::Dumper;
 our $stops;
 
-post '/suggestion/' => sub {
+sub findSuggestions() {
     my $self            = shift;
     my $suggestions     = "";
     my $suggestionsHash = ();
@@ -21,7 +21,7 @@ post '/suggestion/' => sub {
             $suggestionsHash->{$stopId} = $stops->{$stopId};
         }
     }
-    say Dumper $suggestionsHash;
+    #say Dumper $suggestionsHash;
     $self->stash( suggestions => $suggestions );
     $self->res->headers->cache_control('max-age=600');
     if ( $suggestions eq "" ) {
@@ -32,4 +32,6 @@ post '/suggestion/' => sub {
         $self->render_json($suggestionsHash);
     }
 
-};
+}
+
+1
