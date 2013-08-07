@@ -17,6 +17,7 @@ Map
 	$('document').ready(function() {
 		$('#mapbox').css('width',window.innerWidth+"px");
 		$('#mapbox').css('height',window.innerHeight+"px");
+		initmap();
 	});
 	
 </script>

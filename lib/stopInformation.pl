@@ -53,6 +53,46 @@ sub getRealTimeInformationForStop {
     
 }
 
+sub getJourneysStopData {
+	my $stopId = shift;
+	my $soap = SOAP::Lite->new( proxy =>
+          'http://rtpi.dublinbus.biznetservers.com/DublinBusRTPIService.asmx' );
+
+    $soap->on_action(\&soapOnActionURL);
+    $soap->autotype(0);
+    $soap->default_ns('http://dublinbus.ie/');
+    my $som = $soap->call(
+        "GetRealTimeStopData",
+        SOAP::Data->name('stopId')->value($stopId),
+        SOAP::Data->name('forceRefresh')->value("false")
+    );
+    die $som->fault->{faultstring} if ( $som->fault );
+    my $services = $som->result->{diffgram}->{DocumentElement}->{StopData} unless ($som->result eq "" || $som->result->{diffgram} eq "");
+    say Dumper $services;
+    if ($services) {
+    my $results = ();
+    my $serviceCount = 0;
+    if (ref $services eq "ARRAY") {
+      for my $service (@$services) {
+      		my $result = ();
+            $result->{"line"} = $service->{MonitoredVehicleJourney_PublishedLineName};
+            $result->{"aimedDate"} = $service->{MonitoredCall_AimedArrivalTime};
+            $result->{"expectedDate"} = $service->{MonitoredCall_ExpectedArrivalTime};
+            $result->{"direction"} = $service->{MonitoredVehicleJourney_DestinationName};
+            push(@{$results},$result);
+      }
+    } else {
+    	  my $result = ();
+    	  $result->{"line"} = $services->{MonitoredVehicleJourney_PublishedLineName};
+            $result->{"aimedDate"} = $services->{MonitoredCall_AimedArrivalTime};
+            $result->{"expectedDate"} = $services->{MonitoredCall_ExpectedArrivalTime};
+            $result->{"direction"} = $services->{MonitoredVehicleJourney_DestinationName};
+          push(@{$results},$result);
+    }
+    return $results;
+    }
+}
+
 sub soapOnActionURL {
 	"http://dublinbus.ie/GetRealTimeStopData";
 }

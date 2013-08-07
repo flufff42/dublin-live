@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, height=device-height" />
 <meta name="apple-mobile-web-app-capable" content="yes">
-<link rel="stylesheet" href="dublinBusLive.css"/>
+<link rel="stylesheet" href="http://dublin.lsr.li/dublinBusLive.css"/>
+<link rel="stylesheet" href="http://dublin.lsr.li/scripts/leaflet/leaflet.css"/>
 <title>
 Dublin Bus Live Times
 </title>
-<script type="text/javascript" src="http://bit.ly/jqsource"></script>          
-<script type="text/javascript" src="dublinBusLive.js"></script>
-<script type="text/javascript" src="util.js"></script>
-<script type="text/javascript" src="geo.js"></script>
-<script type="text/javascript" src="templates.js"></script>
-<script type="text/javascript" src="suggestions.js"></script>
-<script type="text/javascript" src="results.js"></script>
-<script type="text/javascript" src="mustache.js"></script>
-<script type="text/javascript" src="prefixfree.min.js"></script>
-<script type="text/javascript" src="prefixfree.jquery.js"></script>
-<script type="text/javascript" src="underscore.js"></script>
-<script type="text/javascript" src="backbone.js"></script>
+<script data-main="//dublin.lsr.li/scripts/dublinBusLive" src="//dublin.lsr.li/scripts/require.js"></script>
 </head>
 <body>
 <div id="top">
-<h4>Dublin Live Times</h4>
+<h4 id="lozengebar">Dublin Bus
+	<span id="Departures" class="selected">Live Departures Times</span>
+	<span id="Maps">Maps</span>
+	<span id="Routes">Route Schematics</span>
+	<span id="Trips">Trip Planner</span>
+</h4>
 <h6 id="stopDirection"></h6>
 <form><input type="text" id="stopSearch" value="Search for a stop here"></form>
 <div id="suggestions"></div>
 </div>
-<div width="100%" id="results-frame">
+<div id="results-frame" style="Width: 100%">
 <div id="time-line"></div>
 </div>
 </body>

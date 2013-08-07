@@ -2,15 +2,42 @@
 use Modern::Perl;
 use Mojo::JSON;
 use Mojo::DOM;
+use Mojo::UserAgent;
 use Data::Dumper;
 use SOAP::Lite;
 use utf8;
-open S, "<", "DublinBusStopListing.xml";
-$|++;
-my $stopsSOAP = <S>;
+
+my $stopsSOAP;
+
+if ($ARGV[0] eq "migrate") {
+	say "Migrating...";
+	open X, ">", "DublinBusStopListing.xml";
+	my $ua = Mojo::UserAgent->new;
+	my $tx = $ua->post('http://rtpi.dublinbus.biznetservers.com/DublinBusRTPIService.asmx' => {"Content-Type" => "text/xml; charset=utf-8", "SOAPAction" => '"http://dublinbus.ie/GetAllDestinations"'} =>'<?xml version="1.0" encoding="utf-8"?>
+  <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+      <GetAllDestinations xmlns="http://dublinbus.ie/"/>
+    </soap:Body>
+  </soap:Envelope>');
+  
+    my $stopVehicles = ();
+    
+    say X $tx->res->body;
+    close X;
+    
+    open S, "<", "DublinBusStopListing.xml";
+    $|++;
+	$stopsSOAP = <S>;
 while (<S>) { chomp; $stopsSOAP .= $_; }
+    
+} else {
+	open S, "<", "DublinBusStopListing.xml";
+	$|++;
+	$stopsSOAP = <S>;
+	while (<S>) { chomp; $stopsSOAP .= $_; }
+}
 open J, ">", "DublinBusStopListing.json";
-#say $stopsSOAP;
+#die $stopsSOAP;
 my $dom             = Mojo::DOM->new($stopsSOAP);
 #getRealTimeInformationForStop(12);
 createStopsJSON();
