@@ -1,0 +1,47 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Config {
+	label="Config";
+	"Config::import";
+}
+subgraph cluster_constant {
+	label="constant";
+	"constant::import";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Mojo_Transaction_WebSocket {
+	label="Mojo::Transaction::WebSocket";
+	"Mojo::Transaction::WebSocket::BEGIN@6";
+	"Mojo::Transaction::WebSocket::BEGIN@2";
+	"Mojo::Transaction::WebSocket::BEGIN@10";
+	"Mojo::Transaction::WebSocket::BEGIN@13";
+	"Mojo::Transaction::WebSocket::BEGIN@7";
+	"Mojo::Transaction::WebSocket::BEGIN@8";
+	"Mojo::Transaction::WebSocket::BEGIN@16";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+subgraph cluster_Mojo_Transaction_HTTP {
+	label="Mojo::Transaction::HTTP";
+	"Mojo::Transaction::HTTP::BEGIN@4";
+}
+"Mojo::Transaction::WebSocket::BEGIN@8" -> "Exporter::import";
+"Mojo::Transaction::HTTP::BEGIN@4" -> "Mojo::Transaction::WebSocket::BEGIN@10";
+"Mojo::Transaction::HTTP::BEGIN@4" -> "Mojo::Transaction::WebSocket::BEGIN@7";
+"Mojo::Transaction::WebSocket::BEGIN@6" -> "Config::import";
+"Mojo::Transaction::HTTP::BEGIN@4" -> "Mojo::Transaction::WebSocket::BEGIN@16";
+"Mojo::Transaction::WebSocket::BEGIN@7" -> "Mojo::Base::import";
+"Mojo::Transaction::WebSocket::BEGIN@2" -> "Mojo::Base::import";
+"Mojo::Transaction::HTTP::BEGIN@4" -> "Mojo::Transaction::WebSocket::BEGIN@2";
+"Mojo::Transaction::WebSocket::BEGIN@16" -> "constant::import";
+"Mojo::Transaction::WebSocket::BEGIN@10" -> "constant::import";
+"Mojo::Transaction::WebSocket::BEGIN@13" -> "constant::import";
+"Mojo::Transaction::HTTP::BEGIN@4" -> "Mojo::Transaction::WebSocket::BEGIN@8";
+"Mojo::Transaction::HTTP::BEGIN@4" -> "Mojo::Transaction::WebSocket::BEGIN@6";
+"Mojo::Transaction::HTTP::BEGIN@4" -> "Mojo::Transaction::WebSocket::BEGIN@13";
+}

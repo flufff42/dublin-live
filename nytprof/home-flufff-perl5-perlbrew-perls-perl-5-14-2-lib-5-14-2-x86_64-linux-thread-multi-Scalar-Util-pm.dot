@@ -1,0 +1,30 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojolicious_Routes {
+	label="Mojolicious::Routes";
+	"Mojolicious::Routes::add_child";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_Mojo_Home {
+	label="Mojo::Home";
+	"Mojo::Home::BEGIN@10";
+}
+subgraph cluster_Scalar_Util {
+	label="Scalar::Util";
+	"Scalar::Util::BEGIN@9";
+	"Scalar::Util::BEGIN@10";
+	"Scalar::Util::weaken";
+}
+"Mojo::Home::BEGIN@10" -> "Scalar::Util::BEGIN@9";
+"Mojolicious::Routes::add_child" -> "Scalar::Util::weaken";
+"Mojo::Home::BEGIN@10" -> "Scalar::Util::BEGIN@10";
+"Scalar::Util::BEGIN@10" -> "vars::import";
+"Scalar::Util::BEGIN@9" -> "strict::import";
+}

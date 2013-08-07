@@ -1,0 +1,58 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_File_Basename {
+	label="File::Basename";
+	"File::Basename::fileparse";
+}
+subgraph cluster_Mojo_Home {
+	label="Mojo::Home";
+	"Mojo::Home::BEGIN@12";
+}
+subgraph cluster_File_Spec_Unix {
+	label="File::Spec::Unix";
+	"File::Spec::Unix::file_name_is_absolute";
+	"File::Spec::Unix::path";
+	"File::Spec::Unix::catfile";
+}
+subgraph cluster_FindBin {
+	label="FindBin";
+	"FindBin::BEGIN@95";
+	"FindBin::BEGIN@98";
+	"FindBin::CORE:match";
+	"FindBin::CORE:ftfile";
+	"FindBin::BEGIN@205";
+	"FindBin::CORE:readlink";
+	"FindBin::init";
+	"FindBin::BEGIN@99";
+	"FindBin::BEGIN@100";
+	"FindBin::cwd2";
+}
+subgraph cluster_Cwd {
+	label="Cwd";
+	"Cwd::abs_path";
+	"Cwd::getcwd";
+}
+"FindBin::init" -> "File::Basename::fileparse";
+"FindBin::BEGIN@98" -> "Exporter::import";
+"FindBin::BEGIN@99" -> "Exporter::import";
+"FindBin::BEGIN@95" -> "Exporter::import";
+"Mojo::Home::BEGIN@12" -> "FindBin::BEGIN@98";
+"FindBin::init" -> "FindBin::CORE:match";
+"FindBin::init" -> "FindBin::CORE:ftfile";
+"FindBin::BEGIN@205" -> "FindBin::init";
+"FindBin::init" -> "FindBin::CORE:readlink";
+"FindBin::init" -> "Cwd::abs_path";
+"FindBin::init" -> "FindBin::cwd2";
+"FindBin::init" -> "File::Spec::Unix::path";
+"Mojo::Home::BEGIN@12" -> "FindBin::BEGIN@100";
+"Mojo::Home::BEGIN@12" -> "FindBin::BEGIN@99";
+"FindBin::cwd2" -> "Cwd::getcwd";
+"FindBin::init" -> "File::Spec::Unix::file_name_is_absolute";
+"Mojo::Home::BEGIN@12" -> "FindBin::BEGIN@95";
+"Mojo::Home::BEGIN@12" -> "FindBin::BEGIN@205";
+"FindBin::init" -> "File::Spec::Unix::catfile";
+}

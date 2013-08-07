@@ -1,0 +1,207 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Config {
+	label="Config";
+	"Config::FETCH";
+}
+subgraph cluster_Encode {
+	label="Encode";
+	"Encode::CORE:match";
+	"Encode::BEGIN@6";
+	"Encode::BEGIN@13";
+	"Encode::BEGIN@9";
+	"Encode::predefine_encodings";
+	"Encode::BEGIN@5";
+	"Encode::BEGIN@48";
+	"Encode::BEGIN@240";
+}
+subgraph cluster_DynaLoader {
+	label="DynaLoader";
+	"DynaLoader::BEGIN@18";
+	"DynaLoader::BEGIN@22";
+	"DynaLoader::bootstrap";
+}
+subgraph cluster_Errno {
+	label="Errno";
+	"Errno::BEGIN@9";
+	"Errno::BEGIN@8";
+	"Errno::TIEHASH";
+	"Errno::BEGIN@21";
+}
+subgraph cluster_IO_File {
+	label="IO::File";
+	"IO::File::new";
+	"IO::File::open";
+}
+subgraph cluster_XSLoader {
+	label="XSLoader";
+	"XSLoader::load";
+}
+subgraph cluster_IO_Handle {
+	label="IO::Handle";
+	"IO::Handle::sysread";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_MIME_Base64 {
+	label="MIME::Base64";
+	"MIME::Base64::BEGIN@3";
+	"MIME::Base64::BEGIN@4";
+}
+subgraph cluster_IO_Seekable {
+	label="IO::Seekable";
+	"IO::Seekable::sysseek";
+}
+subgraph cluster_Mojo_Home {
+	label="Mojo::Home";
+	"Mojo::Home::BEGIN@14";
+	"Mojo::Home::slurp_rel_file";
+}
+subgraph cluster_Digest_SHA {
+	label="Digest::SHA";
+	"Digest::SHA::BEGIN@5";
+	"Digest::SHA::BEGIN@8";
+	"Digest::SHA::BEGIN@6";
+	"Digest::SHA::BEGIN@7";
+}
+subgraph cluster_File_Copy {
+	label="File::Copy";
+	"File::Copy::BEGIN@10";
+	"File::Copy::BEGIN@11";
+	"File::Copy::BEGIN@13";
+	"File::Copy::BEGIN@47";
+	"File::Copy::BEGIN@12";
+	"File::Copy::BEGIN@14";
+}
+subgraph cluster_MIME_QuotedPrint {
+	label="MIME::QuotedPrint";
+	"MIME::QuotedPrint::BEGIN@4";
+	"MIME::QuotedPrint::BEGIN@12";
+	"MIME::QuotedPrint::BEGIN@3";
+}
+subgraph cluster_Digest_base {
+	label="Digest::base";
+	"Digest::base::BEGIN@3";
+	"Digest::base::BEGIN@4";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::__ANON__[(eval 17)[Mojo/Base.pm:98]:8]";
+	"Mojo::Base::import";
+	"Mojo::Base::__ANON__[(eval 15)[Mojo/Base.pm:98]:7]";
+}
+subgraph cluster_Encode_utf8 {
+	label="Encode::utf8";
+	"Encode::utf8::BEGIN@323";
+}
+subgraph cluster_Encode_Config {
+	label="Encode::Config";
+	"Encode::Config::BEGIN@7";
+	"Encode::Config::BEGIN@8";
+	"Encode::Config::CORE:match";
+}
+subgraph cluster_Digest_MD5 {
+	label="Digest::MD5";
+	"Digest::MD5::BEGIN@3";
+	"Digest::MD5::BEGIN@4";
+}
+subgraph cluster_Mojo_Util {
+	label="Mojo::Util";
+	"Mojo::Util::BEGIN@475";
+	"Mojo::Util::BEGIN@625";
+	"Mojo::Util::BEGIN@2";
+	"Mojo::Util::BEGIN@11";
+	"Mojo::Util::BEGIN@431";
+}
+subgraph cluster_Mojolicious {
+	label="Mojolicious";
+	"Mojolicious::BEGIN@6";
+}
+subgraph cluster_Mojo_Asset_File {
+	label="Mojo::Asset::File";
+	"Mojo::Asset::File::BEGIN@4";
+	"Mojo::Asset::File::slurp";
+	"Mojo::Asset::File::DESTROY";
+	"Mojo::Asset::File::CORE:ftfile";
+	"Mojo::Asset::File::BEGIN@5";
+	"Mojo::Asset::File::BEGIN@10";
+	"Mojo::Asset::File::BEGIN@8";
+	"Mojo::Asset::File::BEGIN@9";
+	"Mojo::Asset::File::BEGIN@6";
+	"Mojo::Asset::File::__ANON__[Mojo/Asset/File.pm:42]";
+	"Mojo::Asset::File::BEGIN@2";
+	"Mojo::Asset::File::BEGIN@7";
+}
+"Mojolicious::BEGIN@6" -> "Mojo::Asset::File::DESTROY";
+"Mojo::Asset::File::BEGIN@10" -> "MIME::Base64::BEGIN@3";
+"Mojo::Asset::File::BEGIN@5" -> "Errno::BEGIN@8";
+"Mojo::Asset::File::BEGIN@7" -> "File::Copy::BEGIN@47";
+"Mojo::Asset::File::BEGIN@10" -> "Mojo::Util::BEGIN@431";
+"Mojo::Home::slurp_rel_file" -> "Mojo::Asset::File::slurp";
+"Mojo::Asset::File::BEGIN@7" -> "Exporter::import";
+"Mojo::Asset::File::BEGIN@6" -> "Exporter::import";
+"Mojo::Asset::File::BEGIN@4" -> "Exporter::import";
+"Mojo::Asset::File::BEGIN@10" -> "Exporter::import";
+"Mojo::Asset::File::BEGIN@9" -> "Exporter::import";
+"Mojo::Asset::File::BEGIN@5" -> "Exporter::import";
+"Mojo::Asset::File::BEGIN@10" -> "DynaLoader::bootstrap";
+"Mojo::Asset::File::DESTROY" -> "Mojo::Base::__ANON__[(eval 15)[Mojo/Base.pm:98]:7]";
+"Mojo::Asset::File::BEGIN@10" -> "Encode::Config::CORE:match";
+"Mojo::Asset::File::BEGIN@10" -> "Encode::Config::BEGIN@7";
+"Mojo::Asset::File::slurp" -> "IO::Seekable::sysseek";
+"Mojo::Asset::File::BEGIN@10" -> "Digest::base::BEGIN@4";
+"Mojo::Asset::File::BEGIN@10" -> "Encode::BEGIN@9";
+"Mojo::Asset::File::BEGIN@7" -> "File::Copy::BEGIN@11";
+"Mojo::Asset::File::__ANON__[Mojo/Asset/File.pm:42]" -> "IO::File::open";
+"Mojo::Asset::File::BEGIN@10" -> "Encode::BEGIN@13";
+"Mojo::Asset::File::BEGIN@10" -> "Encode::BEGIN@48";
+"Mojo::Asset::File::BEGIN@10" -> "Encode::BEGIN@6";
+"Mojo::Asset::File::BEGIN@10" -> "Mojo::Util::BEGIN@11";
+"Mojo::Home::BEGIN@14" -> "Mojo::Asset::File::BEGIN@7";
+"Mojo::Asset::File::BEGIN@10" -> "Digest::SHA::BEGIN@6";
+"Mojo::Asset::File::BEGIN@10" -> "Encode::utf8::BEGIN@323";
+"Mojo::Asset::File::BEGIN@10" -> "XSLoader::load";
+"Mojo::Asset::File::BEGIN@10" -> "Digest::MD5::BEGIN@4";
+"Mojo::Asset::File::__ANON__[Mojo/Asset/File.pm:42]" -> "Mojo::Asset::File::CORE:ftfile";
+"Mojo::Home::BEGIN@14" -> "Mojo::Asset::File::BEGIN@6";
+"Mojo::Asset::File::BEGIN@10" -> "Mojo::Util::BEGIN@475";
+"Mojo::Asset::File::BEGIN@10" -> "Encode::BEGIN@5";
+"Mojo::Home::BEGIN@14" -> "Mojo::Asset::File::BEGIN@4";
+"Mojo::Asset::File::BEGIN@2" -> "Mojo::Base::import";
+"Mojo::Asset::File::BEGIN@10" -> "MIME::Base64::BEGIN@4";
+"Mojo::Asset::File::BEGIN@10" -> "Digest::SHA::BEGIN@8";
+"Mojo::Asset::File::BEGIN@5" -> "Errno::BEGIN@9";
+"Mojo::Asset::File::BEGIN@7" -> "File::Copy::BEGIN@13";
+"Mojo::Asset::File::BEGIN@10" -> "Encode::Config::BEGIN@8";
+"Mojo::Asset::File::BEGIN@10" -> "MIME::QuotedPrint::BEGIN@12";
+"Mojo::Asset::File::BEGIN@10" -> "MIME::QuotedPrint::BEGIN@3";
+"Mojo::Home::BEGIN@14" -> "Mojo::Asset::File::BEGIN@10";
+"Mojo::Asset::File::BEGIN@10" -> "Digest::base::BEGIN@3";
+"Mojo::Asset::File::BEGIN@5" -> "Errno::TIEHASH";
+"Mojo::Asset::File::slurp" -> "IO::Handle::sysread";
+"Mojo::Asset::File::BEGIN@10" -> "MIME::QuotedPrint::BEGIN@4";
+"Mojo::Base::__ANON__[(eval 17)[Mojo/Base.pm:98]:8]" -> "Mojo::Asset::File::__ANON__[Mojo/Asset/File.pm:42]";
+"Mojo::Asset::File::BEGIN@7" -> "File::Copy::BEGIN@14";
+"Mojo::Asset::File::BEGIN@10" -> "Encode::CORE:match";
+"Mojo::Asset::File::BEGIN@10" -> "Encode::predefine_encodings";
+"Mojo::Asset::File::BEGIN@10" -> "Mojo::Util::BEGIN@2";
+"Mojo::Asset::File::__ANON__[Mojo/Asset/File.pm:42]" -> "IO::File::new";
+"Mojo::Home::BEGIN@14" -> "Mojo::Asset::File::BEGIN@8";
+"Mojo::Asset::File::BEGIN@10" -> "DynaLoader::BEGIN@18";
+"Mojo::Asset::File::BEGIN@10" -> "Mojo::Util::BEGIN@625";
+"Mojo::Asset::File::BEGIN@10" -> "Digest::SHA::BEGIN@7";
+"Mojo::Asset::File::BEGIN@7" -> "File::Copy::BEGIN@12";
+"Mojo::Asset::File::BEGIN@10" -> "Digest::SHA::BEGIN@5";
+"Mojo::Asset::File::BEGIN@7" -> "File::Copy::BEGIN@10";
+"Mojo::Home::BEGIN@14" -> "Mojo::Asset::File::BEGIN@9";
+"Mojo::Asset::File::BEGIN@5" -> "Config::FETCH";
+"Mojo::Asset::File::BEGIN@10" -> "Config::FETCH";
+"Mojo::Asset::File::BEGIN@10" -> "Digest::MD5::BEGIN@3";
+"Mojo::Asset::File::BEGIN@10" -> "DynaLoader::BEGIN@22";
+"Mojo::Home::BEGIN@14" -> "Mojo::Asset::File::BEGIN@5";
+"Mojo::Asset::File::BEGIN@5" -> "Errno::BEGIN@21";
+"Mojo::Home::BEGIN@14" -> "Mojo::Asset::File::BEGIN@2";
+"Mojo::Asset::File::BEGIN@10" -> "Encode::BEGIN@240";
+}

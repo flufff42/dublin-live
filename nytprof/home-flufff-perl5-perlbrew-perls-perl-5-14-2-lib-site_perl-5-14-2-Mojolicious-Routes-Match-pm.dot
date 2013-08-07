@@ -1,0 +1,24 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+subgraph cluster_Mojolicious_Controller {
+	label="Mojolicious::Controller";
+	"Mojolicious::Controller::BEGIN@12";
+}
+subgraph cluster_Mojolicious_Routes_Match {
+	label="Mojolicious::Routes::Match";
+	"Mojolicious::Routes::Match::BEGIN@4";
+	"Mojolicious::Routes::Match::BEGIN@2";
+}
+"Mojolicious::Routes::Match::BEGIN@4" -> "Exporter::import";
+"Mojolicious::Controller::BEGIN@12" -> "Mojolicious::Routes::Match::BEGIN@2";
+"Mojolicious::Controller::BEGIN@12" -> "Mojolicious::Routes::Match::BEGIN@4";
+"Mojolicious::Routes::Match::BEGIN@2" -> "Mojo::Base::import";
+}

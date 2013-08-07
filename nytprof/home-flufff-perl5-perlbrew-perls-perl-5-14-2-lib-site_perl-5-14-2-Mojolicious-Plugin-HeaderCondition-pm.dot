@@ -1,0 +1,30 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojolicious_Routes {
+	label="Mojolicious::Routes";
+	"Mojolicious::Routes::add_condition";
+}
+subgraph cluster_Mojolicious_Plugin_HeaderCondition {
+	label="Mojolicious::Plugin::HeaderCondition";
+	"Mojolicious::Plugin::HeaderCondition::BEGIN@2";
+	"Mojolicious::Plugin::HeaderCondition::register";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::__ANON__[(eval 180)[Mojo/Base.pm:98]:8]";
+	"Mojo::Base::import";
+}
+subgraph cluster_Mojo_Loader {
+	label="Mojo::Loader";
+	"Mojo::Loader::load";
+}
+subgraph cluster_Mojolicious_Plugins {
+	label="Mojolicious::Plugins";
+	"Mojolicious::Plugins::register_plugin";
+}
+"Mojolicious::Plugins::register_plugin" -> "Mojolicious::Plugin::HeaderCondition::register";
+"Mojo::Loader::load" -> "Mojolicious::Plugin::HeaderCondition::BEGIN@2";
+"Mojolicious::Plugin::HeaderCondition::BEGIN@2" -> "Mojo::Base::import";
+"Mojolicious::Plugin::HeaderCondition::register" -> "Mojolicious::Routes::add_condition";
+"Mojolicious::Plugin::HeaderCondition::register" -> "Mojo::Base::__ANON__[(eval 180)[Mojo/Base.pm:98]:8]";
+}

@@ -1,0 +1,104 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::CORE:regcomp";
+	"warnings::CORE:match";
+	"warnings::import";
+}
+subgraph cluster_IO_File {
+	label="IO::File";
+	"IO::File::BEGIN@128";
+	"IO::File::BEGIN@133";
+	"IO::File::BEGIN@130";
+	"IO::File::BEGIN@131";
+	"IO::File::CORE:match";
+	"IO::File::BEGIN@134";
+	"IO::File::BEGIN@132";
+	"IO::File::BEGIN@127";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::CORE:regcomp";
+	"strict::bits";
+	"strict::CORE:match";
+}
+subgraph cluster_XSLoader {
+	label="XSLoader";
+	"XSLoader::load";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_mro {
+	label="mro";
+	"mro::BEGIN@10";
+	"mro::BEGIN@11";
+	"mro::set_mro";
+}
+subgraph cluster_feature {
+	label="feature";
+	"feature::import";
+}
+subgraph cluster_main {
+	label="main";
+	"main::BEGIN@3.10";
+	"main::BEGIN@1.7";
+	"main::BEGIN@2";
+	"main::BEGIN@1";
+	"main::BEGIN@1.5";
+}
+subgraph cluster_Modern_Perl {
+	label="Modern::Perl";
+	"Modern::Perl::import";
+	"Modern::Perl::validate_date";
+	"Modern::Perl::BEGIN@7";
+	"Modern::Perl::BEGIN@7.1";
+	"Modern::Perl::BEGIN@13";
+	"Modern::Perl::BEGIN@10";
+	"Modern::Perl::BEGIN@16";
+	"Modern::Perl::BEGIN@9";
+	"Modern::Perl::BEGIN@17";
+	"Modern::Perl::BEGIN@12";
+}
+"main::BEGIN@2" -> "Modern::Perl::BEGIN@12";
+"Modern::Perl::BEGIN@9" -> "strict::CORE:match";
+"main::BEGIN@2" -> "Modern::Perl::BEGIN@7";
+"main::BEGIN@2" -> "Modern::Perl::BEGIN@9";
+"Modern::Perl::BEGIN@16" -> "Exporter::import";
+"Modern::Perl::BEGIN@12" -> "mro::BEGIN@10";
+"Modern::Perl::BEGIN@16" -> "IO::File::BEGIN@134";
+"Modern::Perl::BEGIN@16" -> "IO::File::BEGIN@131";
+"Modern::Perl::BEGIN@12" -> "XSLoader::load";
+"Modern::Perl::BEGIN@10" -> "warnings::CORE:regcomp";
+"main::BEGIN@2" -> "Modern::Perl::BEGIN@10";
+"main::BEGIN@2" -> "Modern::Perl::BEGIN@17";
+"Modern::Perl::BEGIN@12" -> "mro::BEGIN@11";
+"Modern::Perl::import" -> "Modern::Perl::validate_date";
+"main::BEGIN@2" -> "Modern::Perl::BEGIN@13";
+"main::BEGIN@2" -> "Modern::Perl::BEGIN@16";
+"Modern::Perl::BEGIN@9" -> "strict::bits";
+"Modern::Perl::BEGIN@16" -> "IO::File::BEGIN@132";
+"Modern::Perl::BEGIN@16" -> "IO::File::BEGIN@127";
+"Modern::Perl::BEGIN@10" -> "warnings::CORE:match";
+"Modern::Perl::BEGIN@16" -> "IO::File::BEGIN@130";
+"Modern::Perl::BEGIN@9" -> "strict::CORE:regcomp";
+"Modern::Perl::import" -> "mro::set_mro";
+"Modern::Perl::BEGIN@16" -> "IO::File::BEGIN@128";
+"Modern::Perl::import" -> "warnings::import";
+"Modern::Perl::BEGIN@10" -> "warnings::import";
+"Modern::Perl::import" -> "feature::import";
+"Modern::Perl::BEGIN@7.1" -> "feature::import";
+"main::BEGIN@1.7" -> "Modern::Perl::import";
+"main::BEGIN@3.10" -> "Modern::Perl::import";
+"main::BEGIN@2" -> "Modern::Perl::import";
+"main::BEGIN@1" -> "Modern::Perl::import";
+"main::BEGIN@1.5" -> "Modern::Perl::import";
+"Modern::Perl::BEGIN@16" -> "IO::File::BEGIN@133";
+"main::BEGIN@2" -> "Modern::Perl::BEGIN@7.1";
+"Modern::Perl::BEGIN@16" -> "IO::File::CORE:match";
+"Modern::Perl::BEGIN@9" -> "strict::import";
+"Modern::Perl::import" -> "strict::import";
+}

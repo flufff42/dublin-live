@@ -1,0 +1,26 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Time_Piece {
+	label="Time::Piece";
+	"Time::Piece::BEGIN@422";
+}
+subgraph cluster_integer {
+	label="integer";
+	"integer::import";
+}
+subgraph cluster_Digest_SHA {
+	label="Digest::SHA";
+	"Digest::SHA::BEGIN@8";
+}
+subgraph cluster_Mojo_Util {
+	label="Mojo::Util";
+	"Mojo::Util::BEGIN@475";
+	"Mojo::Util::BEGIN@625";
+	"Mojo::Util::BEGIN@431";
+}
+"Digest::SHA::BEGIN@8" -> "integer::import";
+"Mojo::Util::BEGIN@475" -> "integer::import";
+"Mojo::Util::BEGIN@625" -> "integer::import";
+"Time::Piece::BEGIN@422" -> "integer::import";
+"Mojo::Util::BEGIN@431" -> "integer::import";
+}

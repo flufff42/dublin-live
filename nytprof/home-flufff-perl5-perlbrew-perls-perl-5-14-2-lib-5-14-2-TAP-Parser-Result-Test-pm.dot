@@ -1,0 +1,59 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_TAP_Parser_ResultFactory {
+	label="TAP::Parser::ResultFactory";
+	"TAP::Parser::ResultFactory::BEGIN@11";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_TAP_Formatter_Console_Session {
+	label="TAP::Formatter::Console::Session";
+	"TAP::Formatter::Console::Session::__ANON__[TAP/Formatter/Console/Session.pm:163]";
+}
+subgraph cluster_TAP_Parser_Result {
+	label="TAP::Parser::Result";
+	"TAP::Parser::Result::has_todo";
+}
+subgraph cluster_TAP_Parser_Result_Test {
+	label="TAP::Parser::Result::Test";
+	"TAP::Parser::Result::Test::BEGIN@9";
+	"TAP::Parser::Result::Test::is_actual_ok";
+	"TAP::Parser::Result::Test::ok";
+	"TAP::Parser::Result::Test::todo_passed";
+	"TAP::Parser::Result::Test::CORE:match";
+	"TAP::Parser::Result::Test::BEGIN@5";
+	"TAP::Parser::Result::Test::number";
+	"TAP::Parser::Result::Test::is_ok";
+	"TAP::Parser::Result::Test::BEGIN@6";
+	"TAP::Parser::Result::Test::is_unplanned";
+	"TAP::Parser::Result::Test::BEGIN@3";
+}
+subgraph cluster_TAP_Parser {
+	label="TAP::Parser";
+	"TAP::Parser::__ANON__[TAP/Parser.pm:1231]";
+}
+"TAP::Parser::__ANON__[TAP/Parser.pm:1231]" -> "TAP::Parser::Result::Test::is_ok";
+"TAP::Parser::ResultFactory::BEGIN@11" -> "TAP::Parser::Result::Test::BEGIN@6";
+"TAP::Parser::ResultFactory::BEGIN@11" -> "TAP::Parser::Result::Test::BEGIN@9";
+"TAP::Parser::Result::Test::is_ok" -> "TAP::Parser::Result::Test::ok";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1231]" -> "TAP::Parser::Result::Test::todo_passed";
+"TAP::Formatter::Console::Session::__ANON__[TAP/Formatter/Console/Session.pm:163]" -> "TAP::Parser::Result::Test::number";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1231]" -> "TAP::Parser::Result::Test::number";
+"TAP::Parser::__ANON__[TAP/Parser.pm:1231]" -> "TAP::Parser::Result::Test::is_actual_ok";
+"TAP::Parser::ResultFactory::BEGIN@11" -> "TAP::Parser::Result::Test::BEGIN@3";
+"TAP::Parser::Result::Test::BEGIN@9" -> "vars::import";
+"TAP::Parser::Result::Test::BEGIN@5" -> "vars::import";
+"TAP::Parser::Result::Test::todo_passed" -> "TAP::Parser::Result::has_todo";
+"TAP::Parser::Result::Test::is_ok" -> "TAP::Parser::Result::has_todo";
+"TAP::Parser::ResultFactory::BEGIN@11" -> "TAP::Parser::Result::Test::BEGIN@5";
+"TAP::Parser::Result::Test::is_actual_ok" -> "TAP::Parser::Result::Test::CORE:match";
+"TAP::Parser::Result::Test::is_ok" -> "TAP::Parser::Result::Test::CORE:match";
+"TAP::Parser::Result::Test::is_ok" -> "TAP::Parser::Result::Test::is_unplanned";
+"TAP::Parser::Result::Test::BEGIN@3" -> "strict::import";
+}

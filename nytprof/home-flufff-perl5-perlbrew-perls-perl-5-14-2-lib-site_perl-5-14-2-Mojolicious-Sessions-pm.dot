@@ -1,0 +1,27 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+subgraph cluster_Mojolicious_Sessions {
+	label="Mojolicious::Sessions";
+	"Mojolicious::Sessions::BEGIN@4";
+	"Mojolicious::Sessions::BEGIN@5";
+	"Mojolicious::Sessions::BEGIN@2";
+}
+subgraph cluster_Mojolicious {
+	label="Mojolicious";
+	"Mojolicious::BEGIN@10";
+}
+"Mojolicious::Sessions::BEGIN@5" -> "Exporter::import";
+"Mojolicious::BEGIN@10" -> "Mojolicious::Sessions::BEGIN@2";
+"Mojolicious::BEGIN@10" -> "Mojolicious::Sessions::BEGIN@5";
+"Mojolicious::Sessions::BEGIN@2" -> "Mojo::Base::import";
+"Mojolicious::Sessions::BEGIN@4" -> "Mojo::Base::import";
+"Mojolicious::BEGIN@10" -> "Mojolicious::Sessions::BEGIN@4";
+}

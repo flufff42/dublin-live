@@ -1,0 +1,100 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_TAP_Parser_Scheduler {
+	label="TAP::Parser::Scheduler";
+	"TAP::Parser::Scheduler::get_job";
+	"TAP::Parser::Scheduler::_not_empty";
+	"TAP::Parser::Scheduler::_is_empty";
+	"TAP::Parser::Scheduler::_glob_to_regexp";
+	"TAP::Parser::Scheduler::get_all";
+	"TAP::Parser::Scheduler::__ANON__[TAP/Parser/Scheduler.pm:96]";
+	"TAP::Parser::Scheduler::BEGIN@6";
+	"TAP::Parser::Scheduler::BEGIN@4";
+	"TAP::Parser::Scheduler::new";
+	"TAP::Parser::Scheduler::CORE:match";
+	"TAP::Parser::Scheduler::_find_next_job";
+	"TAP::Parser::Scheduler::_expand";
+	"TAP::Parser::Scheduler::BEGIN@7";
+	"TAP::Parser::Scheduler::BEGIN@3";
+	"TAP::Parser::Scheduler::_rule_clause";
+	"TAP::Parser::Scheduler::CORE:regcomp";
+	"TAP::Parser::Scheduler::BEGIN@5";
+	"TAP::Parser::Scheduler::CORE:qr";
+	"TAP::Parser::Scheduler::__ANON__[TAP/Parser/Scheduler.pm:259]";
+	"TAP::Parser::Scheduler::_gather";
+	"TAP::Parser::Scheduler::_set_rules";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_TAP_Object {
+	label="TAP::Object";
+	"TAP::Object::_construct";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_TAP_Parser_Scheduler_Spinner {
+	label="TAP::Parser::Scheduler::Spinner";
+	"TAP::Parser::Scheduler::Spinner::BEGIN@3";
+	"TAP::Parser::Scheduler::Spinner::BEGIN@4";
+	"TAP::Parser::Scheduler::Spinner::BEGIN@5";
+}
+subgraph cluster_TAP_Parser_Scheduler_Job {
+	label="TAP::Parser::Scheduler::Job";
+	"TAP::Parser::Scheduler::Job::finish";
+	"TAP::Parser::Scheduler::Job::BEGIN@5";
+	"TAP::Parser::Scheduler::Job::new";
+	"TAP::Parser::Scheduler::Job::filename";
+	"TAP::Parser::Scheduler::Job::BEGIN@3";
+	"TAP::Parser::Scheduler::Job::on_finish";
+	"TAP::Parser::Scheduler::Job::BEGIN@4";
+}
+subgraph cluster_TAP_Harness {
+	label="TAP::Harness";
+	"TAP::Harness::aggregate_tests";
+	"TAP::Harness::_aggregate_single";
+}
+"TAP::Object::_construct" -> "TAP::Parser::Scheduler::BEGIN@6";
+"TAP::Parser::Scheduler::_set_rules" -> "TAP::Parser::Scheduler::_rule_clause";
+"TAP::Parser::Scheduler::BEGIN@5" -> "Exporter::import";
+"TAP::Harness::aggregate_tests" -> "TAP::Parser::Scheduler::get_all";
+"TAP::Parser::Scheduler::get_job" -> "TAP::Parser::Scheduler::get_all";
+"TAP::Parser::Scheduler::_rule_clause" -> "TAP::Parser::Scheduler::__ANON__[TAP/Parser/Scheduler.pm:96]";
+"TAP::Object::_construct" -> "TAP::Parser::Scheduler::BEGIN@5";
+"TAP::Parser::Scheduler::BEGIN@7" -> "TAP::Parser::Scheduler::Spinner::BEGIN@4";
+"TAP::Parser::Scheduler::_rule_clause" -> "TAP::Parser::Scheduler::_expand";
+"TAP::Object::_construct" -> "TAP::Parser::Scheduler::BEGIN@3";
+"TAP::Parser::Scheduler::_expand" -> "TAP::Parser::Scheduler::CORE:qr";
+"TAP::Harness::_aggregate_single" -> "TAP::Parser::Scheduler::get_job";
+"TAP::Parser::Scheduler::_is_empty" -> "TAP::Parser::Scheduler::_not_empty";
+"TAP::Parser::Scheduler::_expand" -> "TAP::Parser::Scheduler::CORE:match";
+"TAP::Parser::Scheduler::_glob_to_regexp" -> "TAP::Parser::Scheduler::CORE:match";
+"TAP::Object::_construct" -> "TAP::Parser::Scheduler::BEGIN@7";
+"TAP::Parser::Scheduler::_expand" -> "TAP::Parser::Scheduler::_glob_to_regexp";
+"TAP::Parser::Scheduler::_expand" -> "TAP::Parser::Scheduler::CORE:regcomp";
+"TAP::Parser::Scheduler::new" -> "TAP::Parser::Scheduler::_set_rules";
+"TAP::Parser::Scheduler::_find_next_job" -> "TAP::Parser::Scheduler::Job::on_finish";
+"TAP::Parser::Scheduler::BEGIN@6" -> "TAP::Parser::Scheduler::Job::BEGIN@4";
+"TAP::Parser::Scheduler::_set_rules" -> "TAP::Parser::Scheduler::Job::new";
+"TAP::Object::_construct" -> "TAP::Parser::Scheduler::BEGIN@4";
+"TAP::Object::_construct" -> "TAP::Parser::Scheduler::new";
+"TAP::Parser::Scheduler::get_job" -> "TAP::Parser::Scheduler::_find_next_job";
+"TAP::Parser::Scheduler::BEGIN@4" -> "vars::import";
+"TAP::Parser::Scheduler::BEGIN@6" -> "TAP::Parser::Scheduler::Job::BEGIN@3";
+"TAP::Parser::Scheduler::get_all" -> "TAP::Parser::Scheduler::_gather";
+"TAP::Parser::Scheduler::_gather" -> "TAP::Parser::Scheduler::_gather";
+"TAP::Parser::Scheduler::BEGIN@7" -> "TAP::Parser::Scheduler::Spinner::BEGIN@5";
+"TAP::Parser::Scheduler::_find_next_job" -> "TAP::Parser::Scheduler::_is_empty";
+"TAP::Parser::Scheduler::BEGIN@6" -> "TAP::Parser::Scheduler::Job::BEGIN@5";
+"TAP::Parser::Scheduler::_expand" -> "TAP::Parser::Scheduler::Job::filename";
+"TAP::Parser::Scheduler::BEGIN@7" -> "TAP::Parser::Scheduler::Spinner::BEGIN@3";
+"TAP::Parser::Scheduler::Job::finish" -> "TAP::Parser::Scheduler::__ANON__[TAP/Parser/Scheduler.pm:259]";
+"TAP::Parser::Scheduler::BEGIN@3" -> "strict::import";
+}

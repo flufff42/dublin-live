@@ -1,0 +1,98 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_TAP_Parser_SourceHandler_Perl {
+	label="TAP::Parser::SourceHandler::Perl";
+	"TAP::Parser::SourceHandler::Perl::BEGIN@10";
+	"TAP::Parser::SourceHandler::Perl::_autoflush_stdhandles";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_TAP_Parser_SourceHandler {
+	label="TAP::Parser::SourceHandler";
+	"TAP::Parser::SourceHandler::BEGIN@4";
+	"TAP::Parser::SourceHandler::BEGIN@6";
+	"TAP::Parser::SourceHandler::BEGIN@3";
+	"TAP::Parser::SourceHandler::BEGIN@7";
+}
+subgraph cluster_TAP_Parser_SourceHandler_Executable {
+	label="TAP::Parser::SourceHandler::Executable";
+	"TAP::Parser::SourceHandler::Executable::can_handle";
+	"TAP::Parser::SourceHandler::Executable::BEGIN@6";
+	"TAP::Parser::SourceHandler::Executable::BEGIN@7";
+	"TAP::Parser::SourceHandler::Executable::BEGIN@4";
+	"TAP::Parser::SourceHandler::Executable::_autoflush";
+	"TAP::Parser::SourceHandler::Executable::BEGIN@8";
+	"TAP::Parser::SourceHandler::Executable::BEGIN@3";
+	"TAP::Parser::SourceHandler::Executable::CORE:select";
+	"TAP::Parser::SourceHandler::Executable::BEGIN@138";
+}
+subgraph cluster_constant {
+	label="constant";
+	"constant::import";
+}
+subgraph cluster_TAP_Parser_Source {
+	label="TAP::Parser::Source";
+	"TAP::Parser::Source::meta";
+}
+subgraph cluster_TAP_Parser_Iterator_Process {
+	label="TAP::Parser::Iterator::Process";
+	"TAP::Parser::Iterator::Process::BEGIN@8";
+	"TAP::Parser::Iterator::Process::BEGIN@4";
+	"TAP::Parser::Iterator::Process::BEGIN@7";
+	"TAP::Parser::Iterator::Process::BEGIN@6";
+	"TAP::Parser::Iterator::Process::CORE:match";
+	"TAP::Parser::Iterator::Process::BEGIN@144";
+	"TAP::Parser::Iterator::Process::BEGIN@3";
+}
+subgraph cluster_POSIX {
+	label="POSIX";
+	"POSIX::WEXITSTATUS";
+}
+subgraph cluster_TAP_Parser_IteratorFactory {
+	label="TAP::Parser::IteratorFactory";
+	"TAP::Parser::IteratorFactory::BEGIN@6";
+	"TAP::Parser::IteratorFactory::BEGIN@3";
+	"TAP::Parser::IteratorFactory::BEGIN@9";
+	"TAP::Parser::IteratorFactory::BEGIN@13";
+	"TAP::Parser::IteratorFactory::BEGIN@4";
+	"TAP::Parser::IteratorFactory::detect_source";
+	"TAP::Parser::IteratorFactory::BEGIN@8";
+}
+"TAP::Parser::SourceHandler::Executable::BEGIN@8" -> "TAP::Parser::Iterator::Process::BEGIN@3";
+"TAP::Parser::SourceHandler::Executable::can_handle" -> "TAP::Parser::Source::meta";
+"TAP::Parser::SourceHandler::Executable::BEGIN@8" -> "TAP::Parser::Iterator::Process::BEGIN@6";
+"TAP::Parser::SourceHandler::Executable::_autoflush" -> "TAP::Parser::SourceHandler::Executable::CORE:select";
+"TAP::Parser::SourceHandler::Executable::BEGIN@7" -> "TAP::Parser::IteratorFactory::BEGIN@3";
+"TAP::Parser::SourceHandler::Executable::BEGIN@7" -> "TAP::Parser::IteratorFactory::BEGIN@6";
+"TAP::Parser::SourceHandler::Perl::BEGIN@10" -> "TAP::Parser::SourceHandler::Executable::BEGIN@8";
+"TAP::Parser::SourceHandler::Executable::BEGIN@6" -> "TAP::Parser::SourceHandler::BEGIN@3";
+"TAP::Parser::SourceHandler::Executable::BEGIN@7" -> "TAP::Parser::IteratorFactory::BEGIN@13";
+"TAP::Parser::SourceHandler::Perl::BEGIN@10" -> "TAP::Parser::SourceHandler::Executable::BEGIN@4";
+"TAP::Parser::SourceHandler::Perl::BEGIN@10" -> "TAP::Parser::SourceHandler::Executable::BEGIN@3";
+"TAP::Parser::SourceHandler::Executable::BEGIN@8" -> "POSIX::WEXITSTATUS";
+"TAP::Parser::SourceHandler::Executable::BEGIN@6" -> "TAP::Parser::SourceHandler::BEGIN@7";
+"TAP::Parser::SourceHandler::Perl::BEGIN@10" -> "TAP::Parser::SourceHandler::Executable::BEGIN@138";
+"TAP::Parser::SourceHandler::Executable::BEGIN@8" -> "TAP::Parser::Iterator::Process::BEGIN@7";
+"TAP::Parser::SourceHandler::Perl::BEGIN@10" -> "TAP::Parser::SourceHandler::Executable::BEGIN@6";
+"TAP::Parser::SourceHandler::Executable::BEGIN@8" -> "TAP::Parser::Iterator::Process::BEGIN@144";
+"TAP::Parser::SourceHandler::Executable::BEGIN@8" -> "TAP::Parser::Iterator::Process::CORE:match";
+"TAP::Parser::SourceHandler::Executable::BEGIN@7" -> "TAP::Parser::IteratorFactory::BEGIN@4";
+"TAP::Parser::SourceHandler::Executable::BEGIN@138" -> "constant::import";
+"TAP::Parser::SourceHandler::Executable::BEGIN@7" -> "TAP::Parser::IteratorFactory::BEGIN@9";
+"TAP::Parser::SourceHandler::Executable::BEGIN@8" -> "TAP::Parser::Iterator::Process::BEGIN@8";
+"TAP::Parser::IteratorFactory::detect_source" -> "TAP::Parser::SourceHandler::Executable::can_handle";
+"TAP::Parser::SourceHandler::Perl::BEGIN@10" -> "TAP::Parser::SourceHandler::Executable::BEGIN@7";
+"TAP::Parser::SourceHandler::Executable::BEGIN@7" -> "TAP::Parser::IteratorFactory::BEGIN@8";
+"TAP::Parser::SourceHandler::Executable::BEGIN@4" -> "vars::import";
+"TAP::Parser::SourceHandler::Executable::BEGIN@8" -> "TAP::Parser::Iterator::Process::BEGIN@4";
+"TAP::Parser::SourceHandler::Executable::BEGIN@6" -> "TAP::Parser::SourceHandler::BEGIN@4";
+"TAP::Parser::SourceHandler::Perl::_autoflush_stdhandles" -> "TAP::Parser::SourceHandler::Executable::_autoflush";
+"TAP::Parser::SourceHandler::Executable::BEGIN@6" -> "TAP::Parser::SourceHandler::BEGIN@6";
+"TAP::Parser::SourceHandler::Executable::BEGIN@3" -> "strict::import";
+}

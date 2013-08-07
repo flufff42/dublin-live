@@ -1,0 +1,30 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_IO_File {
+	label="IO::File";
+	"IO::File::BEGIN@134";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::BEGIN@3";
+	"vars::BEGIN@8";
+	"vars::import";
+	"vars::BEGIN@7";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_File_Spec {
+	label="File::Spec";
+	"File::Spec::BEGIN@4";
+	"File::Spec::BEGIN@3";
+}
+"File::Spec::BEGIN@4" -> "vars::BEGIN@8";
+"File::Spec::BEGIN@4" -> "vars::BEGIN@3";
+"IO::File::BEGIN@134" -> "File::Spec::BEGIN@4";
+"File::Spec::BEGIN@4" -> "vars::import";
+"IO::File::BEGIN@134" -> "File::Spec::BEGIN@3";
+"File::Spec::BEGIN@3" -> "strict::import";
+"File::Spec::BEGIN@4" -> "vars::BEGIN@7";
+}

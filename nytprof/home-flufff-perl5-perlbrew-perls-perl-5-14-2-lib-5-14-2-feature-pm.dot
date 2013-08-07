@@ -1,0 +1,23 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_feature {
+	label="feature";
+	"feature::import";
+	"feature::CORE:substcont";
+	"feature::CORE:subst";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+subgraph cluster_Modern_Perl {
+	label="Modern::Perl";
+	"Modern::Perl::import";
+	"Modern::Perl::BEGIN@7.1";
+}
+"feature::import" -> "feature::CORE:substcont";
+"Modern::Perl::import" -> "feature::import";
+"Modern::Perl::BEGIN@7.1" -> "feature::import";
+"Mojo::Base::import" -> "feature::import";
+"feature::import" -> "feature::CORE:subst";
+}

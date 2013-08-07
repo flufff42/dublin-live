@@ -1,0 +1,24 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_bytes {
+	label="bytes";
+	"bytes::import";
+}
+subgraph cluster_SOAP_Utils {
+	label="SOAP::Utils";
+	"SOAP::Utils::BEGIN@407";
+	"SOAP::Utils::BEGIN@1";
+}
+subgraph cluster_Data_Dumper {
+	label="Data::Dumper";
+	"Data::Dumper::BEGIN@683";
+}
+subgraph cluster_Encode_utf8 {
+	label="Encode::utf8";
+	"Encode::utf8::BEGIN@323";
+}
+"SOAP::Utils::BEGIN@407" -> "bytes::import";
+"Data::Dumper::BEGIN@683" -> "bytes::import";
+"SOAP::Utils::BEGIN@1" -> "bytes::import";
+"Encode::utf8::BEGIN@323" -> "bytes::import";
+}

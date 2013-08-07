@@ -1,0 +1,55 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Config {
+	label="Config";
+	"Config::import";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_constant {
+	label="constant";
+	"constant::import";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Mojo_Cookie_Response {
+	label="Mojo::Cookie::Response";
+	"Mojo::Cookie::Response::BEGIN@4";
+}
+subgraph cluster_Time_Local {
+	label="Time::Local";
+	"Time::Local::CORE:pack";
+	"Time::Local::BEGIN@8";
+	"Time::Local::BEGIN@28";
+	"Time::Local::_daygm";
+	"Time::Local::BEGIN@4";
+	"Time::Local::BEGIN@5";
+	"Time::Local::BEGIN@29";
+	"Time::Local::BEGIN@27";
+	"Time::Local::BEGIN@6";
+}
+"Time::Local::BEGIN@4" -> "Exporter::import";
+"Mojo::Cookie::Response::BEGIN@4" -> "Time::Local::BEGIN@27";
+"Mojo::Cookie::Response::BEGIN@4" -> "Time::Local::BEGIN@4";
+"Time::Local::BEGIN@5" -> "Config::import";
+"Mojo::Cookie::Response::BEGIN@4" -> "Time::Local::BEGIN@28";
+"Mojo::Cookie::Response::BEGIN@4" -> "Time::Local::BEGIN@8";
+"Time::Local::_daygm" -> "Time::Local::CORE:pack";
+"Mojo::Cookie::Response::BEGIN@4" -> "Time::Local::_daygm";
+"Mojo::Cookie::Response::BEGIN@4" -> "Time::Local::BEGIN@6";
+"Time::Local::BEGIN@27" -> "constant::import";
+"Time::Local::BEGIN@28" -> "constant::import";
+"Time::Local::BEGIN@29" -> "constant::import";
+"Mojo::Cookie::Response::BEGIN@4" -> "Time::Local::BEGIN@5";
+"Time::Local::BEGIN@8" -> "vars::import";
+"Mojo::Cookie::Response::BEGIN@4" -> "Time::Local::BEGIN@29";
+"Time::Local::BEGIN@6" -> "strict::import";
+}

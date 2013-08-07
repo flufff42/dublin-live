@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+AVL Live times for <%= $self->param('stop'); %>.
+</title>
+</head>
+<body>
+<h1>AVL Live times for <%= $self->param('stop'); %>.</h1>
+<pre><%= $times %></pre>
+</body>
+</html>
+
+

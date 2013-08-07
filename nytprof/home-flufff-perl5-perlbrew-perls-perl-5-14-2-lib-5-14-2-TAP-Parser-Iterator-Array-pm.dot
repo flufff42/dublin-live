@@ -1,0 +1,26 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_TAP_Parser_SourceHandler_RawTAP {
+	label="TAP::Parser::SourceHandler::RawTAP";
+	"TAP::Parser::SourceHandler::RawTAP::BEGIN@8";
+}
+subgraph cluster_TAP_Parser_Iterator_Array {
+	label="TAP::Parser::Iterator::Array";
+	"TAP::Parser::Iterator::Array::BEGIN@3";
+	"TAP::Parser::Iterator::Array::BEGIN@4";
+	"TAP::Parser::Iterator::Array::BEGIN@6";
+}
+"TAP::Parser::SourceHandler::RawTAP::BEGIN@8" -> "TAP::Parser::Iterator::Array::BEGIN@6";
+"TAP::Parser::SourceHandler::RawTAP::BEGIN@8" -> "TAP::Parser::Iterator::Array::BEGIN@4";
+"TAP::Parser::SourceHandler::RawTAP::BEGIN@8" -> "TAP::Parser::Iterator::Array::BEGIN@3";
+"TAP::Parser::Iterator::Array::BEGIN@4" -> "vars::import";
+"TAP::Parser::Iterator::Array::BEGIN@3" -> "strict::import";
+}

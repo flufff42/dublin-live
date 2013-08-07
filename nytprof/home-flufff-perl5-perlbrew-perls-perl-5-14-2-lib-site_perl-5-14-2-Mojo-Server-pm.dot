@@ -1,0 +1,46 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojo_Command {
+	label="Mojo::Command";
+	"Mojo::Command::BEGIN@9";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Mojo_Server {
+	label="Mojo::Server";
+	"Mojo::Server::BEGIN@5";
+	"Mojo::Server::BEGIN@7";
+	"Mojo::Server::BEGIN@6";
+	"Mojo::Server::BEGIN@4";
+	"Mojo::Server::BEGIN@2";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+subgraph cluster_Mojo_Loader {
+	label="Mojo::Loader";
+	"Mojo::Loader::BEGIN@2";
+	"Mojo::Loader::BEGIN@9";
+	"Mojo::Loader::BEGIN@10";
+	"Mojo::Loader::BEGIN@8";
+	"Mojo::Loader::BEGIN@7";
+}
+"Mojo::Server::BEGIN@7" -> "Exporter::import";
+"Mojo::Server::BEGIN@4" -> "Exporter::import";
+"Mojo::Server::BEGIN@6" -> "Exporter::import";
+"Mojo::Command::BEGIN@9" -> "Mojo::Server::BEGIN@7";
+"Mojo::Command::BEGIN@9" -> "Mojo::Server::BEGIN@4";
+"Mojo::Server::BEGIN@5" -> "Mojo::Loader::BEGIN@9";
+"Mojo::Command::BEGIN@9" -> "Mojo::Server::BEGIN@2";
+"Mojo::Server::BEGIN@5" -> "Mojo::Loader::BEGIN@8";
+"Mojo::Command::BEGIN@9" -> "Mojo::Server::BEGIN@6";
+"Mojo::Server::BEGIN@5" -> "Mojo::Loader::BEGIN@2";
+"Mojo::Server::BEGIN@2" -> "Mojo::Base::import";
+"Mojo::Server::BEGIN@5" -> "Mojo::Base::import";
+"Mojo::Command::BEGIN@9" -> "Mojo::Server::BEGIN@5";
+"Mojo::Server::BEGIN@5" -> "Mojo::Loader::BEGIN@10";
+"Mojo::Server::BEGIN@5" -> "Mojo::Loader::BEGIN@7";
+}

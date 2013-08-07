@@ -1,0 +1,486 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_SOAP_Packager {
+	label="SOAP::Packager";
+	"SOAP::Packager::BEGIN@19";
+	"SOAP::Packager::BEGIN@13";
+	"SOAP::Packager::BEGIN@14";
+	"SOAP::Packager::BEGIN@20";
+}
+subgraph cluster_SOAP_SOM {
+	label="SOAP::SOM";
+	"SOAP::SOM::BEGIN@1772";
+	"SOAP::SOM::BEGIN@1823";
+	"SOAP::SOM::BEGIN@1774";
+	"SOAP::SOM::BEGIN@1775";
+	"SOAP::SOM::BEGIN@1771";
+}
+subgraph cluster_SOAP_Transport {
+	label="SOAP::Transport";
+	"SOAP::Transport::BEGIN@483";
+	"SOAP::Transport::BEGIN@465";
+	"SOAP::Transport::BEGIN@435";
+	"SOAP::Transport::BEGIN@432";
+}
+subgraph cluster_SOAP_Schema_WSDL {
+	label="SOAP::Schema::WSDL";
+	"SOAP::Schema::WSDL::BEGIN@2992";
+}
+subgraph cluster_SOAP_Client {
+	label="SOAP::Client";
+	"SOAP::Client::BEGIN@2407";
+	"SOAP::Client::BEGIN@2404";
+}
+subgraph cluster_SOAP_XMLSchema1999_Serializer {
+	label="SOAP::XMLSchema1999::Serializer";
+	"SOAP::XMLSchema1999::Serializer::BEGIN@67";
+	"SOAP::XMLSchema1999::Serializer::BEGIN@61";
+	"SOAP::XMLSchema1999::Serializer::nilValue";
+	"SOAP::XMLSchema1999::Serializer::BEGIN@95";
+}
+subgraph cluster_SOAP_Server {
+	label="SOAP::Server";
+	"SOAP::Server::BEGIN@2811";
+	"SOAP::Server::BEGIN@2558";
+	"SOAP::Server::BEGIN@2591";
+	"SOAP::Server::BEGIN@2592";
+	"SOAP::Server::BEGIN@2518";
+	"SOAP::Server::BEGIN@2569";
+	"SOAP::Server::BEGIN@2519";
+	"SOAP::Server::BEGIN@2720";
+}
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::unimport";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::unimport";
+}
+subgraph cluster_SOAP_Lite_Utils {
+	label="SOAP::Lite::Utils";
+	"SOAP::Lite::Utils::BEGIN@12";
+	"SOAP::Lite::Utils::BEGIN@2";
+	"SOAP::Lite::Utils::BEGIN@6";
+	"SOAP::Lite::Utils::__mk_accessors";
+	"SOAP::Lite::Utils::import";
+}
+subgraph cluster_bytes {
+	label="bytes";
+	"bytes::import";
+}
+subgraph cluster_SOAP_Custom_XML_Deserializer {
+	label="SOAP::Custom::XML::Deserializer";
+	"SOAP::Custom::XML::Deserializer::BEGIN@2963";
+}
+subgraph cluster_SOAP_Lite_Deserializer_XMLSchemaSOAP1_2 {
+	label="SOAP::Lite::Deserializer::XMLSchemaSOAP1_2";
+	"SOAP::Lite::Deserializer::XMLSchemaSOAP1_2::BEGIN@10";
+	"SOAP::Lite::Deserializer::XMLSchemaSOAP1_2::BEGIN@9";
+	"SOAP::Lite::Deserializer::XMLSchemaSOAP1_2::BEGIN@2";
+}
+subgraph cluster_SOAP_Constants {
+	label="SOAP::Constants";
+	"SOAP::Constants::BEGIN@18";
+	"SOAP::Constants::BEGIN@32";
+	"SOAP::Constants::BEGIN@28";
+	"SOAP::Constants::BEGIN@30";
+	"SOAP::Constants::BEGIN@25";
+	"SOAP::Constants::BEGIN@19";
+	"SOAP::Constants::BEGIN@26";
+	"SOAP::Constants::BEGIN@37";
+	"SOAP::Constants::BEGIN@17";
+	"SOAP::Constants::BEGIN@23";
+	"SOAP::Constants::BEGIN@12";
+	"SOAP::Constants::BEGIN@20";
+	"SOAP::Constants::BEGIN@27";
+	"SOAP::Constants::BEGIN@21";
+	"SOAP::Constants::CORE:match";
+	"SOAP::Constants::BEGIN@29";
+	"SOAP::Constants::BEGIN@24";
+	"SOAP::Constants::BEGIN@22";
+	"SOAP::Constants::BEGIN@13";
+}
+subgraph cluster_SOAP_XMLSchema_Serializer {
+	label="SOAP::XMLSchema::Serializer";
+	"SOAP::XMLSchema::Serializer::BEGIN@48";
+}
+subgraph cluster_constant {
+	label="constant";
+	"constant::import";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_SOAP_Trace {
+	label="SOAP::Trace";
+	"SOAP::Trace::BEGIN@2889";
+	"SOAP::Trace::BEGIN@2881";
+	"SOAP::Trace::BEGIN@2903";
+}
+subgraph cluster_SOAP_Packager_MIME {
+	label="SOAP::Packager::MIME";
+	"SOAP::Packager::MIME::BEGIN@87";
+	"SOAP::Packager::MIME::BEGIN@83";
+	"SOAP::Packager::MIME::BEGIN@88";
+	"SOAP::Packager::MIME::BEGIN@84";
+	"SOAP::Packager::MIME::BEGIN@150";
+}
+subgraph cluster_SOAP_Deserializer {
+	label="SOAP::Deserializer";
+	"SOAP::Deserializer::BEGIN@2126";
+	"SOAP::Deserializer::BEGIN@1997";
+	"SOAP::Deserializer::BEGIN@2004";
+	"SOAP::Deserializer::BEGIN@2209";
+	"SOAP::Deserializer::BEGIN@2135";
+	"SOAP::Deserializer::BEGIN@2182";
+	"SOAP::Deserializer::BEGIN@1996";
+	"SOAP::Deserializer::BEGIN@2222";
+	"SOAP::Deserializer::BEGIN@2125";
+	"SOAP::Deserializer::BEGIN@1998";
+}
+subgraph cluster_SOAP_Utils {
+	label="SOAP::Utils";
+	"SOAP::Utils::BEGIN@407";
+	"SOAP::Utils::BEGIN@404";
+	"SOAP::Utils::BEGIN@1";
+}
+subgraph cluster_SOAP_Schema_Deserializer {
+	label="SOAP::Schema::Deserializer";
+	"SOAP::Schema::Deserializer::BEGIN@2985";
+}
+subgraph cluster_SOAP_Schema {
+	label="SOAP::Schema";
+	"SOAP::Schema::BEGIN@3175";
+	"SOAP::Schema::BEGIN@3156";
+	"SOAP::Schema::BEGIN@3191";
+	"SOAP::Schema::BEGIN@3190";
+}
+subgraph cluster_overload {
+	label="overload";
+	"overload::import";
+}
+subgraph cluster_SOAP_Packager_DIME {
+	label="SOAP::Packager::DIME";
+	"SOAP::Packager::DIME::BEGIN@264";
+	"SOAP::Packager::DIME::BEGIN@267";
+	"SOAP::Packager::DIME::BEGIN@263";
+	"SOAP::Packager::DIME::BEGIN@268";
+	"SOAP::Packager::DIME::BEGIN@310";
+}
+subgraph cluster_SOAP {
+	label="SOAP";
+	"SOAP::BEGIN@3387";
+	"SOAP::BEGIN@3393";
+}
+subgraph cluster_main {
+	label="main";
+	"main::BEGIN@8";
+}
+subgraph cluster_Class_Inspector {
+	label="Class::Inspector";
+	"Class::Inspector::BEGIN@47";
+	"Class::Inspector::BEGIN@553";
+	"Class::Inspector::BEGIN@50";
+	"Class::Inspector::BEGIN@46";
+	"Class::Inspector::BEGIN@45";
+	"Class::Inspector::BEGIN@51";
+	"Class::Inspector::BEGIN@42";
+	"Class::Inspector::BEGIN@540";
+}
+subgraph cluster_SOAP_Header {
+	label="SOAP::Header";
+	"SOAP::Header::BEGIN@719";
+}
+subgraph cluster_SOAP_Fault {
+	label="SOAP::Fault";
+	"SOAP::Fault::BEGIN@492";
+	"SOAP::Fault::BEGIN@525";
+	"SOAP::Fault::BEGIN@510";
+	"SOAP::Fault::BEGIN@494";
+	"SOAP::Fault::BEGIN@526";
+}
+subgraph cluster_SOAP_Lite {
+	label="SOAP::Lite";
+	"SOAP::Lite::BEGIN@3562";
+	"SOAP::Lite::BEGIN@20";
+	"SOAP::Lite::BEGIN@3699";
+	"SOAP::Lite::BEGIN@3486";
+	"SOAP::Lite::BEGIN@3600";
+	"SOAP::Lite::BEGIN@3447";
+	"SOAP::Lite::import";
+	"SOAP::Lite::BEGIN@3440";
+	"SOAP::Lite::BEGIN@3441";
+	"SOAP::Lite::BEGIN@3445";
+	"SOAP::Lite::BEGIN@19";
+	"SOAP::Lite::BEGIN@3599";
+	"SOAP::Lite::BEGIN@3505";
+	"SOAP::Lite::BEGIN@3444";
+	"SOAP::Lite::BEGIN@3491";
+	"SOAP::Lite::BEGIN@3645";
+	"SOAP::Lite::soapversion";
+	"SOAP::Lite::BEGIN@3443";
+}
+subgraph cluster_SOAP_Serializer {
+	label="SOAP::Serializer";
+	"SOAP::Serializer::BEGIN@725";
+	"SOAP::Serializer::BEGIN@727";
+	"SOAP::Serializer::BEGIN@741";
+	"SOAP::Serializer::BEGIN@1172";
+	"SOAP::Serializer::BEGIN@731";
+	"SOAP::Serializer::BEGIN@842";
+	"SOAP::Serializer::BEGIN@726";
+	"SOAP::Serializer::BEGIN@1085";
+	"SOAP::Serializer::BEGIN@742";
+	"SOAP::Serializer::BEGIN@1107";
+	"SOAP::Serializer::BEGIN@1037";
+	"SOAP::Serializer::BEGIN@1132";
+}
+subgraph cluster_SOAP_Data {
+	label="SOAP::Data";
+	"SOAP::Data::BEGIN@550";
+	"SOAP::Data::BEGIN@549";
+	"SOAP::Data::BEGIN@548";
+	"SOAP::Data::BEGIN@625";
+	"SOAP::Data::BEGIN@547";
+	"SOAP::Data::BEGIN@624";
+	"SOAP::Data::BEGIN@565";
+}
+subgraph cluster_SOAP_Custom_XML_Data {
+	label="SOAP::Custom::XML::Data";
+	"SOAP::Custom::XML::Data::BEGIN@2936";
+	"SOAP::Custom::XML::Data::BEGIN@2949";
+	"SOAP::Custom::XML::Data::_compileit";
+	"SOAP::Custom::XML::Data::BEGIN@2933";
+	"SOAP::Custom::XML::Data::BEGIN@2930";
+}
+subgraph cluster_SOAP_XMLSchema2001_Serializer {
+	label="SOAP::XMLSchema2001::Serializer";
+	"SOAP::XMLSchema2001::Serializer::BEGIN@223";
+	"SOAP::XMLSchema2001::Serializer::BEGIN@216";
+	"SOAP::XMLSchema2001::Serializer::nilValue";
+}
+"main::BEGIN@8" -> "SOAP::BEGIN@3393";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@28";
+"main::BEGIN@8" -> "SOAP::Server::BEGIN@2591";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@19";
+"SOAP::Transport::BEGIN@435" -> "Class::Inspector::BEGIN@42";
+"SOAP::Lite::BEGIN@3445" -> "SOAP::Packager::DIME::BEGIN@310";
+"SOAP::Utils::BEGIN@407" -> "bytes::import";
+"SOAP::Lite::BEGIN@3445" -> "SOAP::Packager::DIME::BEGIN@267";
+"SOAP::Transport::BEGIN@435" -> "Class::Inspector::BEGIN@47";
+"SOAP::Server::BEGIN@2519" -> "Exporter::import";
+"SOAP::Lite::BEGIN@3447" -> "Exporter::import";
+"SOAP::Data::BEGIN@548" -> "Exporter::import";
+"SOAP::Serializer::BEGIN@1037" -> "warnings::unimport";
+"main::BEGIN@8" -> "SOAP::Lite::BEGIN@20";
+"main::BEGIN@8" -> "SOAP::Lite::BEGIN@3699";
+"main::BEGIN@8" -> "SOAP::Deserializer::BEGIN@2004";
+"SOAP::Transport::BEGIN@435" -> "Class::Inspector::BEGIN@553";
+"main::BEGIN@8" -> "SOAP::Custom::XML::Data::BEGIN@2930";
+"SOAP::Lite::BEGIN@3445" -> "SOAP::Packager::MIME::BEGIN@83";
+"main::BEGIN@8" -> "SOAP::Lite::import";
+"main::BEGIN@8" -> "SOAP::Server::BEGIN@2592";
+"main::BEGIN@8" -> "SOAP::Trace::BEGIN@2881";
+"main::BEGIN@8" -> "SOAP::SOM::BEGIN@1775";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@23";
+"main::BEGIN@8" -> "SOAP::XMLSchema2001::Serializer::BEGIN@223";
+"main::BEGIN@8" -> "SOAP::Serializer::BEGIN@1172";
+"main::BEGIN@8" -> "SOAP::Transport::BEGIN@432";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@21";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::XMLSchema2001::Serializer::nilValue";
+"SOAP::Lite::BEGIN@3445" -> "SOAP::Packager::BEGIN@20";
+"main::BEGIN@8" -> "SOAP::Lite::BEGIN@3444";
+"main::BEGIN@8" -> "SOAP::Lite::BEGIN@3505";
+"main::BEGIN@8" -> "SOAP::Lite::BEGIN@3491";
+"SOAP::Lite::BEGIN@3445" -> "SOAP::Packager::BEGIN@14";
+"main::BEGIN@8" -> "SOAP::Server::BEGIN@2519";
+"SOAP::Lite::BEGIN@3445" -> "SOAP::Packager::DIME::BEGIN@264";
+"SOAP::Serializer::BEGIN@725" -> "SOAP::Lite::Utils::BEGIN@2";
+"main::BEGIN@8" -> "SOAP::Schema::BEGIN@3190";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@26";
+"SOAP::Transport::BEGIN@435" -> "Class::Inspector::BEGIN@50";
+"main::BEGIN@8" -> "SOAP::Trace::BEGIN@2889";
+"main::BEGIN@8" -> "SOAP::Deserializer::BEGIN@2222";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@12";
+"main::BEGIN@8" -> "SOAP::Serializer::BEGIN@741";
+"SOAP::Serializer::BEGIN@725" -> "SOAP::Lite::Utils::BEGIN@6";
+"main::BEGIN@8" -> "SOAP::Lite::BEGIN@19";
+"main::BEGIN@8" -> "SOAP::Deserializer::BEGIN@2209";
+"SOAP::Data::BEGIN@550" -> "SOAP::Lite::Deserializer::XMLSchemaSOAP1_2::BEGIN@9";
+"main::BEGIN@8" -> "SOAP::Client::BEGIN@2407";
+"main::BEGIN@8" -> "SOAP::Data::BEGIN@625";
+"SOAP::Serializer::BEGIN@725" -> "SOAP::Lite::Utils::import";
+"SOAP::SOM::BEGIN@1772" -> "SOAP::Lite::Utils::import";
+"SOAP::Deserializer::BEGIN@1997" -> "SOAP::Lite::Utils::import";
+"SOAP::Client::BEGIN@2404" -> "SOAP::Lite::Utils::import";
+"SOAP::Lite::BEGIN@3443" -> "SOAP::Lite::Utils::import";
+"main::BEGIN@8" -> "SOAP::Serializer::BEGIN@1132";
+"main::BEGIN@8" -> "SOAP::Schema::Deserializer::BEGIN@2985";
+"SOAP::Lite::BEGIN@3445" -> "SOAP::Packager::MIME::BEGIN@87";
+"main::BEGIN@8" -> "SOAP::Utils::BEGIN@404";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@18";
+"SOAP::Serializer::BEGIN@725" -> "SOAP::Lite::Utils::BEGIN@12";
+"main::BEGIN@8" -> "SOAP::Header::BEGIN@719";
+"SOAP::Data::BEGIN@550" -> "SOAP::Lite::Deserializer::XMLSchemaSOAP1_2::BEGIN@2";
+"main::BEGIN@8" -> "SOAP::Schema::BEGIN@3191";
+"main::BEGIN@8" -> "SOAP::Data::BEGIN@549";
+"main::BEGIN@8" -> "SOAP::XMLSchema::Serializer::BEGIN@48";
+"main::BEGIN@8" -> "SOAP::XMLSchema1999::Serializer::BEGIN@67";
+"main::BEGIN@8" -> "SOAP::Trace::BEGIN@2903";
+"main::BEGIN@8" -> "SOAP::XMLSchema1999::Serializer::BEGIN@95";
+"SOAP::Lite::BEGIN@3445" -> "SOAP::Packager::MIME::BEGIN@150";
+"main::BEGIN@8" -> "SOAP::Custom::XML::Data::BEGIN@2933";
+"main::BEGIN@8" -> "SOAP::Data::BEGIN@550";
+"main::BEGIN@8" -> "SOAP::Fault::BEGIN@492";
+"main::BEGIN@8" -> "SOAP::Deserializer::BEGIN@2182";
+"main::BEGIN@8" -> "SOAP::Serializer::BEGIN@1085";
+"main::BEGIN@8" -> "SOAP::Deserializer::BEGIN@1996";
+"main::BEGIN@8" -> "SOAP::Serializer::BEGIN@742";
+"main::BEGIN@8" -> "SOAP::Deserializer::BEGIN@2125";
+"main::BEGIN@8" -> "SOAP::Deserializer::BEGIN@1998";
+"main::BEGIN@8" -> "SOAP::Serializer::BEGIN@725";
+"main::BEGIN@8" -> "SOAP::SOM::BEGIN@1774";
+"main::BEGIN@8" -> "SOAP::Lite::BEGIN@3600";
+"main::BEGIN@8" -> "SOAP::SOM::BEGIN@1771";
+"SOAP::Transport::BEGIN@435" -> "Class::Inspector::BEGIN@51";
+"main::BEGIN@8" -> "SOAP::Fault::BEGIN@494";
+"main::BEGIN@8" -> "SOAP::Fault::BEGIN@510";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::XMLSchema1999::Serializer::nilValue";
+"main::BEGIN@8" -> "SOAP::XMLSchema2001::Serializer::BEGIN@216";
+"SOAP::Lite::BEGIN@3445" -> "SOAP::Packager::DIME::BEGIN@268";
+"main::BEGIN@8" -> "SOAP::Lite::BEGIN@3599";
+"SOAP::SOM::BEGIN@1774" -> "SOAP::Lite::Utils::__mk_accessors";
+"SOAP::Client::BEGIN@2407" -> "SOAP::Lite::Utils::__mk_accessors";
+"SOAP::Serializer::BEGIN@741" -> "SOAP::Lite::Utils::__mk_accessors";
+"SOAP::Deserializer::BEGIN@2004" -> "SOAP::Lite::Utils::__mk_accessors";
+"SOAP::Lite::BEGIN@3599" -> "SOAP::Lite::Utils::__mk_accessors";
+"main::BEGIN@8" -> "SOAP::Server::BEGIN@2558";
+"main::BEGIN@8" -> "SOAP::Lite::BEGIN@3562";
+"SOAP::Deserializer::BEGIN@2126" -> "constant::import";
+"SOAP::Deserializer::BEGIN@2125" -> "constant::import";
+"main::BEGIN@8" -> "SOAP::Lite::BEGIN@3486";
+"SOAP::Lite::BEGIN@3600" -> "strict::unimport";
+"SOAP::BEGIN@3393" -> "strict::unimport";
+"SOAP::Fault::BEGIN@510" -> "strict::unimport";
+"SOAP::Server::BEGIN@2558" -> "strict::unimport";
+"SOAP::Lite::BEGIN@3562" -> "strict::unimport";
+"SOAP::Lite::BEGIN@3699" -> "strict::unimport";
+"SOAP::Transport::BEGIN@483" -> "strict::unimport";
+"SOAP::Serializer::BEGIN@842" -> "strict::unimport";
+"SOAP::Server::BEGIN@2592" -> "strict::unimport";
+"SOAP::SOM::BEGIN@1775" -> "strict::unimport";
+"SOAP::Transport::BEGIN@465" -> "strict::unimport";
+"SOAP::Serializer::BEGIN@1172" -> "strict::unimport";
+"SOAP::Fault::BEGIN@526" -> "strict::unimport";
+"SOAP::Server::BEGIN@2569" -> "strict::unimport";
+"SOAP::Lite::BEGIN@3505" -> "strict::unimport";
+"SOAP::Lite::BEGIN@3491" -> "strict::unimport";
+"SOAP::Serializer::BEGIN@1107" -> "strict::unimport";
+"SOAP::Schema::BEGIN@3175" -> "strict::unimport";
+"SOAP::Server::BEGIN@2811" -> "strict::unimport";
+"SOAP::Trace::BEGIN@2889" -> "strict::unimport";
+"SOAP::Deserializer::BEGIN@2222" -> "strict::unimport";
+"SOAP::Data::BEGIN@565" -> "strict::unimport";
+"SOAP::Lite::BEGIN@3645" -> "strict::unimport";
+"SOAP::Data::BEGIN@625" -> "strict::unimport";
+"SOAP::Serializer::BEGIN@1132" -> "strict::unimport";
+"SOAP::Server::BEGIN@2720" -> "strict::unimport";
+"SOAP::Schema::BEGIN@3191" -> "strict::unimport";
+"SOAP::XMLSchema1999::Serializer::BEGIN@67" -> "strict::unimport";
+"SOAP::Trace::BEGIN@2903" -> "strict::unimport";
+"SOAP::Custom::XML::Data::BEGIN@2936" -> "strict::unimport";
+"SOAP::Serializer::BEGIN@742" -> "strict::unimport";
+"main::BEGIN@8" -> "SOAP::Lite::BEGIN@3447";
+"SOAP::Lite::BEGIN@3445" -> "SOAP::Packager::DIME::BEGIN@263";
+"main::BEGIN@8" -> "SOAP::Transport::BEGIN@483";
+"main::BEGIN@8" -> "SOAP::Serializer::BEGIN@842";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@37";
+"SOAP::SOM::BEGIN@1823" -> "overload::import";
+"SOAP::Fault::BEGIN@494" -> "overload::import";
+"SOAP::Custom::XML::Data::BEGIN@2933" -> "overload::import";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@20";
+"main::BEGIN@8" -> "SOAP::Transport::BEGIN@465";
+"SOAP::Lite::BEGIN@3445" -> "SOAP::Packager::MIME::BEGIN@84";
+"main::BEGIN@8" -> "SOAP::XMLSchema1999::Serializer::BEGIN@61";
+"main::BEGIN@8" -> "SOAP::Serializer::BEGIN@731";
+"main::BEGIN@8" -> "SOAP::Client::BEGIN@2404";
+"main::BEGIN@8" -> "SOAP::Fault::BEGIN@526";
+"main::BEGIN@8" -> "SOAP::Server::BEGIN@2569";
+"main::BEGIN@8" -> "SOAP::Deserializer::BEGIN@2135";
+"SOAP::Transport::BEGIN@435" -> "Class::Inspector::BEGIN@46";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@29";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@24";
+"main::BEGIN@8" -> "SOAP::Serializer::BEGIN@726";
+"main::BEGIN@8" -> "SOAP::Custom::XML::Deserializer::BEGIN@2963";
+"main::BEGIN@8" -> "SOAP::Server::BEGIN@2518";
+"main::BEGIN@8" -> "SOAP::Serializer::BEGIN@1107";
+"main::BEGIN@8" -> "SOAP::Lite::BEGIN@3443";
+"main::BEGIN@8" -> "SOAP::SOM::BEGIN@1823";
+"main::BEGIN@8" -> "SOAP::Fault::BEGIN@525";
+"main::BEGIN@8" -> "SOAP::Schema::WSDL::BEGIN@2992";
+"SOAP::Custom::XML::Data::BEGIN@2949" -> "SOAP::Custom::XML::Data::_compileit";
+"main::BEGIN@8" -> "SOAP::Deserializer::BEGIN@1997";
+"main::BEGIN@8" -> "SOAP::Schema::BEGIN@3175";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@25";
+"main::BEGIN@8" -> "SOAP::Server::BEGIN@2811";
+"SOAP::Transport::BEGIN@435" -> "Class::Inspector::BEGIN@45";
+"SOAP::Lite::BEGIN@3445" -> "SOAP::Packager::BEGIN@13";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@17";
+"main::BEGIN@8" -> "SOAP::Lite::BEGIN@3440";
+"SOAP::Data::BEGIN@550" -> "SOAP::Lite::Deserializer::XMLSchemaSOAP1_2::BEGIN@10";
+"main::BEGIN@8" -> "SOAP::Deserializer::BEGIN@2126";
+"main::BEGIN@8" -> "SOAP::Lite::BEGIN@3445";
+"SOAP::XMLSchema2001::Serializer::BEGIN@216" -> "vars::import";
+"SOAP::Custom::XML::Data::BEGIN@2930" -> "vars::import";
+"SOAP::Transport::BEGIN@432" -> "vars::import";
+"SOAP::XMLSchema1999::Serializer::BEGIN@61" -> "vars::import";
+"SOAP::Deserializer::BEGIN@2135" -> "vars::import";
+"SOAP::Custom::XML::Deserializer::BEGIN@2963" -> "vars::import";
+"SOAP::Schema::WSDL::BEGIN@2992" -> "vars::import";
+"SOAP::Lite::BEGIN@3440" -> "vars::import";
+"SOAP::Deserializer::BEGIN@2209" -> "vars::import";
+"SOAP::Schema::Deserializer::BEGIN@2985" -> "vars::import";
+"SOAP::BEGIN@3387" -> "vars::import";
+"SOAP::Header::BEGIN@719" -> "vars::import";
+"SOAP::Serializer::BEGIN@727" -> "vars::import";
+"SOAP::XMLSchema::Serializer::BEGIN@48" -> "vars::import";
+"SOAP::Deserializer::BEGIN@2182" -> "vars::import";
+"SOAP::Deserializer::BEGIN@1996" -> "vars::import";
+"SOAP::Serializer::BEGIN@1085" -> "vars::import";
+"SOAP::Data::BEGIN@547" -> "vars::import";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@27";
+"main::BEGIN@8" -> "SOAP::Data::BEGIN@565";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@22";
+"main::BEGIN@8" -> "SOAP::Lite::BEGIN@3645";
+"main::BEGIN@8" -> "SOAP::Data::BEGIN@548";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@13";
+"main::BEGIN@8" -> "SOAP::Data::BEGIN@624";
+"main::BEGIN@8" -> "SOAP::BEGIN@3387";
+"SOAP::Lite::BEGIN@3445" -> "SOAP::Packager::MIME::BEGIN@88";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@32";
+"main::BEGIN@8" -> "SOAP::Server::BEGIN@2720";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@30";
+"main::BEGIN@8" -> "SOAP::Custom::XML::Data::BEGIN@2949";
+"main::BEGIN@8" -> "SOAP::Utils::BEGIN@407";
+"main::BEGIN@8" -> "SOAP::SOM::BEGIN@1772";
+"SOAP::Transport::BEGIN@435" -> "Class::Inspector::BEGIN@540";
+"main::BEGIN@8" -> "SOAP::Serializer::BEGIN@1037";
+"main::BEGIN@8" -> "SOAP::Lite::BEGIN@3441";
+"main::BEGIN@8" -> "SOAP::Serializer::BEGIN@727";
+"SOAP::Utils::BEGIN@404" -> "SOAP::Utils::BEGIN@1";
+"main::BEGIN@8" -> "SOAP::Custom::XML::Data::BEGIN@2936";
+"SOAP::Lite::BEGIN@3445" -> "SOAP::Packager::BEGIN@19";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::CORE:match";
+"main::BEGIN@8" -> "SOAP::Schema::BEGIN@3156";
+"SOAP::Lite::BEGIN@20" -> "strict::import";
+"main::BEGIN@8" -> "SOAP::Transport::BEGIN@435";
+"main::BEGIN@8" -> "SOAP::Data::BEGIN@547";
+"SOAP::Lite::BEGIN@3486" -> "SOAP::Lite::soapversion";
+}

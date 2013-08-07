@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+AVL Stop suggestions for <%= $self->param('prefix'); %>.
+</title>
+</head>
+<body>
+<h1>AVL Stop suggestions for <%= $self->param('prefix'); %>.</h1>
+<pre><%= $suggestions %></pre>
+</body>
+</html>

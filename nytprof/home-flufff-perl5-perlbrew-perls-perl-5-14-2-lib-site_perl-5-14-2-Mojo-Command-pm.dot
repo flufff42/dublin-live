@@ -1,0 +1,150 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_File_Path {
+	label="File::Path";
+	"File::Path::BEGIN@7";
+	"File::Path::BEGIN@6";
+	"File::Path::BEGIN@8";
+	"File::Path::BEGIN@19";
+	"File::Path::BEGIN@10";
+	"File::Path::BEGIN@4";
+	"File::Path::BEGIN@3";
+	"File::Path::BEGIN@18";
+	"File::Path::BEGIN@329";
+}
+subgraph cluster_Mojo_Command {
+	label="Mojo::Command";
+	"Mojo::Command::BEGIN@7";
+	"Mojo::Command::detect";
+	"Mojo::Command::BEGIN@11";
+	"Mojo::Command::BEGIN@6";
+	"Mojo::Command::start";
+	"Mojo::Command::run";
+	"Mojo::Command::BEGIN@10";
+	"Mojo::Command::BEGIN@8";
+	"Mojo::Command::BEGIN@5";
+	"Mojo::Command::_command";
+	"Mojo::Command::BEGIN@9";
+	"Mojo::Command::BEGIN@2";
+	"Mojo::Command::CORE:match";
+	"Mojo::Command::BEGIN@12";
+	"Mojo::Command::BEGIN@103";
+	"Mojo::Command::BEGIN@4";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::unimport";
+}
+subgraph cluster_Mojo_Template {
+	label="Mojo::Template";
+	"Mojo::Template::BEGIN@10";
+	"Mojo::Template::BEGIN@2";
+	"Mojo::Template::BEGIN@5";
+	"Mojo::Template::BEGIN@7";
+	"Mojo::Template::BEGIN@6";
+	"Mojo::Template::CORE:subst";
+	"Mojo::Template::BEGIN@8";
+	"Mojo::Template::BEGIN@4";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Mojo_Server {
+	label="Mojo::Server";
+	"Mojo::Server::BEGIN@5";
+	"Mojo::Server::BEGIN@7";
+	"Mojo::Server::BEGIN@6";
+	"Mojo::Server::BEGIN@4";
+	"Mojo::Server::BEGIN@2";
+}
+subgraph cluster_Mojo_Home {
+	label="Mojo::Home";
+	"Mojo::Home::BEGIN@15";
+}
+subgraph cluster_Mojolicious_Command_test {
+	label="Mojolicious::Command::test";
+	"Mojolicious::Command::test::run";
+}
+subgraph cluster_Mojolicious_Commands {
+	label="Mojolicious::Commands";
+	"Mojolicious::Commands::BEGIN@23";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::__ANON__[Mojo/Base.pm:41]";
+	"Mojo::Base::new";
+	"Mojo::Base::import";
+	"Mojo::Base::__ANON__[(eval 123)[Mojo/Base.pm:98]:8]";
+}
+subgraph cluster_Mojo_Loader {
+	label="Mojo::Loader";
+	"Mojo::Loader::load";
+}
+subgraph cluster_UNIVERSAL {
+	label="UNIVERSAL";
+	"UNIVERSAL::isa";
+}
+subgraph cluster_Mojolicious {
+	label="Mojolicious";
+	"Mojolicious::start";
+}
+"Mojo::Command::BEGIN@6" -> "File::Path::BEGIN@6";
+"Mojo::Command::BEGIN@6" -> "File::Path::BEGIN@4";
+"Mojo::Command::BEGIN@10" -> "Mojo::Template::CORE:subst";
+"Mojo::Home::BEGIN@15" -> "Mojo::Command::BEGIN@10";
+"Mojo::Command::BEGIN@8" -> "Exporter::import";
+"Mojo::Command::BEGIN@12" -> "Exporter::import";
+"Mojo::Command::BEGIN@4" -> "Exporter::import";
+"Mojo::Command::BEGIN@6" -> "Exporter::import";
+"Mojo::Command::BEGIN@5" -> "Exporter::import";
+"Mojo::Command::BEGIN@7" -> "Exporter::import";
+"Mojo::Command::BEGIN@9" -> "Mojo::Server::BEGIN@7";
+"Mojo::Home::BEGIN@15" -> "Mojo::Command::BEGIN@8";
+"Mojo::Command::_command" -> "Mojo::Loader::load";
+"Mojolicious::start" -> "Mojo::Command::start";
+"Mojo::Command::BEGIN@9" -> "Mojo::Server::BEGIN@4";
+"Mojo::Command::BEGIN@6" -> "File::Path::BEGIN@7";
+"Mojo::Command::run" -> "Mojolicious::Command::test::run";
+"Mojo::Command::run" -> "Mojo::Command::_command";
+"Mojo::Command::BEGIN@6" -> "File::Path::BEGIN@329";
+"Mojo::Command::BEGIN@10" -> "Mojo::Template::BEGIN@7";
+"Mojo::Home::BEGIN@15" -> "Mojo::Command::BEGIN@12";
+"Mojo::Command::run" -> "Mojo::Base::__ANON__[(eval 123)[Mojo/Base.pm:98]:8]";
+"Mojo::Home::BEGIN@15" -> "Mojo::Command::BEGIN@4";
+"Mojo::Command::BEGIN@9" -> "Mojo::Server::BEGIN@2";
+"Mojo::Command::BEGIN@6" -> "File::Path::BEGIN@3";
+"Mojo::Command::BEGIN@10" -> "Mojo::Base::__ANON__[Mojo/Base.pm:41]";
+"Mojo::Command::BEGIN@9" -> "Mojo::Base::__ANON__[Mojo/Base.pm:41]";
+"Mojo::Home::BEGIN@15" -> "Mojo::Command::BEGIN@6";
+"Mojo::Command::BEGIN@6" -> "File::Path::BEGIN@18";
+"Mojo::Home::BEGIN@15" -> "Mojo::Command::BEGIN@2";
+"Mojo::Command::run" -> "Mojo::Command::CORE:match";
+"Mojo::Command::BEGIN@6" -> "File::Path::BEGIN@19";
+"Mojo::Command::BEGIN@10" -> "Mojo::Template::BEGIN@4";
+"Mojo::Command::BEGIN@10" -> "Mojo::Template::BEGIN@2";
+"Mojo::Command::BEGIN@9" -> "Mojo::Server::BEGIN@6";
+"Mojo::Home::BEGIN@15" -> "Mojo::Command::BEGIN@103";
+"Mojo::Command::BEGIN@10" -> "Mojo::Base::import";
+"Mojo::Command::BEGIN@2" -> "Mojo::Base::import";
+"Mojo::Command::BEGIN@11" -> "Mojo::Base::import";
+"Mojo::Command::BEGIN@9" -> "Mojo::Base::import";
+"Mojo::Command::BEGIN@9" -> "Mojo::Server::BEGIN@5";
+"Mojo::Command::BEGIN@103" -> "strict::unimport";
+"Mojo::Command::BEGIN@6" -> "File::Path::BEGIN@10";
+"Mojo::Command::_command" -> "UNIVERSAL::isa";
+"Mojo::Home::BEGIN@15" -> "Mojo::Command::BEGIN@5";
+"Mojo::Command::run" -> "Mojo::Command::detect";
+"Mojolicious::Commands::BEGIN@23" -> "Mojo::Command::detect";
+"Mojo::Home::BEGIN@15" -> "Mojo::Command::BEGIN@11";
+"Mojo::Home::BEGIN@15" -> "Mojo::Command::BEGIN@9";
+"Mojo::Command::start" -> "Mojo::Base::new";
+"Mojo::Command::run" -> "Mojo::Base::new";
+"Mojo::Command::BEGIN@6" -> "File::Path::BEGIN@8";
+"Mojo::Command::BEGIN@10" -> "Mojo::Template::BEGIN@6";
+"Mojo::Command::BEGIN@10" -> "Mojo::Template::BEGIN@5";
+"Mojo::Home::BEGIN@15" -> "Mojo::Command::BEGIN@7";
+"Mojo::Command::BEGIN@10" -> "Mojo::Template::BEGIN@10";
+"Mojo::Command::BEGIN@10" -> "Mojo::Template::BEGIN@8";
+"Mojo::Command::start" -> "Mojo::Command::run";
+}

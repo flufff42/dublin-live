@@ -1,0 +1,133 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_TAP_Parser_ResultFactory {
+	label="TAP::Parser::ResultFactory";
+	"TAP::Parser::ResultFactory::BEGIN@4";
+	"TAP::Parser::ResultFactory::BEGIN@10";
+	"TAP::Parser::ResultFactory::BEGIN@11";
+	"TAP::Parser::ResultFactory::BEGIN@9";
+	"TAP::Parser::ResultFactory::class_for";
+	"TAP::Parser::ResultFactory::BEGIN@3";
+	"TAP::Parser::ResultFactory::BEGIN@99";
+	"TAP::Parser::ResultFactory::BEGIN@13";
+	"TAP::Parser::ResultFactory::BEGIN@8";
+	"TAP::Parser::ResultFactory::BEGIN@6";
+	"TAP::Parser::ResultFactory::BEGIN@14";
+	"TAP::Parser::ResultFactory::make_result";
+	"TAP::Parser::ResultFactory::BEGIN@12";
+	"TAP::Parser::ResultFactory::BEGIN@7";
+}
+subgraph cluster_TAP_Parser_Result_Version {
+	label="TAP::Parser::Result::Version";
+	"TAP::Parser::Result::Version::BEGIN@6";
+	"TAP::Parser::Result::Version::BEGIN@3";
+	"TAP::Parser::Result::Version::BEGIN@5";
+}
+subgraph cluster_TAP_Parser_Result_Bailout {
+	label="TAP::Parser::Result::Bailout";
+	"TAP::Parser::Result::Bailout::BEGIN@5";
+	"TAP::Parser::Result::Bailout::BEGIN@6";
+	"TAP::Parser::Result::Bailout::BEGIN@3";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_TAP_Parser_Result_Unknown {
+	label="TAP::Parser::Result::Unknown";
+	"TAP::Parser::Result::Unknown::BEGIN@3";
+	"TAP::Parser::Result::Unknown::BEGIN@6";
+	"TAP::Parser::Result::Unknown::BEGIN@5";
+	"TAP::Parser::Result::Unknown::BEGIN@9";
+}
+subgraph cluster_TAP_Parser_Result_YAML {
+	label="TAP::Parser::Result::YAML";
+	"TAP::Parser::Result::YAML::BEGIN@6";
+	"TAP::Parser::Result::YAML::BEGIN@5";
+	"TAP::Parser::Result::YAML::BEGIN@3";
+}
+subgraph cluster_TAP_Parser_Grammar {
+	label="TAP::Parser::Grammar";
+	"TAP::Parser::Grammar::BEGIN@7";
+}
+subgraph cluster_TAP_Object {
+	label="TAP::Object";
+	"TAP::Object::new";
+}
+subgraph cluster_TAP_Parser_Result_Pragma {
+	label="TAP::Parser::Result::Pragma";
+	"TAP::Parser::Result::Pragma::BEGIN@6";
+	"TAP::Parser::Result::Pragma::BEGIN@5";
+	"TAP::Parser::Result::Pragma::BEGIN@3";
+}
+subgraph cluster_TAP_Parser_Result_Test {
+	label="TAP::Parser::Result::Test";
+	"TAP::Parser::Result::Test::BEGIN@9";
+	"TAP::Parser::Result::Test::BEGIN@6";
+	"TAP::Parser::Result::Test::BEGIN@3";
+	"TAP::Parser::Result::Test::BEGIN@5";
+}
+subgraph cluster_TAP_Parser_Result_Comment {
+	label="TAP::Parser::Result::Comment";
+	"TAP::Parser::Result::Comment::BEGIN@5";
+	"TAP::Parser::Result::Comment::BEGIN@3";
+	"TAP::Parser::Result::Comment::BEGIN@6";
+}
+subgraph cluster_TAP_Parser_Result_Plan {
+	label="TAP::Parser::Result::Plan";
+	"TAP::Parser::Result::Plan::BEGIN@5";
+	"TAP::Parser::Result::Plan::BEGIN@3";
+	"TAP::Parser::Result::Plan::BEGIN@6";
+}
+subgraph cluster_TAP_Parser {
+	label="TAP::Parser";
+	"TAP::Parser::make_result";
+}
+"TAP::Parser::Grammar::BEGIN@7" -> "TAP::Parser::ResultFactory::BEGIN@99";
+"TAP::Parser::ResultFactory::BEGIN@11" -> "TAP::Parser::Result::Test::BEGIN@6";
+"TAP::Parser::ResultFactory::BEGIN@7" -> "TAP::Parser::Result::Bailout::BEGIN@5";
+"TAP::Parser::ResultFactory::BEGIN@8" -> "TAP::Parser::Result::Comment::BEGIN@5";
+"TAP::Parser::Grammar::BEGIN@7" -> "TAP::Parser::ResultFactory::BEGIN@11";
+"TAP::Parser::ResultFactory::BEGIN@14" -> "TAP::Parser::Result::YAML::BEGIN@3";
+"TAP::Parser::ResultFactory::BEGIN@13" -> "TAP::Parser::Result::Version::BEGIN@6";
+"TAP::Parser::ResultFactory::make_result" -> "TAP::Parser::ResultFactory::class_for";
+"TAP::Parser::Grammar::BEGIN@7" -> "TAP::Parser::ResultFactory::BEGIN@6";
+"TAP::Parser::ResultFactory::BEGIN@14" -> "TAP::Parser::Result::YAML::BEGIN@5";
+"TAP::Parser::Grammar::BEGIN@7" -> "TAP::Parser::ResultFactory::BEGIN@7";
+"TAP::Parser::ResultFactory::BEGIN@11" -> "TAP::Parser::Result::Test::BEGIN@9";
+"TAP::Parser::Grammar::BEGIN@7" -> "TAP::Parser::ResultFactory::BEGIN@10";
+"TAP::Parser::ResultFactory::BEGIN@12" -> "TAP::Parser::Result::Unknown::BEGIN@5";
+"TAP::Parser::Grammar::BEGIN@7" -> "TAP::Parser::ResultFactory::BEGIN@14";
+"TAP::Parser::ResultFactory::BEGIN@13" -> "TAP::Parser::Result::Version::BEGIN@5";
+"TAP::Parser::ResultFactory::BEGIN@10" -> "TAP::Parser::Result::Pragma::BEGIN@6";
+"TAP::Parser::ResultFactory::BEGIN@9" -> "TAP::Parser::Result::Plan::BEGIN@6";
+"TAP::Parser::make_result" -> "TAP::Parser::ResultFactory::make_result";
+"TAP::Parser::Grammar::BEGIN@7" -> "TAP::Parser::ResultFactory::BEGIN@3";
+"TAP::Parser::ResultFactory::BEGIN@14" -> "TAP::Parser::Result::YAML::BEGIN@6";
+"TAP::Parser::Grammar::BEGIN@7" -> "TAP::Parser::ResultFactory::BEGIN@8";
+"TAP::Parser::ResultFactory::BEGIN@12" -> "TAP::Parser::Result::Unknown::BEGIN@3";
+"TAP::Parser::ResultFactory::BEGIN@9" -> "TAP::Parser::Result::Plan::BEGIN@3";
+"TAP::Parser::Grammar::BEGIN@7" -> "TAP::Parser::ResultFactory::BEGIN@12";
+"TAP::Parser::ResultFactory::BEGIN@10" -> "TAP::Parser::Result::Pragma::BEGIN@3";
+"TAP::Parser::ResultFactory::make_result" -> "TAP::Object::new";
+"TAP::Parser::ResultFactory::BEGIN@12" -> "TAP::Parser::Result::Unknown::BEGIN@6";
+"TAP::Parser::ResultFactory::BEGIN@7" -> "TAP::Parser::Result::Bailout::BEGIN@6";
+"TAP::Parser::ResultFactory::BEGIN@12" -> "TAP::Parser::Result::Unknown::BEGIN@9";
+"TAP::Parser::ResultFactory::BEGIN@13" -> "TAP::Parser::Result::Version::BEGIN@3";
+"TAP::Parser::ResultFactory::BEGIN@11" -> "TAP::Parser::Result::Test::BEGIN@3";
+"TAP::Parser::ResultFactory::BEGIN@8" -> "TAP::Parser::Result::Comment::BEGIN@3";
+"TAP::Parser::ResultFactory::BEGIN@4" -> "vars::import";
+"TAP::Parser::Grammar::BEGIN@7" -> "TAP::Parser::ResultFactory::BEGIN@13";
+"TAP::Parser::Grammar::BEGIN@7" -> "TAP::Parser::ResultFactory::BEGIN@9";
+"TAP::Parser::ResultFactory::BEGIN@8" -> "TAP::Parser::Result::Comment::BEGIN@6";
+"TAP::Parser::ResultFactory::BEGIN@10" -> "TAP::Parser::Result::Pragma::BEGIN@5";
+"TAP::Parser::Grammar::BEGIN@7" -> "TAP::Parser::ResultFactory::BEGIN@4";
+"TAP::Parser::ResultFactory::BEGIN@9" -> "TAP::Parser::Result::Plan::BEGIN@5";
+"TAP::Parser::ResultFactory::BEGIN@11" -> "TAP::Parser::Result::Test::BEGIN@5";
+"TAP::Parser::ResultFactory::BEGIN@3" -> "strict::import";
+"TAP::Parser::ResultFactory::BEGIN@7" -> "TAP::Parser::Result::Bailout::BEGIN@3";
+}

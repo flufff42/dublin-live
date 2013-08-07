@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="line">
+<head>
+<meta name="viewport" content="width=device-width, height=device-height" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../dublinBusLive.css"/>
+<link rel="stylesheet" href="../leaflet/leaflet.css"/>
+<link rel="stylesheet" href="../bootstrap.min.css"/>
+<title>
+Route <%= $route %> line diagram
+</title>
+<script type="text/javascript" src="http://bit.ly/jqsource"></script>          
+<script type="text/javascript" src="../dublinBusLive.js"></script>
+<script type="text/javascript" src="../underscore.js"></script>
+<script type="text/javascript" src="../backbone.js"></script>
+<script type="text/javascript">
+	DBL.route = "<%= $route %>";	
+</script>
+<script type="text/javascript" src="../mustache.js"></script>
+<script type="text/javascript" src="../templates.js"></script>
+<script type="text/javascript" src="../line.js"></script>
+<script type="text/javascript" src="../util.js"></script>
+<script type="text/javascript" src="../geo.js"></script>
+
+<script type="text/javascript" src="../suggestions.js"></script>
+<script type="text/javascript" src="../results.js"></script>
+
+<script type="text/javascript" src="../prefixfree.min.js"></script>
+<script type="text/javascript" src="../prefixfree.jquery.js"></script>
+
+<script type="text/javascript" src="../bootstrap-tooltip.js"></script>
+<script type="text/javascript" src="../bootstrap-popover.js"></script>
+
+</head>								
+<body>
+<div id="linediagInbound"></div>
+<div id="linediagOutbound"></div>
+</body>
+</html>
+

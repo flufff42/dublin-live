@@ -1,0 +1,7 @@
+[Mon Mar 18 11:45:54 2013] [info] Listening at "http://*:3001".
+[Mon Mar 18 11:45:54 2013] [info] Manager 13618 started.
+[Mon Mar 18 11:45:54 2013] [info] Creating process id file "/home/flufff/dublin-live/hypnotoad.pid".
+[Tue Mar 19 19:47:53 2013] [info] Worker 13622 has no heartbeat, restarting.
+[Mon Jun  3 00:23:34 2013] [info] Listening at "http://*:3001".
+[Mon Jun  3 00:23:34 2013] [info] Manager 13334 started.
+[Mon Jun  3 00:23:34 2013] [info] Creating process id file "/home/flufff/dublin-live/hypnotoad.pid".

@@ -1,0 +1,106 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojo_JSON {
+	label="Mojo::JSON";
+	"Mojo::JSON::decode";
+}
+subgraph cluster_Test_Harness {
+	label="Test::Harness";
+	"Test::Harness::END";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::__ANON__[(eval 74)[Mojo/Base.pm:98]:7]";
+	"Mojo::Base::new";
+	"Mojo::Base::__ANON__[(eval 181)[Mojo/Base.pm:98]:8]";
+}
+subgraph cluster_main {
+	label="main";
+	"main::BEGIN@10";
+	"main::BEGIN@3.10";
+	"main::CORE:say";
+	"main::BEGIN@2.4";
+	"main::BEGIN@8";
+	"main::BEGIN@1.5";
+	"main::BEGIN@2.8";
+	"main::BEGIN@12";
+	"main::BEGIN@2.6";
+	"main::BEGIN@3";
+	"main::BEGIN@5";
+	"main::BEGIN@1.7";
+	"main::BEGIN@7";
+	"main::BEGIN@2.9";
+	"main::BEGIN@1";
+	"main::CORE:binmode";
+	"main::BEGIN@6";
+	"main::BEGIN@9";
+	"main::BEGIN@2";
+	"main::BEGIN@4";
+	"main::CORE:readline";
+	"main::RUNTIME";
+	"main::CORE:open";
+	"main::BEGIN@11";
+}
+subgraph cluster_Mojolicious_Lite {
+	label="Mojolicious::Lite";
+	"Mojolicious::Lite::__ANON__[Mojolicious/Lite.pm:41]";
+	"Mojolicious::Lite::__ANON__[Mojolicious/Lite.pm:53]";
+	"Mojolicious::Lite::__ANON__[Mojolicious/Lite.pm:38]";
+}
+subgraph cluster_Modern_Perl {
+	label="Modern::Perl";
+	"Modern::Perl::import";
+}
+subgraph cluster_TAP_Parser {
+	label="TAP::Parser";
+	"TAP::Parser::END";
+}
+subgraph cluster_TAP_Harness {
+	label="TAP::Harness";
+	"TAP::Harness::END";
+}
+subgraph cluster_Mojolicious {
+	label="Mojolicious";
+	"Mojolicious::start";
+}
+"main::RUNTIME" -> "main::BEGIN@2.4";
+"main::RUNTIME" -> "main::CORE:say";
+"main::RUNTIME" -> "main::BEGIN@3";
+"main::RUNTIME" -> "main::BEGIN@1.7";
+"main::BEGIN@2.8" -> "Exporter::import";
+"main::RUNTIME" -> "Mojo::Base::__ANON__[(eval 181)[Mojo/Base.pm:98]:8]";
+"main::RUNTIME" -> "main::BEGIN@2.9";
+"main::RUNTIME" -> "main::BEGIN@6";
+"main::RUNTIME" -> "Mojolicious::Lite::__ANON__[Mojolicious/Lite.pm:41]";
+"main::RUNTIME" -> "Mojolicious::Lite::__ANON__[Mojolicious/Lite.pm:38]";
+"main::RUNTIME" -> "main::BEGIN@8";
+"main::RUNTIME" -> "main::BEGIN@1";
+"main::RUNTIME" -> "main::BEGIN@4";
+"main::RUNTIME" -> "main::BEGIN@11";
+"main::RUNTIME" -> "TAP::Parser::END";
+"main::RUNTIME" -> "main::BEGIN@2.8";
+"main::RUNTIME" -> "main::BEGIN@7";
+"main::RUNTIME" -> "main::CORE:binmode";
+"main::RUNTIME" -> "main::CORE:readline";
+"main::RUNTIME" -> "main::BEGIN@3.10";
+"main::RUNTIME" -> "TAP::Harness::END";
+"main::RUNTIME" -> "Mojo::JSON::decode";
+"main::RUNTIME" -> "Mojo::Base::new";
+"main::RUNTIME" -> "main::BEGIN@1.5";
+"main::RUNTIME" -> "Mojo::Base::__ANON__[(eval 74)[Mojo/Base.pm:98]:7]";
+"main::RUNTIME" -> "Mojolicious::start";
+"main::RUNTIME" -> "main::BEGIN@12";
+"main::RUNTIME" -> "main::BEGIN@2.6";
+"main::BEGIN@1.7" -> "Modern::Perl::import";
+"main::RUNTIME" -> "main::BEGIN@2";
+"main::RUNTIME" -> "main::CORE:open";
+"main::RUNTIME" -> "main::BEGIN@10";
+"main::RUNTIME" -> "Mojolicious::Lite::__ANON__[Mojolicious/Lite.pm:53]";
+"main::RUNTIME" -> "Test::Harness::END";
+"main::RUNTIME" -> "main::BEGIN@5";
+"main::RUNTIME" -> "main::BEGIN@9";
+}

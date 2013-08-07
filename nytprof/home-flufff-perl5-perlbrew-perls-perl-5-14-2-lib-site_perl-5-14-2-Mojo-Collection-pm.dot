@@ -1,0 +1,54 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojo_ByteStream {
+	label="Mojo::ByteStream";
+	"Mojo::ByteStream::BEGIN@5";
+}
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::unimport";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::unimport";
+}
+subgraph cluster_Mojo_Collection {
+	label="Mojo::Collection";
+	"Mojo::Collection::BEGIN@15";
+	"Mojo::Collection::BEGIN@9";
+	"Mojo::Collection::import";
+	"Mojo::Collection::BEGIN@4";
+	"Mojo::Collection::BEGIN@14";
+	"Mojo::Collection::BEGIN@2";
+	"Mojo::Collection::BEGIN@8";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_overload {
+	label="overload";
+	"overload::import";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+subgraph cluster_Mojo_DOM {
+	label="Mojo::DOM";
+	"Mojo::DOM::BEGIN@10";
+}
+"Mojo::DOM::BEGIN@10" -> "Mojo::Collection::import";
+"Mojo::ByteStream::BEGIN@5" -> "Mojo::Collection::import";
+"Mojo::Collection::BEGIN@8" -> "Exporter::import";
+"Mojo::Collection::BEGIN@15" -> "warnings::unimport";
+"Mojo::ByteStream::BEGIN@5" -> "Mojo::Collection::BEGIN@2";
+"Mojo::ByteStream::BEGIN@5" -> "Mojo::Collection::BEGIN@8";
+"Mojo::ByteStream::BEGIN@5" -> "Mojo::Collection::BEGIN@4";
+"Mojo::Collection::BEGIN@2" -> "Mojo::Base::import";
+"Mojo::Collection::BEGIN@14" -> "strict::unimport";
+"Mojo::Collection::BEGIN@4" -> "overload::import";
+"Mojo::ByteStream::BEGIN@5" -> "Mojo::Collection::BEGIN@14";
+"Mojo::ByteStream::BEGIN@5" -> "Mojo::Collection::BEGIN@9";
+"Mojo::ByteStream::BEGIN@5" -> "Mojo::Collection::BEGIN@15";
+}

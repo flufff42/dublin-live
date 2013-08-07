@@ -1,0 +1,28 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::unimport";
+}
+subgraph cluster_XSLoader {
+	label="XSLoader";
+	"XSLoader::load";
+}
+subgraph cluster_Mojo_JSON {
+	label="Mojo::JSON";
+	"Mojo::JSON::BEGIN@4";
+}
+subgraph cluster_B {
+	label="B";
+	"B::BEGIN@9";
+	"B::BEGIN@17";
+	"B::BEGIN@254";
+}
+"Mojo::JSON::BEGIN@4" -> "B::BEGIN@17";
+"Mojo::JSON::BEGIN@4" -> "B::BEGIN@254";
+"B::BEGIN@17" -> "XSLoader::load";
+"B::BEGIN@254" -> "strict::unimport";
+"Mojo::JSON::BEGIN@4" -> "B::BEGIN@9";
+"B::BEGIN@9" -> "strict::import";
+}

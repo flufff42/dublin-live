@@ -1,0 +1,79 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojo_ByteStream {
+	label="Mojo::ByteStream";
+	"Mojo::ByteStream::BEGIN@3";
+	"Mojo::ByteStream::BEGIN@16";
+	"Mojo::ByteStream::BEGIN@6";
+	"Mojo::ByteStream::BEGIN@30";
+	"Mojo::ByteStream::BEGIN@31";
+	"Mojo::ByteStream::import";
+	"Mojo::ByteStream::BEGIN@2";
+	"Mojo::ByteStream::BEGIN@5";
+}
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::unimport";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::unimport";
+}
+subgraph cluster_Mojo_Template {
+	label="Mojo::Template";
+	"Mojo::Template::BEGIN@6";
+}
+subgraph cluster_Mojo_Collection {
+	label="Mojo::Collection";
+	"Mojo::Collection::BEGIN@15";
+	"Mojo::Collection::BEGIN@9";
+	"Mojo::Collection::import";
+	"Mojo::Collection::BEGIN@4";
+	"Mojo::Collection::BEGIN@14";
+	"Mojo::Collection::BEGIN@2";
+	"Mojo::Collection::BEGIN@8";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Mojolicious_Plugin_TagHelpers {
+	label="Mojolicious::Plugin::TagHelpers";
+	"Mojolicious::Plugin::TagHelpers::BEGIN@5";
+}
+subgraph cluster_overload {
+	label="overload";
+	"overload::import";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+subgraph cluster_Mojolicious_Controller {
+	label="Mojolicious::Controller";
+	"Mojolicious::Controller::BEGIN@4";
+}
+"Mojo::ByteStream::BEGIN@5" -> "Mojo::Collection::import";
+"Mojo::ByteStream::BEGIN@6" -> "Exporter::import";
+"Mojo::ByteStream::BEGIN@31" -> "warnings::unimport";
+"Mojo::Template::BEGIN@6" -> "Mojo::ByteStream::BEGIN@16";
+"Mojo::ByteStream::BEGIN@5" -> "Mojo::Collection::BEGIN@2";
+"Mojolicious::Plugin::TagHelpers::BEGIN@5" -> "Mojo::ByteStream::import";
+"Mojo::Template::BEGIN@6" -> "Mojo::ByteStream::import";
+"Mojolicious::Controller::BEGIN@4" -> "Mojo::ByteStream::import";
+"Mojo::Template::BEGIN@6" -> "Mojo::ByteStream::BEGIN@5";
+"Mojo::Template::BEGIN@6" -> "Mojo::ByteStream::BEGIN@31";
+"Mojo::Template::BEGIN@6" -> "Mojo::ByteStream::BEGIN@3";
+"Mojo::ByteStream::BEGIN@5" -> "Mojo::Collection::BEGIN@8";
+"Mojo::ByteStream::BEGIN@5" -> "Mojo::Collection::BEGIN@4";
+"Mojo::ByteStream::BEGIN@2" -> "Mojo::Base::import";
+"Mojo::ByteStream::BEGIN@16" -> "strict::unimport";
+"Mojo::ByteStream::BEGIN@30" -> "strict::unimport";
+"Mojo::ByteStream::BEGIN@3" -> "overload::import";
+"Mojo::Template::BEGIN@6" -> "Mojo::ByteStream::BEGIN@6";
+"Mojo::ByteStream::BEGIN@5" -> "Mojo::Collection::BEGIN@14";
+"Mojo::Template::BEGIN@6" -> "Mojo::ByteStream::BEGIN@30";
+"Mojo::Template::BEGIN@6" -> "Mojo::ByteStream::BEGIN@2";
+"Mojo::ByteStream::BEGIN@5" -> "Mojo::Collection::BEGIN@9";
+"Mojo::ByteStream::BEGIN@5" -> "Mojo::Collection::BEGIN@15";
+}

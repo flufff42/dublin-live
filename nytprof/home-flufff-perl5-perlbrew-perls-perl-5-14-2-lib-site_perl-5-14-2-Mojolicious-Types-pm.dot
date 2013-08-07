@@ -1,0 +1,17 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojolicious_Types {
+	label="Mojolicious::Types";
+	"Mojolicious::Types::BEGIN@2";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+subgraph cluster_Mojolicious {
+	label="Mojolicious";
+	"Mojolicious::BEGIN@12";
+}
+"Mojolicious::BEGIN@12" -> "Mojolicious::Types::BEGIN@2";
+"Mojolicious::Types::BEGIN@2" -> "Mojo::Base::import";
+}

@@ -1,0 +1,24 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojo_Content_MultiPart {
+	label="Mojo::Content::MultiPart";
+	"Mojo::Content::MultiPart::BEGIN@2";
+	"Mojo::Content::MultiPart::BEGIN@4";
+}
+subgraph cluster_Mojo_Content_Single {
+	label="Mojo::Content::Single";
+	"Mojo::Content::Single::BEGIN@5";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+"Mojo::Content::MultiPart::BEGIN@4" -> "Exporter::import";
+"Mojo::Content::MultiPart::BEGIN@2" -> "Mojo::Base::import";
+"Mojo::Content::Single::BEGIN@5" -> "Mojo::Content::MultiPart::BEGIN@2";
+"Mojo::Content::Single::BEGIN@5" -> "Mojo::Content::MultiPart::BEGIN@4";
+}

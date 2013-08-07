@@ -1,0 +1,66 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::unimport";
+}
+subgraph cluster_File_Spec_Functions {
+	label="File::Spec::Functions";
+	"File::Spec::Functions::BEGIN@3";
+	"File::Spec::Functions::__ANON__[File/Spec/Functions.pm:43]";
+	"File::Spec::Functions::BEGIN@6";
+	"File::Spec::Functions::BEGIN@42";
+	"File::Spec::Functions::BEGIN@4";
+}
+subgraph cluster_Mojo_Home {
+	label="Mojo::Home";
+	"Mojo::Home::detect";
+	"Mojo::Home::BEGIN@11";
+	"Mojo::Home::parse";
+	"Mojo::Home::__ANON__[Mojo/Home.pm:95]";
+	"Mojo::Home::mojo_lib_dir";
+	"Mojo::Home::list_files";
+	"Mojo::Home::rel_file";
+	"Mojo::Home::rel_dir";
+}
+subgraph cluster_File_Spec_Unix {
+	label="File::Spec::Unix";
+	"File::Spec::Unix::abs2rel";
+	"File::Spec::Unix::splitdir";
+	"File::Spec::Unix::catfile";
+	"File::Spec::Unix::catdir";
+}
+subgraph cluster_Mojolicious_Command_test {
+	label="Mojolicious::Command::test";
+	"Mojolicious::Command::test::run";
+}
+subgraph cluster_Mojolicious_Lite {
+	label="Mojolicious::Lite";
+	"Mojolicious::Lite::import";
+}
+"Mojo::Home::BEGIN@11" -> "File::Spec::Functions::BEGIN@6";
+"File::Spec::Functions::__ANON__[File/Spec/Functions.pm:43]" -> "File::Spec::Unix::splitdir";
+"Mojo::Home::detect" -> "File::Spec::Functions::__ANON__[File/Spec/Functions.pm:43]";
+"Mojo::Home::parse" -> "File::Spec::Functions::__ANON__[File/Spec/Functions.pm:43]";
+"Mojolicious::Command::test::run" -> "File::Spec::Functions::__ANON__[File/Spec/Functions.pm:43]";
+"Mojo::Home::__ANON__[Mojo/Home.pm:95]" -> "File::Spec::Functions::__ANON__[File/Spec/Functions.pm:43]";
+"Mojo::Home::mojo_lib_dir" -> "File::Spec::Functions::__ANON__[File/Spec/Functions.pm:43]";
+"Mojo::Home::list_files" -> "File::Spec::Functions::__ANON__[File/Spec/Functions.pm:43]";
+"Mojo::Home::rel_file" -> "File::Spec::Functions::__ANON__[File/Spec/Functions.pm:43]";
+"Mojolicious::Lite::import" -> "File::Spec::Functions::__ANON__[File/Spec/Functions.pm:43]";
+"Mojo::Home::rel_dir" -> "File::Spec::Functions::__ANON__[File/Spec/Functions.pm:43]";
+"Mojo::Home::BEGIN@11" -> "File::Spec::Functions::BEGIN@42";
+"Mojo::Home::BEGIN@11" -> "File::Spec::Functions::BEGIN@4";
+"File::Spec::Functions::BEGIN@42" -> "strict::unimport";
+"File::Spec::Functions::__ANON__[File/Spec/Functions.pm:43]" -> "File::Spec::Unix::abs2rel";
+"Mojo::Home::BEGIN@11" -> "File::Spec::Functions::BEGIN@3";
+"File::Spec::Functions::BEGIN@6" -> "vars::import";
+"File::Spec::Functions::__ANON__[File/Spec/Functions.pm:43]" -> "File::Spec::Unix::catdir";
+"File::Spec::Functions::__ANON__[File/Spec/Functions.pm:43]" -> "File::Spec::Unix::catfile";
+"File::Spec::Functions::BEGIN@4" -> "strict::import";
+}

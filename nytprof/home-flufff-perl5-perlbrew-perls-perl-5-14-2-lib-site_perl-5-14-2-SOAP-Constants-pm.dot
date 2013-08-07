@@ -1,0 +1,77 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_SOAP_Constants {
+	label="SOAP::Constants";
+	"SOAP::Constants::BEGIN@18";
+	"SOAP::Constants::BEGIN@32";
+	"SOAP::Constants::BEGIN@28";
+	"SOAP::Constants::BEGIN@30";
+	"SOAP::Constants::BEGIN@25";
+	"SOAP::Constants::BEGIN@19";
+	"SOAP::Constants::BEGIN@26";
+	"SOAP::Constants::BEGIN@37";
+	"SOAP::Constants::BEGIN@17";
+	"SOAP::Constants::BEGIN@23";
+	"SOAP::Constants::BEGIN@12";
+	"SOAP::Constants::BEGIN@20";
+	"SOAP::Constants::BEGIN@27";
+	"SOAP::Constants::BEGIN@21";
+	"SOAP::Constants::CORE:match";
+	"SOAP::Constants::BEGIN@29";
+	"SOAP::Constants::BEGIN@24";
+	"SOAP::Constants::BEGIN@22";
+	"SOAP::Constants::BEGIN@13";
+}
+subgraph cluster_constant {
+	label="constant";
+	"constant::import";
+}
+subgraph cluster_SOAP_Lite {
+	label="SOAP::Lite";
+	"SOAP::Lite::BEGIN@3444";
+}
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@28";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@19";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@23";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@21";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@26";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@12";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@18";
+"SOAP::Constants::BEGIN@28" -> "constant::import";
+"SOAP::Constants::BEGIN@19" -> "constant::import";
+"SOAP::Constants::BEGIN@23" -> "constant::import";
+"SOAP::Constants::BEGIN@20" -> "constant::import";
+"SOAP::Constants::BEGIN@21" -> "constant::import";
+"SOAP::Constants::BEGIN@24" -> "constant::import";
+"SOAP::Constants::BEGIN@29" -> "constant::import";
+"SOAP::Constants::BEGIN@26" -> "constant::import";
+"SOAP::Constants::BEGIN@25" -> "constant::import";
+"SOAP::Constants::BEGIN@17" -> "constant::import";
+"SOAP::Constants::BEGIN@27" -> "constant::import";
+"SOAP::Constants::BEGIN@22" -> "constant::import";
+"SOAP::Constants::BEGIN@18" -> "constant::import";
+"SOAP::Constants::BEGIN@30" -> "constant::import";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@37";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@20";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@29";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@24";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@25";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@17";
+"SOAP::Constants::BEGIN@37" -> "vars::import";
+"SOAP::Constants::BEGIN@32" -> "vars::import";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@27";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@22";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@13";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@32";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::BEGIN@30";
+"SOAP::Lite::BEGIN@3444" -> "SOAP::Constants::CORE:match";
+"SOAP::Constants::BEGIN@12" -> "strict::import";
+}

@@ -1,0 +1,23 @@
+{
+  "name": "dublin-live",
+  "version": "0.0.0",
+  "description": "Frontend JS for Dublin Live Times",
+  "main": "public/dublinBusLive.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@labastillelasercorp.com:dublin-live"
+  },
+  "author": "Seán Labastille",
+  "license": "BSD",
+  "gitHead": "6e10a5f5fa03c75f0a5a7a1b87307d0a2f846bab",
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-jshint": "~0.2.0",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "grunt-contrib-watch": "~0.3.1",
+    "grunt-beautify": "~0.1.1"
+  }
+}

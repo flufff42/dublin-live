@@ -1,0 +1,21 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_main {
+	label="main";
+	"main::BEGIN@3.10";
+	"main::BEGIN@2.9";
+	"main::RUNTIME";
+}
+subgraph cluster_Modern_Perl {
+	label="Modern::Perl";
+	"Modern::Perl::import";
+}
+"main::BEGIN@2.9" -> "Exporter::import";
+"main::RUNTIME" -> "main::BEGIN@2.9";
+"main::RUNTIME" -> "main::BEGIN@3.10";
+"main::BEGIN@3.10" -> "Modern::Perl::import";
+}

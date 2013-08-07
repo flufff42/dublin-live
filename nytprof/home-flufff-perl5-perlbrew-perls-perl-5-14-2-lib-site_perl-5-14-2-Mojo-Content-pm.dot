@@ -1,0 +1,43 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_constant {
+	label="constant";
+	"constant::import";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::__ANON__[Mojo/Base.pm:41]";
+	"Mojo::Base::import";
+}
+subgraph cluster_Mojo_Headers {
+	label="Mojo::Headers";
+	"Mojo::Headers::CORE:subst";
+	"Mojo::Headers::BEGIN@20";
+	"Mojo::Headers::BEGIN@2";
+	"Mojo::Headers::BEGIN@4";
+}
+subgraph cluster_Mojo_Content {
+	label="Mojo::Content";
+	"Mojo::Content::BEGIN@2";
+	"Mojo::Content::BEGIN@7";
+	"Mojo::Content::BEGIN@5";
+	"Mojo::Content::BEGIN@4";
+}
+"Mojo::Base::import" -> "Mojo::Content::BEGIN@2";
+"Mojo::Content::BEGIN@4" -> "Exporter::import";
+"Mojo::Base::import" -> "Mojo::Content::BEGIN@4";
+"Mojo::Content::BEGIN@5" -> "Mojo::Base::__ANON__[Mojo/Base.pm:41]";
+"Mojo::Content::BEGIN@5" -> "Mojo::Headers::BEGIN@2";
+"Mojo::Base::import" -> "Mojo::Content::BEGIN@5";
+"Mojo::Content::BEGIN@2" -> "Mojo::Base::import";
+"Mojo::Content::BEGIN@5" -> "Mojo::Base::import";
+"Mojo::Content::BEGIN@7" -> "constant::import";
+"Mojo::Content::BEGIN@5" -> "Mojo::Headers::BEGIN@20";
+"Mojo::Content::BEGIN@5" -> "Mojo::Headers::CORE:subst";
+"Mojo::Content::BEGIN@5" -> "Mojo::Headers::BEGIN@4";
+"Mojo::Base::import" -> "Mojo::Content::BEGIN@7";
+}

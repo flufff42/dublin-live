@@ -1,0 +1,164 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_TAP_Parser_SourceHandler_Perl {
+	label="TAP::Parser::SourceHandler::Perl";
+	"TAP::Parser::SourceHandler::Perl::_create_iterator";
+	"TAP::Parser::SourceHandler::Perl::_switches";
+	"TAP::Parser::SourceHandler::Perl::make_iterator";
+	"TAP::Parser::SourceHandler::Perl::can_handle";
+	"TAP::Parser::SourceHandler::Perl::_get_command_for_switches";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_TAP_Object {
+	label="TAP::Object";
+	"TAP::Object::new";
+}
+subgraph cluster_TAP_Parser_SourceHandler_Executable {
+	label="TAP::Parser::SourceHandler::Executable";
+	"TAP::Parser::SourceHandler::Executable::can_handle";
+}
+subgraph cluster_Test_Harness {
+	label="Test::Harness";
+	"Test::Harness::BEGIN@12";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_TAP_Parser_SourceHandler_RawTAP {
+	label="TAP::Parser::SourceHandler::RawTAP";
+	"TAP::Parser::SourceHandler::RawTAP::can_handle";
+}
+subgraph cluster_File_Basename {
+	label="File::Basename";
+	"File::Basename::fileparse";
+}
+subgraph cluster_TAP_Parser_SourceHandler_Handle {
+	label="TAP::Parser::SourceHandler::Handle";
+	"TAP::Parser::SourceHandler::Handle::can_handle";
+}
+subgraph cluster_TAP_Parser_Source {
+	label="TAP::Parser::Source";
+	"TAP::Parser::Source::CORE:ftfile";
+	"TAP::Parser::Source::CORE:ftsvtx";
+	"TAP::Parser::Source::CORE:match";
+	"TAP::Parser::Source::raw";
+	"TAP::Parser::Source::CORE:fteread";
+	"TAP::Parser::Source::CORE:ftsize";
+	"TAP::Parser::Source::CORE:fttext";
+	"TAP::Parser::Source::CORE:ftsgid";
+	"TAP::Parser::Source::_initialize";
+	"TAP::Parser::Source::BEGIN@4";
+	"TAP::Parser::Source::CORE:qr";
+	"TAP::Parser::Source::switches";
+	"TAP::Parser::Source::test_args";
+	"TAP::Parser::Source::assemble_meta";
+	"TAP::Parser::Source::meta";
+	"TAP::Parser::Source::CORE:readline";
+	"TAP::Parser::Source::CORE:ftewrite";
+	"TAP::Parser::Source::has_meta";
+	"TAP::Parser::Source::config";
+	"TAP::Parser::Source::BEGIN@6";
+	"TAP::Parser::Source::CORE:ftbinary";
+	"TAP::Parser::Source::CORE:open";
+	"TAP::Parser::Source::CORE:stat";
+	"TAP::Parser::Source::CORE:ftis";
+	"TAP::Parser::Source::BEGIN@7";
+	"TAP::Parser::Source::CORE:close";
+	"TAP::Parser::Source::CORE:ftzero";
+	"TAP::Parser::Source::_read_shebang";
+	"TAP::Parser::Source::CORE:ftdir";
+	"TAP::Parser::Source::CORE:ftlink";
+	"TAP::Parser::Source::CORE:ftsuid";
+	"TAP::Parser::Source::BEGIN@3";
+	"TAP::Parser::Source::config_for";
+	"TAP::Parser::Source::CORE:fteexec";
+	"TAP::Parser::Source::merge";
+}
+subgraph cluster_UNIVERSAL {
+	label="UNIVERSAL";
+	"UNIVERSAL::isa";
+}
+subgraph cluster_TAP_Parser {
+	label="TAP::Parser";
+	"TAP::Parser::_initialize";
+}
+subgraph cluster_TAP_Parser_IteratorFactory {
+	label="TAP::Parser::IteratorFactory";
+	"TAP::Parser::IteratorFactory::make_iterator";
+	"TAP::Parser::IteratorFactory::detect_source";
+}
+subgraph cluster_TAP_Parser_SourceHandler_File {
+	label="TAP::Parser::SourceHandler::File";
+	"TAP::Parser::SourceHandler::File::can_handle";
+}
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::CORE:match";
+"TAP::Parser::Source::config_for" -> "TAP::Parser::Source::CORE:match";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::CORE:ftsvtx";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::CORE:fteread";
+"TAP::Parser::Source::assemble_meta" -> "File::Basename::fileparse";
+"Test::Harness::BEGIN@12" -> "TAP::Parser::Source::BEGIN@4";
+"TAP::Parser::_initialize" -> "TAP::Parser::Source::test_args";
+"TAP::Parser::SourceHandler::Perl::_get_command_for_switches" -> "TAP::Parser::Source::test_args";
+"TAP::Parser::Source::BEGIN@7" -> "Exporter::import";
+"TAP::Parser::SourceHandler::Executable::can_handle" -> "TAP::Parser::Source::meta";
+"TAP::Parser::SourceHandler::Perl::make_iterator" -> "TAP::Parser::Source::meta";
+"TAP::Parser::SourceHandler::Handle::can_handle" -> "TAP::Parser::Source::meta";
+"TAP::Parser::SourceHandler::Perl::can_handle" -> "TAP::Parser::Source::meta";
+"TAP::Parser::SourceHandler::RawTAP::can_handle" -> "TAP::Parser::Source::meta";
+"TAP::Parser::Source::has_meta" -> "TAP::Parser::Source::meta";
+"TAP::Parser::Source::_initialize" -> "TAP::Parser::Source::meta";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::meta";
+"TAP::Parser::SourceHandler::Perl::_switches" -> "TAP::Parser::Source::meta";
+"TAP::Parser::SourceHandler::File::can_handle" -> "TAP::Parser::Source::meta";
+"TAP::Parser::IteratorFactory::make_iterator" -> "TAP::Parser::Source::meta";
+"TAP::Parser::Source::_read_shebang" -> "TAP::Parser::Source::CORE:readline";
+"TAP::Parser::Source::_initialize" -> "TAP::Parser::Source::config";
+"TAP::Parser::Source::config_for" -> "TAP::Parser::Source::config";
+"TAP::Parser::IteratorFactory::make_iterator" -> "TAP::Parser::Source::config";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::CORE:ftbinary";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::CORE:ftis";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::CORE:ftlink";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::CORE:ftsuid";
+"TAP::Parser::SourceHandler::File::can_handle" -> "TAP::Parser::Source::config_for";
+"TAP::Parser::SourceHandler::Perl::_create_iterator" -> "TAP::Parser::Source::merge";
+"TAP::Parser::_initialize" -> "TAP::Parser::Source::merge";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::raw";
+"TAP::Parser::SourceHandler::Perl::_switches" -> "TAP::Parser::Source::raw";
+"TAP::Parser::SourceHandler::Perl::make_iterator" -> "TAP::Parser::Source::raw";
+"TAP::Parser::_initialize" -> "TAP::Parser::Source::raw";
+"TAP::Parser::IteratorFactory::make_iterator" -> "TAP::Parser::Source::raw";
+"TAP::Parser::IteratorFactory::detect_source" -> "TAP::Parser::Source::raw";
+"TAP::Parser::SourceHandler::Perl::_get_command_for_switches" -> "TAP::Parser::Source::raw";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::CORE:fttext";
+"TAP::Object::new" -> "TAP::Parser::Source::_initialize";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::CORE:ftsgid";
+"Test::Harness::BEGIN@12" -> "TAP::Parser::Source::BEGIN@6";
+"TAP::Parser::Source::_read_shebang" -> "TAP::Parser::Source::CORE:open";
+"TAP::Parser::Source::_read_shebang" -> "TAP::Parser::Source::CORE:close";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::CORE:ftfile";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::CORE:qr";
+"TAP::Parser::SourceHandler::Perl::_switches" -> "TAP::Parser::Source::switches";
+"TAP::Parser::_initialize" -> "TAP::Parser::Source::switches";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::has_meta";
+"TAP::Parser::Source::assemble_meta" -> "UNIVERSAL::isa";
+"Test::Harness::BEGIN@12" -> "TAP::Parser::Source::BEGIN@7";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::_read_shebang";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::CORE:ftdir";
+"Test::Harness::BEGIN@12" -> "TAP::Parser::Source::BEGIN@3";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::CORE:ftsize";
+"TAP::Parser::Source::BEGIN@4" -> "vars::import";
+"TAP::Parser::IteratorFactory::make_iterator" -> "TAP::Parser::Source::assemble_meta";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::CORE:ftewrite";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::CORE:stat";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::CORE:ftzero";
+"TAP::Parser::Source::BEGIN@3" -> "strict::import";
+"TAP::Parser::Source::assemble_meta" -> "TAP::Parser::Source::CORE:fteexec";
+}

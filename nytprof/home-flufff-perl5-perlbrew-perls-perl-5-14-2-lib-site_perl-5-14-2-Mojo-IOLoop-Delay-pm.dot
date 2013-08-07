@@ -1,0 +1,20 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+subgraph cluster_Mojo_IOLoop_Delay {
+	label="Mojo::IOLoop::Delay";
+	"Mojo::IOLoop::Delay::BEGIN@2";
+	"Mojo::IOLoop::Delay::BEGIN@4";
+}
+subgraph cluster_Mojo_IOLoop {
+	label="Mojo::IOLoop";
+	"Mojo::IOLoop::BEGIN@6";
+}
+"Mojo::IOLoop::BEGIN@6" -> "Mojo::IOLoop::Delay::BEGIN@2";
+"Mojo::IOLoop::Delay::BEGIN@2" -> "Mojo::Base::import";
+"Mojo::IOLoop::Delay::BEGIN@4" -> "Mojo::Base::import";
+"Mojo::IOLoop::BEGIN@6" -> "Mojo::IOLoop::Delay::BEGIN@4";
+}

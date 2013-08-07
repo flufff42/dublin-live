@@ -1,0 +1,77 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojolicious_Plugin_EPLRenderer {
+	label="Mojolicious::Plugin::EPLRenderer";
+	"Mojolicious::Plugin::EPLRenderer::register";
+}
+subgraph cluster_Mojolicious_Renderer {
+	label="Mojolicious::Renderer";
+	"Mojolicious::Renderer::BEGIN@6";
+	"Mojolicious::Renderer::new";
+	"Mojolicious::Renderer::__ANON__[Mojolicious/Renderer.pm:17]";
+	"Mojolicious::Renderer::__ANON__[Mojolicious/Renderer.pm:20]";
+	"Mojolicious::Renderer::BEGIN@5";
+	"Mojolicious::Renderer::BEGIN@8";
+	"Mojolicious::Renderer::add_handler";
+	"Mojolicious::Renderer::add_helper";
+	"Mojolicious::Renderer::__ANON__[Mojolicious/Renderer.pm:18]";
+	"Mojolicious::Renderer::BEGIN@4";
+	"Mojolicious::Renderer::BEGIN@7";
+	"Mojolicious::Renderer::BEGIN@9";
+	"Mojolicious::Renderer::BEGIN@2";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::__ANON__[(eval 140)[Mojo/Base.pm:98]:8]";
+	"Mojo::Base::__ANON__[(eval 139)[Mojo/Base.pm:98]:8]";
+	"Mojo::Base::__ANON__[Mojo/Base.pm:41]";
+	"Mojo::Base::__ANON__[(eval 142)[Mojo/Base.pm:98]:8]";
+	"Mojo::Base::new";
+	"Mojo::Base::import";
+}
+subgraph cluster_Mojo_Cache {
+	label="Mojo::Cache";
+	"Mojo::Cache::BEGIN@2";
+}
+subgraph cluster_Mojolicious {
+	label="Mojolicious";
+	"Mojolicious::BEGIN@8";
+	"Mojolicious::helper";
+	"Mojolicious::__ANON__[Mojolicious.pm:19]";
+}
+subgraph cluster_Mojolicious_Plugin_EPRenderer {
+	label="Mojolicious::Plugin::EPRenderer";
+	"Mojolicious::Plugin::EPRenderer::register";
+}
+"Mojolicious::Renderer::BEGIN@9" -> "Exporter::import";
+"Mojolicious::Renderer::BEGIN@4" -> "Exporter::import";
+"Mojolicious::BEGIN@8" -> "Mojolicious::Renderer::BEGIN@5";
+"Mojolicious::BEGIN@8" -> "Mojolicious::Renderer::BEGIN@7";
+"Mojolicious::BEGIN@8" -> "Mojolicious::Renderer::BEGIN@9";
+"Mojolicious::Renderer::new" -> "Mojolicious::Renderer::add_handler";
+"Mojolicious::Plugin::EPRenderer::register" -> "Mojolicious::Renderer::add_handler";
+"Mojolicious::Plugin::EPLRenderer::register" -> "Mojolicious::Renderer::add_handler";
+"Mojolicious::Renderer::BEGIN@5" -> "Mojo::Cache::BEGIN@2";
+"Mojolicious::Renderer::BEGIN@5" -> "Mojo::Base::__ANON__[Mojo/Base.pm:41]";
+"Mojolicious::helper" -> "Mojolicious::Renderer::add_helper";
+"Mojolicious::Renderer::add_handler" -> "Mojo::Base::__ANON__[(eval 139)[Mojo/Base.pm:98]:8]";
+"Mojolicious::BEGIN@8" -> "Mojolicious::Renderer::BEGIN@8";
+"Mojolicious::Renderer::add_helper" -> "Mojo::Base::__ANON__[(eval 140)[Mojo/Base.pm:98]:8]";
+"Mojolicious::Renderer::BEGIN@5" -> "Mojo::Base::import";
+"Mojolicious::Renderer::BEGIN@7" -> "Mojo::Base::import";
+"Mojolicious::Renderer::BEGIN@8" -> "Mojo::Base::import";
+"Mojolicious::Renderer::BEGIN@6" -> "Mojo::Base::import";
+"Mojolicious::Renderer::BEGIN@2" -> "Mojo::Base::import";
+"Mojolicious::BEGIN@8" -> "Mojolicious::Renderer::BEGIN@6";
+"Mojo::Base::__ANON__[(eval 142)[Mojo/Base.pm:98]:8]" -> "Mojolicious::Renderer::__ANON__[Mojolicious/Renderer.pm:20]";
+"Mojolicious::BEGIN@8" -> "Mojolicious::Renderer::BEGIN@4";
+"Mojolicious::Renderer::new" -> "Mojo::Base::new";
+"Mojo::Base::__ANON__[(eval 139)[Mojo/Base.pm:98]:8]" -> "Mojolicious::Renderer::__ANON__[Mojolicious/Renderer.pm:17]";
+"Mojo::Base::__ANON__[(eval 140)[Mojo/Base.pm:98]:8]" -> "Mojolicious::Renderer::__ANON__[Mojolicious/Renderer.pm:18]";
+"Mojolicious::BEGIN@8" -> "Mojolicious::Renderer::BEGIN@2";
+"Mojolicious::__ANON__[Mojolicious.pm:19]" -> "Mojolicious::Renderer::new";
+}

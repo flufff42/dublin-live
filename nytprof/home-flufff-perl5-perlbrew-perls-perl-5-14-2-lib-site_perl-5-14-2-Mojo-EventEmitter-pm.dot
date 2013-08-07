@@ -1,0 +1,53 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Mojo_EventEmitter {
+	label="Mojo::EventEmitter";
+	"Mojo::EventEmitter::BEGIN@2";
+	"Mojo::EventEmitter::BEGIN@6";
+	"Mojo::EventEmitter::BEGIN@4";
+	"Mojo::EventEmitter::on";
+}
+subgraph cluster_constant {
+	label="constant";
+	"constant::import";
+	"constant::BEGIN@4";
+	"constant::BEGIN@3";
+	"constant::BEGIN@114";
+	"constant::BEGIN@25";
+	"constant::BEGIN@29";
+	"constant::BEGIN@52";
+	"constant::CORE:regcomp";
+	"constant::CORE:qr";
+	"constant::BEGIN@2";
+	"constant::BEGIN@6";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Mojo_Base {
+	label="Mojo::Base";
+	"Mojo::Base::import";
+}
+subgraph cluster_Mojolicious {
+	label="Mojolicious";
+	"Mojolicious::hook";
+}
+"Mojo::EventEmitter::BEGIN@4" -> "Exporter::import";
+"Mojo::EventEmitter::BEGIN@6" -> "constant::CORE:regcomp";
+"Mojo::Base::import" -> "Mojo::EventEmitter::BEGIN@2";
+"Mojo::EventEmitter::BEGIN@6" -> "constant::BEGIN@52";
+"Mojolicious::hook" -> "Mojo::EventEmitter::on";
+"Mojo::EventEmitter::BEGIN@6" -> "constant::BEGIN@25";
+"Mojo::EventEmitter::BEGIN@6" -> "constant::BEGIN@114";
+"Mojo::EventEmitter::BEGIN@6" -> "constant::BEGIN@29";
+"Mojo::EventEmitter::BEGIN@6" -> "constant::BEGIN@2";
+"Mojo::EventEmitter::BEGIN@6" -> "constant::BEGIN@4";
+"Mojo::EventEmitter::BEGIN@2" -> "Mojo::Base::import";
+"Mojo::EventEmitter::BEGIN@6" -> "constant::BEGIN@6";
+"Mojo::EventEmitter::BEGIN@6" -> "constant::import";
+"Mojo::Base::import" -> "Mojo::EventEmitter::BEGIN@6";
+"Mojo::EventEmitter::BEGIN@6" -> "constant::CORE:qr";
+"Mojo::EventEmitter::BEGIN@6" -> "constant::BEGIN@3";
+"Mojo::Base::import" -> "Mojo::EventEmitter::BEGIN@4";
+}

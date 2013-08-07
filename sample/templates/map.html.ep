@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, height=device-height" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../dublinBusLive.css"/>
+<link rel="stylesheet" href="../leaflet/leaflet.css"/>
+<link rel="stylesheet" href="../bootstrap.min.css"/>
+<title>
+Map
+</title>
+<script type="text/javascript" src="http://bit.ly/jqsource"></script>          
+<script type="text/javascript" src="../dublinBusLive.js"></script>
+<script type="text/javascript">
+	console.log("<%= $route %>");
+	DBL.route = "<%= $route %>";
+	$('document').ready(function() {
+		$('#mapbox').css('width',window.innerWidth+"px");
+		$('#mapbox').css('height',window.innerHeight+"px");
+		initmap();
+	});
+	
+</script>
+<script type="text/javascript" src="../util.js"></script>
+<script type="text/javascript" src="../geo.js"></script>
+<script type="text/javascript" src="../templates.js"></script>
+<script type="text/javascript" src="../suggestions.js"></script>
+<script type="text/javascript" src="../results.js"></script>
+<script type="text/javascript" src="../mustache.js"></script>
+<script type="text/javascript" src="../prefixfree.min.js"></script>
+<script type="text/javascript" src="../prefixfree.jquery.js"></script>
+<script type="text/javascript" src="../underscore.js"></script>
+<script type="text/javascript" src="../backbone.js"></script>
+<script type="text/javascript" src="../leaflet/leaflet-src.js"></script>
+<script type="text/javascript" src="../wax.leaf.min.js"></script>
+<script type="text/javascript" src="../bootstrap-tooltip.js"></script>
+<script type="text/javascript" src="../bootstrap-popover.js"></script>
+<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js"></script>
+<script type="text/javascript" src="../mapbox.js"></script>
+</head>								
+<body>
+<div id="mapbox" style=""></div>
+</body>
+</html>
+
