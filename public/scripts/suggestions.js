@@ -143,7 +143,7 @@ define(['util', 'results', 'templates', 'mustache', 'dispatcher','line','efaTrip
 			'id': 'suggestion-list',
 			html: routes.join('')
 		}).appendTo('#suggestions');*/
-		$('dt').on("click", function(e) {
+		var suggestionClickHandler = function(e) {
 			console.log(e.target);
 			var count = 0;
 			_.forEach($(e.target).parent().children(), function(c) {
@@ -155,28 +155,13 @@ define(['util', 'results', 'templates', 'mustache', 'dispatcher','line','efaTrip
 			});
 			console.log("Suggestion chosen: " + DBL.suggestionIndex);
 			if (DBL.Mode == DBL.Modes.Maps) {
-				DBL.Results.showMap();
-			} else if (DBL.Mode == DBL.Modes.Routes) {
+				DBL.Results.showRouteMap();
+			} else if (DBL.Mode == DBL.Modes.RouteInformation) {
 				setupAndRenderLineDiags();
 			}
-		});
-		$('dd').on("click", function(e) {
-			console.log(e.target);
-			var count = 0;
-			_.forEach($(e.target).parent().children(), function(c) {
-				if ($(c).text() != $(e.target).text()) {
-					count++;
-				} else {
-					DBL.suggestionIndex = Math.floor(count / 2);
-				}
-			});
-			console.log("Suggestion chosen: " + DBL.suggestionIndex);
-			if (DBL.Mode == DBL.Modes.Maps) {
-				DBL.Results.showMap();
-			} else if (DBL.Mode == DBL.Modes.Routes) {
-				setupAndRenderLineDiags();
-			}
-		});
+		};
+		$('dt').on("click", suggestionClickHandler);
+		$('dd').on("click", suggestionClickHandler);
 		//$('#suggestionSpinner').fadeOut();
 		$('#time-line').find('.timeline-time').detach();
 /*changeLinkAction();
@@ -186,8 +171,8 @@ define(['util', 'results', 'templates', 'mustache', 'dispatcher','line','efaTrip
 			console.log("Only one route left" + routes);
 			DBL.suggestionIndex = 0;
 			if (DBL.Mode == DBL.Modes.Maps) {
-				DBL.Results.showMap();
-			} else if (DBL.Mode == DBL.Modes.Routes) {
+				DBL.Results.showRouteMap();
+			} else if (DBL.Mode == DBL.Modes.RouteInformation) {
 				setupAndRenderLineDiags();
 			}
 		}
@@ -322,13 +307,17 @@ define(['util', 'results', 'templates', 'mustache', 'dispatcher','line','efaTrip
 				} else if (event.keyCode == ENTER && DBL.suggestionIndex != -1) {
 					switch (DBL.Mode) {
 					case DBL.Modes.Maps:
-						DBL.Results.showMap();
+						DBL.Results.showRouteMap();
 						break;
 					case DBL.Modes.Departures:
 						DBL.Results.fetchResultsForStop(selectedSuggestionLink[0].text, "");
 						break;
 					case DBL.Modes.Routes:
 						setupAndRenderLineDiags();
+						break;
+					case DBL.Modes.RouteInformation:
+						setupAndRenderLineDiags();
+						DBL.Results.showRouteMap();
 						break;
 					case DBL.Modes.Trips:
 						console.log("Selected EFA ID " + selectedSuggestionLink[0].dataset.stopid + "in field " + event.target.id);
@@ -360,6 +349,9 @@ define(['util', 'results', 'templates', 'mustache', 'dispatcher','line','efaTrip
 					showRouteSuggestions(event.target);
 					break;
 				case DBL.Modes.Routes:
+					showRouteSuggestions(event.target);
+					break;
+				case DBL.Modes.RouteInformation:
 					showRouteSuggestions(event.target);
 					break;
 				case DBL.Modes.Trips:

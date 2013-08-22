@@ -6,7 +6,8 @@ define(function () {
 		Departures: 0,
 		Maps: 1,
 		Routes: 2,
-		Trips: 3
+		Trips: 3,
+		RouteInformation: 4
 	};
 	DBL.efaEndpointId = {};
 	DBL.efaEndpointName = {};

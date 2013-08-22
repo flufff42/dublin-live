@@ -1,0 +1,541 @@
+/**
+ * Dublin Bus Live Times
+ */
+ 
+@font-face
+	font-family: icons
+	src: url('fonts/fico.eot')
+	src: url('fonts/fico.eot?#iefix') format('embedded-opentype'), url('fonts/fico.ttf') format('truetype'), url('fonts/fico.svg#Fico') format('svg')
+
+*
+	box-sizing: border-box
+
+html 
+	background: linear-gradient(#fff, #aaa) #aaa
+	min-height: 100%
+	font-family: "Gill Sans", sans-serif
+	border-top: 0
+	border-right: 0
+	border-bottom: 0
+	margin: 0
+	/*overflow-x: hidden*/
+	background-repeat: no-repeat
+
+.line 
+	background: none
+
+#sign 
+	border: 1px solid #ccc
+	padding: 4px
+	box-shadow: 1px 2px 7px #444
+	color: rgba(235,25,25,0.7)
+
+#sign::before, .stopPermaLink::before, .locationAttach::before, .mapLink::before 
+	font-family: icons
+	content: attr(data-icon)
+	padding-right: 5px
+
+
+.button 
+	margin: 5px
+	display: inline-block
+	outline: none
+	background: linear-gradient(white,#BBB)
+	text-decoration: none
+	color: black
+	.toggle:active
+		text-shadow: 0px 0px 5px yellow
+
+.button:hover 
+	background: linear-gradient(white,#DDD)
+	cursor: pointer
+
+.button:active 
+	background: linear-gradient(#DDD,white)
+
+#time-line 
+	height: 100%
+	position: absolute
+	font-weight: 200
+	user-select: none
+	cursor: default
+
+.timeline-time 
+	border-left: 1px dotted rgba(110,180,235,0.3)
+	display: inline-block
+	height: 100%
+	user-select: none
+	cursor: default
+	position: absolute
+	z-index: -5
+
+.selected, .distance 
+	background-color: rgba(110,180,235,0.3)
+
+.no-results 
+	text-align: center
+	padding-top: 5em
+	animation: wobble 0.25s linear 2
+
+@media screen and (max-width: 500px) 
+	h1 
+		font-size: 8pt
+		margin: 0
+	
+	body 
+		font-size: 12pt
+	
+	h4 
+		margin: 5px
+	
+	h6 
+		margin: 0
+	
+	#stopSearch,#tripFrom,#tripTo 
+		width: 90%
+	
+	#top 
+		height: 280px
+	
+	.service 
+		width: 75% !important
+	
+	#tripTimeline, #tripMap, #results-frame, #mapbox 
+		top: 280px
+		-webkit-overflow-scrolling: touch
+	
+	#diagWrapper 
+		margin-top: 140px
+	
+	#suggestions 
+		width: 90%
+	
+	#time-line 
+		z-index: 3
+	
+	#linevisual 
+		border-top-width: 2px !important
+	
+	.stopRoutes span 
+		padding: 1px !important
+		margin: 1px !important
+		border-radius: 1px !important
+		font-size: 4pt !important
+	
+	#outboundTop div, #inboundTop div 
+		margin-bottom: 3px !important
+	
+	#outboundTop div, #outboundBottom div, #inboundTop div, #inboundBottom div 
+		width: 40px !important
+		display: inline-block
+		font-size: 6pt
+	
+	.normalStop 
+		font-size: 8pt !important
+	
+	.interchangeStop 
+		font-size: 6pt !important
+	
+	#lozengebar 
+		font-size: 14pt
+	
+	#lozengebar span 
+		padding: 5px 3px
+		margin: 3px 0px
+		display: block
+
+@media screen and (min-width: 500px) 
+	h4 
+		margin: 5px
+	
+	#stopSearch,#tripFrom,#tripTo 
+		width: 40%
+	
+	#top 
+		height: 100px
+	
+	.service 
+	
+	#tripTimeline, #tripMap, #results-frame, #mapbox 
+		top: 100px
+		-webkit-overflow-scrolling: touch
+	
+	#suggestions 
+		width: 40%
+	
+	#time-line 
+		z-index: -22
+	
+	#lozengebar span 
+		padding: 0px 3px
+
+h4,h6 
+	font-weight: normal
+	
+body
+	margin: 0
+	overflow: none
+
+#top
+	position: absolute
+	top: 0
+	z-index: 10
+	width: 100%
+	text-align: center
+	background: transparent
+	border-bottom: 1px solid #DDD
+	box-shadow: 0px 0px 10px black
+	background-image: linear-gradient(white,#DDD)
+
+#tripFrom:focus,#tripTo:focus,#stopSearch:focus 
+	text-shadow: 0px 0px 3px rgba(110, 180, 235, 0.9)
+	outline: none
+
+.button, #stopSearch,#tripFrom,#tripTo 
+	border: 1px solid #444
+	border-radius: 5px
+	padding: 3px
+	font-size: 14pt
+	font-family: "Gill Sans", sans-serif
+	font-weight: 300
+
+#results-frame, #mapbox, #tripTimeline 
+	border: none
+	position: absolute
+	bottom: 0
+	overflow: scroll
+	width: 100%
+	margin: 0
+
+#mapbox
+	z-index: -1000
+
+#results-frame
+	z-index: 1000	
+
+#tripMap 
+	right: 0
+
+#suggestionSpinner, #fetchSpinner 
+	overflow: hidden
+	display: none
+	margin: 0 auto
+	animation: expand 0.5s linear infinite alternate
+	text-align: center
+	border-radius: 5px
+	border: 1px solid #ccc
+	padding: 1px
+
+@keyframes wobble 
+	0% 
+		transform: rotateZ(0deg)
+	
+	25% 
+		transform: rotateZ(3deg)
+	
+	75% 
+		transform: rotateZ(-3deg)
+
+@keyframes expand 
+	0% 
+		width: 40px
+	
+	100% 
+		width: 60px
+		background-color: rgba(115,180,235,0.6)
+
+#suggestion-list 
+	margin: 0
+
+#suggestions 
+	display: none
+	background-color: rgba(255,255,255,0.9)
+	margin-left: auto
+	margin-right: auto
+	border-bottom: 1px solid #999
+	box-shadow: 0 0 12px rgba(0,0,0,0.8)
+	border-radius: 3px
+	padding: 5px
+	position: relative
+	
+
+#suggestions dl dt 
+	font-weight: 300
+	border-top: 1px solid rgba(100,100,100,0.2)
+
+#suggestions dl a 
+	text-decoration: none
+	/*color: black*/
+
+#suggestions dd 
+	margin-left: 0
+
+#suggestions dl a.route 
+	display: inline-block
+	border: 1px solid transparent
+	padding: 2px
+	border-radius: 2px
+	margin: 5px 2px
+	text-decoration: none
+
+#suggestions dl a.route:hover 
+	border: 1px solid rgba(255,255,255,0.6)
+	cursor: pointer
+	border-radius: 2px
+
+#suggestions dt+dd:hover, #suggestions dt:hover+dd 
+	background-color: rgba(134,180,244,0.7)
+
+#suggestions dt:active,#suggestions dd:active 
+	background-color: rgba(134,180,244,1)
+
+#results .service 
+	text-align: center
+	z-index: 100 !important
+
+#results .service 
+	width: 20%
+	/*background-color: #088*/
+	padding: 3px
+	border-radius: 4px
+
+.trip 
+	height:	160px
+	margin-top: 1em
+
+.tripLeg 
+	padding: 3px
+	border-radius: 4px
+	background-color: rgba(0,100,100,0.4)
+	display: inline-block
+	font-size: 9pt
+	height: 120px
+	vertical-align: top
+	overflow: auto
+
+/* Tranport Mode: Walk */
+.m-1 
+	background-color: rgba(119,112,112,0.79)
+	border: 1px dashed rgba(50,50,50,0.8)
+	color: white
+
+
+/* Tranport Mode: Luas/Tram */
+.m4 
+	background-color: rgba(127,0,127,0.79)
+	border: 1px solid rgba(195,195,195,0.8)
+	color: white
+
+
+/* Tranport Mode: Bus */
+.m5 
+	background-color: rgba(4,95,251,0.79)
+	border: 1px solid rgba(195,194,194,0.8)
+	color: white
+
+
+/* Tranport Mode: Regional Bus */
+.m6 
+	background-color: rgba(250,29,5,0.79)
+	border: 1px solid rgba(195,194,194,0.8)
+	color: white
+
+
+/* Tranport Mode: Train */
+.m0 
+	background-color: rgba(125,200,60,0.79)
+	border: 1px solid rgba(195,194,194,0.8)
+	color: white
+
+#stopDirection 
+	margin: 0
+
+#results 
+	user-select: none
+	cursor: default
+
+#results .service .time 
+	display: inline-block/*background-color: rgba(200,200,200,0.4)*/
+
+/* Route Colors */
+@mixin routeColour($text: black, $bg: yellow)
+	border-top-color: $bg
+	background-color: $bg
+	color: $text
+
+.r2,.r3,.r7,.r8,.r7B,.r7D,.r11,.r15,.r15A,.r15B,.r16,.r16C,.r25X,.r27B,.r27X,.r29A,.r31,.r31B,.r32,.r32B,.r32A,.r32X,.r33,.r33A,.r33B,.r33D,.r33X,.r38B,.r40B,.r41,.r41A,.r41B,.r41C,.r41X,.r42,.r44,.r44B,.r45,.r45A,.r49,.r51D,.r51X,.r53,.r53A,.r54A,.r56A,.r59,.r61,.r65,.r65B,.r66,.r66A,.r66B,.r66X,.r67X,.r68,.r68A,.r69,.r69X,.r70N,.r77A,.r77X,.r79A,.r84X,.r90,.r102,.r111,.r116,.r118,.r123,.r130,.r142,.r150,.r161,.r210,.r221
+	@include routeColour
+
+.r747
+	@include routeColour(white,rgb(0,160,150))
+
+.r7N, .r25N,.r15N,.r29N,.r31N,.r33N,.r39N,.r42N,.r41N,.r46N,.r49N,.r66N,.r67N,.r69N,.r77N,.r84N,.r88N
+	@include routeColour(yellow, navy)
+
+.r40
+	@include routeColour(white,rgb(240,55,65))
+
+.r40D 
+	@include routeColour(white,rgb(130,190,55))
+
+.r104,.r18,.r17A,.r16A
+	@include routeColour(white,rgb(150,150,150))
+
+.r66,.r66B,.r66A
+	@include routeColour(white,rgb(135,80,150))
+
+.r25A,.r25B,.r25
+	@include routeColour(white,rgb(235,0,130))
+
+.r4
+	@include routeColour(white,rgb(160,120,110))
+
+.r1
+	@include routeColour(white,rgb(110,180,170))
+
+.r17, .r13, .r27A
+	@include routeColour(white,rgb(0,110,160))
+
+.r83, .r38, .r38A, .r120
+	@include routeColour(white,rgb(233,0,129))
+
+.r140, .r37,.r26
+	@include routeColour(white,rgb(5,130,60))
+
+.r239
+	@include routeColour(white,rgb(120,170,220))
+
+.r39, .r39A, .r122,.r27,.r9
+	@include routeColour(white,rgb(240,120,90))
+
+.r270
+	@include routeColour(white,rgb(150,200,50))
+
+.r70,.r128
+	@include routeColour(white,rgb(125,70,135))
+
+.r220, .r151
+	@include routeColour(white,rgb(0,120,180))
+
+.r238
+	@include routeColour(white,rgb(75,150,160))
+
+.r236
+	@include routeColour(white,rgb(240,80,40))
+
+.r76, .r76A, .r76B
+	@include routeColour(white,rgb(85, 50, 20))
+
+.r184,.r43
+	@include routeColour(white,rgb(105,180,170))
+
+.r84
+	@include routeColour(white,rgb(70,45,30))
+
+.r185
+	@include routeColour(white,rgb(40,55,60))
+
+.r145,.r67
+	@include routeColour(white,rgb(225,115,85))
+
+.r63
+	@include routeColour(white,rgb(35,155,130))
+
+.r75
+	@include routeColour(white,rgb(120,165,200))
+
+.r46A,.r46E,.r79
+	@include routeColour(white,rgb(210,20,115))
+
+.r63
+	@include routeColour(white,rgb(35,155,130))
+
+.r114
+	@include routeColour(white,rgb(140,190,55))
+
+.r47,.r14
+	@include routeColour(white,rgb(0,120,60))
+
+#diagWrapper 
+	overflow: scroll
+	-webkit-overflow-scrolling: touch
+
+
+#linediagInbound, #linediagOutbound 
+	margin: 10px
+	border: 1px solid rgba(100,100,100,0.3)
+	border-radius: 10px
+	padding: 10px
+
+#linediagInbound 
+	margin-top: 110px
+
+#linediagInbound .route, #linediagOutbound .route 
+	padding: 3px
+	border-radius: 3px
+
+#linevisual 
+	width: 100%
+	border-top-width: 5px
+	border-top-style: solid
+
+#outboundTop, #inboundTop 
+	margin-bottom: -4px
+
+#outboundTop div, #inboundTop div 
+	margin-bottom: -10px
+	text-align: center
+
+#outboundTop div, #outboundBottom div, #inboundTop div, #inboundBottom div 
+	width: 60px
+	display: inline-block
+
+.lineDiagStopNumberSpan 
+	font-family: "Consolas", monospace
+	font-size: small
+	transform: rotate(-90deg)
+	display: inline-block
+	margin: 0px -16px -10px -12px
+	padding: 0 0 0 12px
+	text-shadow: 0px 0px 5px skyBlue
+
+.normalStop 
+	width: 100%
+	text-align: center
+	display: block
+	color: navy
+	font-size: 24pt
+	margin-bottom: -9px
+
+.interchangeStop 
+	width: 100%
+	text-align: center
+	display: block
+	color: navy
+	font-size: 14pt
+	margin-bottom: -9px
+
+#outboundBottom, #inboundBottom 
+	margin-top: 10px
+
+#outboundBottom div, #inboundBottom div 
+	vertical-align: top
+	text-align: center
+
+.stopRoutes span 
+	display: inline-block
+	padding: 3px
+	margin: 3px
+	border-radius: 3px
+	font-size: 8pt
+
+#lozengebar span 
+	border-radius: 3px
+	border: 1px solid #6fa8fd
+
+#lozengebar span:hover 
+	text-shadow: 0px 0px 5px gray
+	cursor: pointer
+
+#lozengebar span.selected 
+	background-color: rgba(134,180,244,0.7)

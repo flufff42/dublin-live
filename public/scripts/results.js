@@ -1,4 +1,4 @@
-define(['mustache', 'util', 'map'], function(Mustache, Util, Map) {
+define(['mustache', 'util', 'map','backbone'], function(Mustache, Util, Map, Backbone) {
 	DBL.Util = Util;
 	function processServices(route, services) {
 		var times = [];
@@ -136,12 +136,6 @@ define(['mustache', 'util', 'map'], function(Mustache, Util, Map) {
 				DBL.suggestionsAllowed = 1;
 				DBL.currentStop = stop;
 				if (DBL.Router !== undefined) DBL.Router.navigate(stop.match(/\d+/)[0]);
-				$('<a/>', {
-					'href': '/' + stop.match(/\d+/)[0],
-					'data-icon': 'b',
-					'class': 'stopPermaLink button',
-					'html': "Link for this Stop (" + stop.match(/\d+/)[0] + ")"
-				}).appendTo('#stopDirection');
 				$('title').text(stop + " — Dublin Live Times");
 			}
 			DBL.reloadTimeout = setTimeout(function() {
@@ -152,7 +146,7 @@ define(['mustache', 'util', 'map'], function(Mustache, Util, Map) {
 	return {
 		initializeTimeline: initializeTimeline,
 		fetchResultsForStop: fetchResultsForStop,
-		showMap: function() {
+		showRouteMap: function() {
 			if ($('#suggestion-list dt:nth-child(' + (DBL.suggestionIndex * 2 + 1) + ') a').length > 0) {
 				DBL.route = $('#suggestion-list dt:nth-child(' + (DBL.suggestionIndex * 2 + 1) + ') a').text();
 			}

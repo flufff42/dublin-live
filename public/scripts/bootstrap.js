@@ -46,16 +46,16 @@ define(["jquery", "geo", "suggestions", "backbone", "dispatcher", "results", "li
 			},
 			map: function(route) {
 				$("#lozengebar span.selected").toggleClass("selected");
-				$("#lozengebar span#Maps").toggleClass("selected");
-				modeChange(DBL.Modes.Maps);
+				$("#lozengebar span#RouteInformation").toggleClass("selected");
+				modeChange(DBL.Modes.RouteInformation);
 				console.log("URL contains route: " + route);
 				DBL.route = route;
-				DBL.Results.showMap();
+				DBL.Results.showRouteMap();
 			},
 			line: function(route) {
 				$("#lozengebar span.selected").toggleClass("selected");
-				$("#lozengebar span#Routes").toggleClass("selected");
-				modeChange(DBL.Modes.Routes);
+				$("#lozengebar span#RouteInformation").toggleClass("selected");
+				modeChange(DBL.Modes.RouteInformation);
 				console.log("URL contains route: " + route);
 				DBL.route = route;
 				//if(DBL.Router !== undefined) DBL.Router.navigate("line/"+DBL.route,{trigger: false});
@@ -283,6 +283,46 @@ define(["jquery", "geo", "suggestions", "backbone", "dispatcher", "results", "li
 					id: "stopSearch",
 					"value": "Search for a route here"
 				}).appendTo($("form"));
+				$('#stopSearch').focus(firstFocusHandler);
+				$('#stopSearch').keyup(DBL.Suggestions.fetchSuggestion);
+				DBL.firstFocus.stopSearch = 1;
+				break;
+			case DBL.Modes.RouteInformation:
+				$('.mapLink').detach();
+				$('.stopPermaLink').detach();
+				//if(DBL.Router !== undefined) DBL.Router.navigate();
+				clearTimeout(DBL.reloadTimeout);
+				console.log("Switched to RouteInformation");
+				if ($("#results-frame").length > 0) {
+					$("#results-frame").detach();
+					$('<div/>', {
+						id: "diagWrapper"
+					}).appendTo($("body"));
+					$('<div/>', {
+						id: "linediagInbound"
+					}).appendTo($("#diagWrapper"));
+					$('<div/>', {
+						id: "linediagOutbound"
+					}).appendTo($("#diagWrapper"));
+				} else if ($("#tripsFrame").length > 0) {
+					$("#tripsFrame").detach();
+					$('<div/>', {
+						id: "diagWrapper"
+					}).appendTo($("body"));
+					$('<div/>', {
+						id: "linediagInbound"
+					}).appendTo($("#diagWrapper"));
+					$('<div/>', {
+						id: "linediagOutbound"
+					}).appendTo($("#diagWrapper"));
+				}
+				$('input').detach();
+				$('<input/>', {
+					id: "stopSearch",
+					"value": "Search for a route here"
+				}).appendTo($("form"));
+				$('<span/>',{"class":"button"}).text("Schematic").appendTo($("#top"));
+				$('<span/>',{"class":"button"}).text("Map").appendTo($("#top"));
 				$('#stopSearch').focus(firstFocusHandler);
 				$('#stopSearch').keyup(DBL.Suggestions.fetchSuggestion);
 				DBL.firstFocus.stopSearch = 1;
